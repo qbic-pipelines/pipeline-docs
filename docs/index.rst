@@ -16,7 +16,6 @@ This documentation contains the guidelines for running Bioinformatics analyses a
    rnaseq
    exomeseq
 
-
 Indices and tables
 ==================
 
