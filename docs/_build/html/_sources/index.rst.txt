@@ -6,10 +6,15 @@
 Welcome to QBiC-pipelines's documentation!
 ==========================================
 
+This documentation contains the guidelines for running Bioinformatics analyses at QBiC.
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
+   readme
+   rnaseq
+   exomeseq
 
 
 Indices and tables
