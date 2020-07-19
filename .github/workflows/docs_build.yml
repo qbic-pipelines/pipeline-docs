@@ -13,5 +13,5 @@ jobs:
           pip install sphinx recommonmark
       - name: check docs
         run: |
-          cd ${GITHUB_WORKSPACE}
+          cd ${GITHUB_WORKSPACE}/docs
           make html
