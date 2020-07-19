@@ -7,11 +7,10 @@ jobs:
   docs:
     runs-on: ubuntu-latest
     steps:
-      steps:
-        - uses: actions/checkout@v1
-        - name: Install recommonmark
-          run: |
-            pip install recommonmark
-        - uses: ammaraskar/sphinx-action@master
-          with:
-            docs-folder: "docs/"
+      - uses: actions/checkout@v1
+      - name: Install recommonmark
+        run: |
+          pip install recommonmark
+      - uses: ammaraskar/sphinx-action@master
+        with:
+          docs-folder: "docs/"
