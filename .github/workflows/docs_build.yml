@@ -8,9 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Install recommonmark
+      - name: install recommonmark
         run: |
-          pip install recommonmark
-      - uses: ammaraskar/sphinx-action@master
-        with:
-          docs-folder: "docs/"
+          pip install sphinx recommonmark
+      - name: check docs
+        run: |
+        cd ${GITHUB_WORKSPACE}
+        make html
