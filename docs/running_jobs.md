@@ -80,16 +80,33 @@ module load devel/singularity/3.4.2
 
 #### On CFC
 
-Please use the cfc profile to run nf-core pipelines on the CFC cluster `-profile cfc`.
-If you need the development version of a pipeline, please use the `-profile cfc_dev` so that the containers are not cached and you pull the latest version of the container.
+Please use the [cfc profile](https://github.com/nf-core/configs/blob/master/conf/cfc.config) to run nf-core pipelines on the CFC cluster, by adding `-profile cfc` to your command. For example:
+
+```bash
+nextflow run nf-core/rnaseq -r 1.4.2 -profile cfc
+```
+
+If you need the development version of a pipeline, please use the [cfc_dev profile](https://github.com/nf-core/configs/blob/master/conf/cfc_dev.config) `-profile cfc_dev` so that the containers are not cached and you pull the latest version of the container.
+
+```bash
+nextflow run nf-core/rnaseq -r 1.4.2 -profile cfc_dev
+```
 
 For Nextflow pipelines not part of nf-core and not created with the nf-core create command, these profiles will not be available.
 If you need to run one of these pipelines, you can get the profile
 from the [nf-core configs](https://github.com/nf-core/configs) repository and provide it to the pipeline as `-c custom.config`.
 
+```bash
+nextflow run custom/pipeline -c custom.config
+```
+
 #### On BinAC
 
-Please use the binac profile `-profile binac` to run your analyses.
+Please use the [binac profile](https://github.com/nf-core/configs/blob/master/conf/binac.config) by adding `-profile binac` to run your analyses. For example:
+
+```bash
+nextflow run nf-core/rnaseq -r 1.4.2 -profile cfc_dev
+```
 
 For Nextflow pipelines not part of nf-core and not created with the nf-core create command, these profiles will not be available.
 If you need to run one of these pipelines, you can get the profile
