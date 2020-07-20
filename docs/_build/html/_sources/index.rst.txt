@@ -15,6 +15,7 @@ This documentation contains the guidelines for running Bioinformatics analyses a
    running_jobs
    analyses/rnaseq
    analyses/exomeseq
+   debugging
 
 Indices and tables
 ==================

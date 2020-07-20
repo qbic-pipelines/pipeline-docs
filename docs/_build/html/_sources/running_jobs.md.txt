@@ -117,29 +117,29 @@ Some basic screen commands are:
 
 * starting a screen session:
 
-```bash
-screen -S <session_name>
-```
+    ```bash
+    screen -S <session_name>
+    ```
 
 * To detach from a screen session, use `ctrl + alt + d`
 
 * List existing screen sessions:
 
-```bash
-scren -ls
-```
+    ```bash
+    scren -ls
+    ```
 
 * attaching to an existing screen session:
 
-```bash
-screen -x <session_name or ID>
-```
+    ```bash
+    screen -x <session_name or ID>
+    ```
 
 * exiting a screen session:
 
-```bash
-exit
-```
+    ```bash
+    exit
+    ```
 
 ## Useful scheduler commands
 
@@ -147,15 +147,15 @@ Here are some useful commands for the Slurm scheduler.
 
 * Checking the job queue:
 
-```bash
-squeue
-```
+    ```bash
+    squeue
+    ```
 
 * Checking the node status:
 
-```bash
-sinfo
-```
+    ```bash
+    sinfo
+    ```
 
 ## Submitting custom jobs
 
@@ -240,6 +240,8 @@ Take this bash script as example, which merges `*.fastq.gz` files starting with 
 # mail alert at start, end and abortion of execution
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=<your.email@example.com>
+
+# your commands start here:
 file="codes.tsv"
 while IFS= read -r f1
 do

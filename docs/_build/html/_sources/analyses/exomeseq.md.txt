@@ -1,12 +1,15 @@
 # Exome seq analysis
 
-This is how to do Exome seq analyses
+This is how to do Exome seq analyses.
 
-## Whole Genome Sequencing
+* [Whole exome sequencing](#whole-exome-sequencing)
+* [Whole genome sequencing](#whole-genome-sequencing)
+
+## Whole Exome Sequencing
 
 asdlfjasödlfkj
 
-## Whole Exome Sequencing & Targeted Sequencing
+## Whole Genome Sequencing & Targeted Sequencing
 
 aöslidjfaölsdjf
 

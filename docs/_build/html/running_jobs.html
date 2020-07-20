@@ -1,36 +1,181 @@
 
-<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta charset="utf-8" />
-    <title>Submitting jobs to the cluster &#8212; QBiC-pipelines dev documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Submitting jobs to the cluster &mdash; QBiC-pipelines dev documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="RNAseq analyses" href="analyses/rnaseq.html" />
-    <link rel="prev" title="Welcome to QBiC-pipelines’s documentation!" href="index.html" />
+    <link rel="prev" title="Welcome to QBiC-pipelines’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
    
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
-  </head><body>
-  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
           
 
-          <div class="body" role="main">
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> QBiC-pipelines
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Submitting jobs to the cluster</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submitting-nextflow-pipelines">Submitting Nextflow pipelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dependencies">Dependencies</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#install-nextflow">Install Nextflow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nextflow-version">Nextflow version</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#loading-singularity-modules">Loading singularity modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pipeline-profiles">Pipeline profiles</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#on-cfc">On CFC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#on-binac">On BinAC</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#example-bash-file">Example bash file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#screen-sessions">Screen sessions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#useful-scheduler-commands">Useful scheduler commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#submitting-custom-jobs">Submitting custom jobs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#starting-an-interactive-session">Starting an interactive session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#submitting-a-bash-script-with-sbatch">Submitting a bash script with <code class="docutils literal notranslate"><span class="pre">sbatch</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="analyses/rnaseq.html">RNAseq analyses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analyses/exomeseq.html">Exome seq analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">QBiC-pipelines</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Submitting jobs to the cluster</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/running_jobs.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
   <div class="section" id="submitting-jobs-to-the-cluster">
 <h1>Submitting jobs to the cluster<a class="headerlink" href="#submitting-jobs-to-the-cluster" title="Permalink to this headline">¶</a></h1>
@@ -146,47 +291,45 @@ nextflow run nf-core/sarek -r <span class="m">2</span>.6.2 -profile cfc,test
 <p>So your jobs can continue running once you log out of the cluster, you should use some kind of tool to allow the jobs to continue running on the background.
 One of these tools is <a class="reference external" href="https://www.linode.com/docs/networking/ssh/using-gnu-screen-to-manage-persistent-terminal-sessions/">screen</a>.
 Some basic screen commands are:</p>
-<ul class="simple">
-<li><p>starting a screen session:</p></li>
-</ul>
+<ul>
+<li><p>starting a screen session:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>screen -S &lt;session_name&gt;
 </pre></div>
 </div>
-<ul class="simple">
+</li>
 <li><p>To detach from a screen session, use <code class="docutils literal notranslate"><span class="pre">ctrl</span> <span class="pre">+</span> <span class="pre">alt</span> <span class="pre">+</span> <span class="pre">d</span></code></p></li>
-<li><p>List existing screen sessions:</p></li>
-</ul>
+<li><p>List existing screen sessions:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scren -ls
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>attaching to an existing screen session:</p></li>
-</ul>
+</li>
+<li><p>attaching to an existing screen session:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>screen -x &lt;session_name or ID&gt;
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>exiting a screen session:</p></li>
-</ul>
+</li>
+<li><p>exiting a screen session:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">exit</span>
 </pre></div>
 </div>
+</li>
+</ul>
 </div>
 <div class="section" id="useful-scheduler-commands">
 <h2>Useful scheduler commands<a class="headerlink" href="#useful-scheduler-commands" title="Permalink to this headline">¶</a></h2>
 <p>Here are some useful commands for the Slurm scheduler.</p>
-<ul class="simple">
-<li><p>Checking the job queue:</p></li>
-</ul>
+<ul>
+<li><p>Checking the job queue:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>squeue
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>Checking the node status:</p></li>
-</ul>
+</li>
+<li><p>Checking the node status:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sinfo
 </pre></div>
 </div>
+</li>
+</ul>
 </div>
 <div class="section" id="submitting-custom-jobs">
 <h2>Submitting custom jobs<a class="headerlink" href="#submitting-custom-jobs" title="Permalink to this headline">¶</a></h2>
@@ -259,6 +402,8 @@ Take this bash script as example, which merges <code class="docutils literal not
 <span class="c1"># mail alert at start, end and abortion of execution</span>
 <span class="c1">#SBATCH --mail-type=ALL</span>
 <span class="c1">#SBATCH --mail-user=&lt;your.email@example.com&gt;</span>
+
+<span class="c1"># your commands start here:</span>
 <span class="nv">file</span><span class="o">=</span><span class="s2">&quot;codes.tsv&quot;</span>
 <span class="k">while</span> <span class="nv">IFS</span><span class="o">=</span> <span class="nb">read</span> -r f1
 <span class="k">do</span>
@@ -277,80 +422,59 @@ Take this bash script as example, which merges <code class="docutils literal not
 </div>
 
 
+           </div>
+           
           </div>
-          
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">QBiC-pipelines</a></h1>
-
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Submitting jobs to the cluster</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#submitting-nextflow-pipelines">Submitting Nextflow pipelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#screen-sessions">Screen sessions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#useful-scheduler-commands">Useful scheduler commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#submitting-custom-jobs">Submitting custom jobs</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="analyses/rnaseq.html">RNAseq analyses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="analyses/exomeseq.html">Exome seq analysis</a></li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="index.html" title="previous chapter">Welcome to QBiC-pipelines’s documentation!</a></li>
-      <li>Next: <a href="analyses/rnaseq.html" title="next chapter">RNAseq analyses</a></li>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="analyses/rnaseq.html" class="btn btn-neutral float-right" title="RNAseq analyses" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to QBiC-pipelines’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+  
 
+  <hr/>
 
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, QBiC
 
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
-
-
-
+</footer>
 
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2020, QBiC.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="_sources/running_jobs.md.txt"
-          rel="nofollow">Page source</a>
-    </div>
 
-    
+    </section>
 
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
     
-  </body>
+   
+
+</body>
 </html>
