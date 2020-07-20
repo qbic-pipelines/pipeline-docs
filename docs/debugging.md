@@ -126,8 +126,8 @@ Suppressed: java.io.IOException: No space left on device
 
 This error occurs because the `scratch` space on the nodes for staging files there is not sufficent. In this case your workspace can be used instead as `tmp`dir. To do that:
 
-1. Create a directory named `tmp` in your workspace
-2. Specify this directory as `scratch` for the failing process. This can be provided as a `custom.config` file. Example:
+* Create a directory named `tmp` in your workspace
+* Specify this directory as `scratch` for the failing process. This can be provided as a `custom.config` file. Example:
 
   ```bash
   process {
@@ -137,4 +137,4 @@ This error occurs because the `scratch` space on the nodes for staging files the
   }
   ```
 
-3. Resume the pipeline specifying this config with the `-c <your-custom.config>
+* Resume the pipeline specifying this config with the `-c <your-custom.config>
