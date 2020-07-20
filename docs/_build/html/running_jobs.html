@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>README &#8212; QBiC-pipelines dev documentation</title>
+    <title>Submitting a job to a cluster &#8212; QBiC-pipelines dev documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -14,7 +14,7 @@
     <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="RNAseq analyses" href="rnaseq.html" />
+    <link rel="next" title="RNAseq analyses" href="analyses/rnaseq.html" />
     <link rel="prev" title="Welcome to QBiC-pipelines’s documentation!" href="index.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -32,9 +32,20 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="readme">
-<h1>README<a class="headerlink" href="#readme" title="Permalink to this headline">¶</a></h1>
-<p>This is the readme.</p>
+  <div class="section" id="submitting-a-job-to-a-cluster">
+<h1>Submitting a job to a cluster<a class="headerlink" href="#submitting-a-job-to-a-cluster" title="Permalink to this headline">¶</a></h1>
+<p>These are general statements on how to submit jobs to our clusters.</p>
+<div class="section" id="submitting-nf-core-pipelines">
+<h2>Submitting nf-core pipelines<a class="headerlink" href="#submitting-nf-core-pipelines" title="Permalink to this headline">¶</a></h2>
+<p>These applies to all nf-core pipelines and all Nextflow pipelines outside of nf-core that were created using the nf-core template.</p>
+<p>Please start all your nextflow jobs from the head node.
+Nextflow interacts directly with the Slurm scheduler and will take care of submitting individual jobs to the nodes.
+If you submit via an interactive job, weird errors can occur, e.g. the cache directory for the containers is mounted read only on the compute nodes, so you can’t pull new containers from a node.</p>
+<div class="section" id="on-the-cfc-cluster">
+<h3>On the CFC cluster<a class="headerlink" href="#on-the-cfc-cluster" title="Permalink to this headline">¶</a></h3>
+<p>Please use the cfc profile <code class="docutils literal notranslate"><span class="pre">-profile</span> <span class="pre">cfc</span></code>.</p>
+</div>
+</div>
 </div>
 
 
@@ -56,9 +67,12 @@
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">README</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rnaseq.html">RNAseq analyses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="exomeseq.html">Exome seq analysis</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Submitting a job to a cluster</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submitting-nf-core-pipelines">Submitting nf-core pipelines</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="analyses/rnaseq.html">RNAseq analyses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analyses/exomeseq.html">Exome seq analysis</a></li>
 </ul>
 
 <div class="relations">
@@ -66,7 +80,7 @@
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="index.html" title="previous chapter">Welcome to QBiC-pipelines’s documentation!</a></li>
-      <li>Next: <a href="rnaseq.html" title="next chapter">RNAseq analyses</a></li>
+      <li>Next: <a href="analyses/rnaseq.html" title="next chapter">RNAseq analyses</a></li>
   </ul></li>
 </ul>
 </div>
@@ -100,7 +114,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="_sources/readme.md.txt"
+      <a href="_sources/running_jobs.md.txt"
           rel="nofollow">Page source</a>
     </div>
 

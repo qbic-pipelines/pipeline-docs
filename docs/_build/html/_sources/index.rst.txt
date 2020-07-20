@@ -12,9 +12,9 @@ This documentation contains the guidelines for running Bioinformatics analyses a
    :maxdepth: 2
    :caption: Contents:
 
-   readme
-   rnaseq
-   exomeseq
+   running_jobs
+   analyses/rnaseq
+   analyses/exomeseq
 
 Indices and tables
 ==================
