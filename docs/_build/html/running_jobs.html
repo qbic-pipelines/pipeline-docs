@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Submitting a job to a cluster &#8212; QBiC-pipelines dev documentation</title>
+    <title>Submitting jobs to the cluster &#8212; QBiC-pipelines dev documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -32,18 +32,246 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="submitting-a-job-to-a-cluster">
-<h1>Submitting a job to a cluster<a class="headerlink" href="#submitting-a-job-to-a-cluster" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="submitting-jobs-to-the-cluster">
+<h1>Submitting jobs to the cluster<a class="headerlink" href="#submitting-jobs-to-the-cluster" title="Permalink to this headline">¶</a></h1>
 <p>These are general statements on how to submit jobs to our clusters.</p>
-<div class="section" id="submitting-nf-core-pipelines">
-<h2>Submitting nf-core pipelines<a class="headerlink" href="#submitting-nf-core-pipelines" title="Permalink to this headline">¶</a></h2>
-<p>These applies to all nf-core pipelines and all Nextflow pipelines outside of nf-core that were created using the nf-core template.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#submitting-nextflow-pipelines">Submitting Nextflow pipelines</a></p>
+<ul>
+<li><p><a class="reference external" href="#dependencies">Dependencies</a></p>
+<ul>
+<li><p><a class="reference external" href="#install-nextflow">Install Nextflow</a></p></li>
+<li><p><a class="reference external" href="#nextflow-version">Nextflow version</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#loading-singularity-modules">Loading singularity modules</a></p></li>
+<li><p><a class="reference external" href="#pipeline-profiles">Pipeline profiles</a></p></li>
+<li><p><a class="reference external" href="#example-bash-file">Example bash file</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#screen-sessions">Screen sessions</a></p></li>
+<li><p><a class="reference external" href="#useful-scheduler-commands">Useful scheduler commands</a></p></li>
+<li><p><a class="reference external" href="#submitting-custom-jobs">Submitting custom jobs</a></p>
+<ul>
+<li><p><a class="reference external" href="#starting-an-interactive-session">Starting an interactive session</a></p></li>
+<li><p><a class="reference external" href="#submitting-a-bash-script-with-sbatch">Submitting a bash script with <code class="docutils literal notranslate"><span class="pre">sbatch</span></code></a></p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="submitting-nextflow-pipelines">
+<h2>Submitting Nextflow pipelines<a class="headerlink" href="#submitting-nextflow-pipelines" title="Permalink to this headline">¶</a></h2>
+<p>These applies to all nf-core pipelines and all Nextflow pipelines outside of nf-core that were created using the nf-core template.
+For Nextflow pipelines not created with the nf-core template, some
+of the functionality might not be available, for example the <code class="docutils literal notranslate"><span class="pre">cfc</span></code> and <code class="docutils literal notranslate"><span class="pre">binac</span></code> profiles.</p>
 <p>Please start all your nextflow jobs from the head node.
 Nextflow interacts directly with the Slurm scheduler and will take care of submitting individual jobs to the nodes.
 If you submit via an interactive job, weird errors can occur, e.g. the cache directory for the containers is mounted read only on the compute nodes, so you can’t pull new containers from a node.</p>
-<div class="section" id="on-the-cfc-cluster">
-<h3>On the CFC cluster<a class="headerlink" href="#on-the-cfc-cluster" title="Permalink to this headline">¶</a></h3>
-<p>Please use the cfc profile <code class="docutils literal notranslate"><span class="pre">-profile</span> <span class="pre">cfc</span></code>.</p>
+<div class="section" id="dependencies">
+<h3>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h3>
+<p>To run Nextflow pipelines in our clusters, you will need Nextflow, java and singularity installed.
+Luckily, our sysadmin made a module for singularity and java in our clusters already, so you will just need to load these modules.</p>
+<p>You will still have to install Nextflow for your user, that’s very simple and described in the next section.</p>
+<div class="section" id="install-nextflow">
+<h4>Install Nextflow<a class="headerlink" href="#install-nextflow" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Download the executable package by copying and pasting the following command in your terminal window:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget -qO- get.nextflow.io <span class="p">|</span> bash
+</pre></div>
+</div>
+</li>
+<li><p>Optionally, move the nextflow file in a directory accessible by your <code class="docutils literal notranslate"><span class="pre">$PATH</span></code> variable (this is only required to avoid to remember and type the Nextflow full path each time you need to run it).</p></li>
+</ul>
+<p>For more information, visit the <a class="reference external" href="https://www.nextflow.io/docs/latest/en/latest/getstarted.html">Nextflow documentation</a>.</p>
+</div>
+<div class="section" id="nextflow-version">
+<h4>Nextflow version<a class="headerlink" href="#nextflow-version" title="Permalink to this headline">¶</a></h4>
+<p>It is advisable to keep the Nextflow version at <code class="docutils literal notranslate"><span class="pre">&gt;=</span> <span class="pre">19.10.0</span></code> which can be achieved by updating Nextflow using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nextflow -self-update
+</pre></div>
+</div>
+<p>You can also check that the environment variable <code class="docutils literal notranslate"><span class="pre">NXF_VER</span></code> is set to the version of Nextflow that you want to use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="nv">$NXF_VER</span>
+</pre></div>
+</div>
+<p>If not, set it by running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">NXF_VER</span><span class="o">=</span><span class="m">19</span>.10.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="loading-singularity-modules">
+<h3>Loading singularity modules<a class="headerlink" href="#loading-singularity-modules" title="Permalink to this headline">¶</a></h3>
+<p>We currently load Singularity as a module on both BinAC and CFC to make sure that all paths are set accordingly and load required configuration parameters tailored for the respective system.
+Please do use <em>only</em> these Singularity versions and <em>NOT</em> any other (custom) singularity versions out there.
+These singularity modules will already load the required java module
+so you don’t need to take care of that.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module load devel/singularity/3.4.2
+</pre></div>
+</div>
+</div>
+<div class="section" id="pipeline-profiles">
+<h3>Pipeline profiles<a class="headerlink" href="#pipeline-profiles" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="on-cfc">
+<h4>On CFC<a class="headerlink" href="#on-cfc" title="Permalink to this headline">¶</a></h4>
+<p>Please use the cfc profile to run nf-core pipelines on the CFC cluster <code class="docutils literal notranslate"><span class="pre">-profile</span> <span class="pre">cfc</span></code>.
+If you need the development version of a pipeline, please use the <code class="docutils literal notranslate"><span class="pre">-profile</span> <span class="pre">cfc_dev</span></code> so that the containers are not cached and you pull the latest version of the container.</p>
+<p>For Nextflow pipelines not part of nf-core and not created with the nf-core create command, these profiles will not be available.
+If you need to run one of these pipelines, you can get the profile
+from the <a class="reference external" href="https://github.com/nf-core/configs">nf-core configs</a> repository and provide it to the pipeline as <code class="docutils literal notranslate"><span class="pre">-c</span> <span class="pre">custom.config</span></code>.</p>
+</div>
+<div class="section" id="on-binac">
+<h4>On BinAC<a class="headerlink" href="#on-binac" title="Permalink to this headline">¶</a></h4>
+<p>Please use the binac profile <code class="docutils literal notranslate"><span class="pre">-profile</span> <span class="pre">binac</span></code> to run your analyses.</p>
+<p>For Nextflow pipelines not part of nf-core and not created with the nf-core create command, these profiles will not be available.
+If you need to run one of these pipelines, you can get the profile
+from the <a class="reference external" href="https://github.com/nf-core/configs">nf-core configs</a> repository and provide it to the pipeline as <code class="docutils literal notranslate"><span class="pre">-c</span> <span class="pre">custom.config</span></code>.</p>
+</div>
+</div>
+<div class="section" id="example-bash-file">
+<h3>Example bash file<a class="headerlink" href="#example-bash-file" title="Permalink to this headline">¶</a></h3>
+<p>It is a good practice to keep the commands used to run a pipeline in a bash file.
+Keep also the modules loaded in this bash file so that you can know which singularity version was
+used for the analysis.
+Here is an example bash file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+module purge
+module load devel/singularity/3.4.2
+nextflow run nf-core/sarek -r <span class="m">2</span>.6.2 -profile cfc,test
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="screen-sessions">
+<h2>Screen sessions<a class="headerlink" href="#screen-sessions" title="Permalink to this headline">¶</a></h2>
+<p>So your jobs can continue running once you log out of the cluster, you should use some kind of tool to allow the jobs to continue running on the background.
+One of these tools is <a class="reference external" href="https://www.linode.com/docs/networking/ssh/using-gnu-screen-to-manage-persistent-terminal-sessions/">screen</a>.
+Some basic screen commands are:</p>
+<ul class="simple">
+<li><p>starting a screen session:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>screen -S &lt;session_name&gt;
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>To detach from a screen session, use <code class="docutils literal notranslate"><span class="pre">ctrl</span> <span class="pre">+</span> <span class="pre">alt</span> <span class="pre">+</span> <span class="pre">d</span></code></p></li>
+<li><p>List existing screen sessions:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scren -ls
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>attaching to an existing screen session:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>screen -x &lt;session_name or ID&gt;
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>exiting a screen session:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">exit</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="useful-scheduler-commands">
+<h2>Useful scheduler commands<a class="headerlink" href="#useful-scheduler-commands" title="Permalink to this headline">¶</a></h2>
+<p>Here are some useful commands for the Slurm scheduler.</p>
+<ul class="simple">
+<li><p>Checking the job queue:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>squeue
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Checking the node status:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sinfo
+</pre></div>
+</div>
+</div>
+<div class="section" id="submitting-custom-jobs">
+<h2>Submitting custom jobs<a class="headerlink" href="#submitting-custom-jobs" title="Permalink to this headline">¶</a></h2>
+<p><em>Important note</em>: running scripts without containerizing them is never 100% reproducible, even when using conda environments.
+It is ok for testing, but talk to your group leader about the possibilities of containerizing the analysis or adding your scripts to a pipeline.</p>
+<p>To run custom scripts (R or python or whatever you need) in the cluster, it is mandatory to use a dependency management system. This ensures at leaset some reproducibility for the resutls. You have two possibilities: use a clean conda environment and eexport it as an <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file, or working on Rstudio and then using Rmaggedon.</p>
+<ul class="simple">
+<li><p><em>Using conda</em>: create a conda environment and install there all the necessary dependencies. Once you have them all, export the dependencies to a yml file containing the project code:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda env <span class="nb">export</span> &gt; QXXXX_environment.yml
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>Using Rmageddon</em>: work on your project on Rstudio and then use the r-lint / Rmageddon tool. Check out the <a class="reference external" href="https://docs.google.com/document/d/1tGMNpABCICa40573x9lrpdN8zs2gYq5iTkPvYJKbq-8/edit?usp=sharing">Rmageddon SOP</a> on how to do this.</p></li>
+</ul>
+<p>If you just run jobs directly on the cluster, they will run on the head node. This is not desired, as all users use the head node
+and it will make the general usage of the cluster slow.
+To run custom scripts you can either start an interactive session or submit a bash script with <code class="docutils literal notranslate"><span class="pre">sbatch</span></code>.</p>
+<div class="section" id="starting-an-interactive-session">
+<h3>Starting an interactive session<a class="headerlink" href="#starting-an-interactive-session" title="Permalink to this headline">¶</a></h3>
+<p>Start first a screen session:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>screen -S &lt;session_name&gt;
+</pre></div>
+</div>
+<p>Then request an interactive job to the Slurm scheduler with the desired resources. For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>srun -N <span class="m">1</span> --ntasks-per-node?8 --mem<span class="o">=</span>16G --time<span class="o">=</span><span class="m">12000</span> --pty bash
+</pre></div>
+</div>
+<p>Change the resources as needed:</p>
+<ul class="simple">
+<li><p>N are the number of nodes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--ntasks-per-node</span></code> are the number of cpus</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--mem</span></code> is the memory required</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--time</span></code> is the time required in seconds</p></li>
+</ul>
+<p>The scheduler will then prompt:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>srun: job XXXXXX queued and waiting <span class="k">for</span> resources
+srun: job XXXXXX has been allocated resources
+</pre></div>
+</div>
+<p>Then you can run your scripts as usual. If the computation lasts longer than the specified time, it will be killed.
+To kill the job just exit the interactive console with <code class="docutils literal notranslate"><span class="pre">exit</span></code>.
+You should see your job listed when running <code class="docutils literal notranslate"><span class="pre">squeue</span></code>.</p>
+</div>
+<div class="section" id="submitting-a-bash-script-with-sbatch">
+<h3>Submitting a bash script with <code class="docutils literal notranslate"><span class="pre">sbatch</span></code><a class="headerlink" href="#submitting-a-bash-script-with-sbatch" title="Permalink to this headline">¶</a></h3>
+<p>If you have a batch script, you can submit it to the cluster with the <code class="docutils literal notranslate"><span class="pre">sbatch</span></code> command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sbatch &lt;your_script.sh&gt;
+</pre></div>
+</div>
+<p>In order to specify the allocated resources, your bash script needs to have the resources specified in the header before the job (all the lines starting with <code class="docutils literal notranslate"><span class="pre">#SBATCH</span></code>).
+You can edit the script with your required resources.
+Take this bash script as example, which merges <code class="docutils literal notranslate"><span class="pre">*.fastq.gz</span></code> files starting with the codes specified in the <code class="docutils literal notranslate"><span class="pre">codes.tsv</span></code> file (handling separately the R1 and R2 reads).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># set the number of nodes and processes</span>
+<span class="c1">#SBATCH --nodes=1</span>
+
+<span class="c1"># set the number of tasks per node</span>
+<span class="c1">#SBATCH --ntasks-per-node=20</span>
+
+<span class="c1"># set memory per cpu</span>
+<span class="c1">#SBATCH --mem=60GB</span>
+
+<span class="c1"># set max wallclock time HH:MM:SS</span>
+<span class="c1">#SBATCH --time=100:00:00</span>
+
+<span class="c1"># set name of job</span>
+<span class="c1">#SBATCH --job-name=merge_lane</span>
+
+<span class="c1"># mail alert at start, end and abortion of execution</span>
+<span class="c1">#SBATCH --mail-type=ALL</span>
+<span class="c1">#SBATCH --mail-user=&lt;your.email@example.com&gt;</span>
+<span class="nv">file</span><span class="o">=</span><span class="s2">&quot;codes.tsv&quot;</span>
+<span class="k">while</span> <span class="nv">IFS</span><span class="o">=</span> <span class="nb">read</span> -r f1
+<span class="k">do</span>
+  <span class="c1"># move files into folders</span>
+  mkdir <span class="nv">$f1</span>
+  <span class="nb">printf</span> <span class="s1">&#39;Making folder %s \n&#39;</span> <span class="s2">&quot;</span><span class="nv">$f1</span><span class="s2">&quot;</span>
+  mv <span class="nv">$f1</span>*.fastq.gz <span class="nv">$f1</span>/
+  mv <span class="nv">$f1</span>*.metadata <span class="nv">$f1</span>/
+  find <span class="nv">$f1</span> -type f -name <span class="s1">&#39;*_R1_*.fastq.gz&#39;</span> -print0 <span class="p">|</span> sort -z <span class="p">|</span> xargs -0 cat &gt; <span class="s2">&quot;</span><span class="nv">$f1</span><span class="s2">&quot;</span>/<span class="s2">&quot;</span><span class="nv">$f1</span><span class="s2">&quot;</span>_R1.fastq.gz
+  find <span class="nv">$f1</span> -type f -name <span class="s1">&#39;*_R2_*.fastq.gz&#39;</span> -print0 <span class="p">|</span> sort -z <span class="p">|</span> xargs -0 cat &gt; <span class="s2">&quot;</span><span class="nv">$f1</span><span class="s2">&quot;</span>/<span class="s2">&quot;</span><span class="nv">$f1</span><span class="s2">&quot;</span>_R2.fastq.gz
+<span class="k">done</span> &lt;<span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -67,8 +295,11 @@ If you submit via an interactive job, weird errors can occur, e.g. the cache dir
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Submitting a job to a cluster</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#submitting-nf-core-pipelines">Submitting nf-core pipelines</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Submitting jobs to the cluster</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submitting-nextflow-pipelines">Submitting Nextflow pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#screen-sessions">Screen sessions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#useful-scheduler-commands">Useful scheduler commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#submitting-custom-jobs">Submitting custom jobs</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="analyses/rnaseq.html">RNAseq analyses</a></li>
