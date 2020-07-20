@@ -1,9 +1,5 @@
 # RNAseq analysis
 
-* [RNAseq pipeline](#rnaseq-pipeline)
-* [Differential expression analysis](#differential-expression-analysis)
-* [Reporting](#reporting)
-
 ## RNAseq pipeline
 
 Start by running the [nf-core/rnaseq](https://github.com/nf-core/rnaseq) pipeline.

@@ -36,7 +36,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Debugging" href="../debugging.html" />
+    <link rel="next" title="16S amplicon sequencing" href="ampliseq.html" />
     <link rel="prev" title="RNAseq analysis" href="rnaseq.html" /> 
 </head>
 
@@ -103,6 +103,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#reporting">Reporting</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="ampliseq.html">16S amplicon sequencing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debugging.html">Debugging</a></li>
 </ul>
 
@@ -215,7 +216,7 @@ Patient2    XY  1   Sample4 Lane1   /path/to/Data/Sample4_L001_R1.fastq.gz  /pat
 <div class="section" id="quick-start">
 <h3>Quick start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>Latest release <code class="docutils literal notranslate"><span class="pre">-r</span> <span class="pre">2.6.1</span></code>.</p></li>
+<li><p>Latest stable release <code class="docutils literal notranslate"><span class="pre">-r</span> <span class="pre">2.6.1</span></code>.</p></li>
 </ul>
 <p>Please use these parameters to run your WGS analysis with sarek:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
@@ -244,6 +245,9 @@ nextflow run nf-core/sarek -r <span class="m">2</span>.6.1 <span class="se">\</s
 <p>Running WES analysis and targeted sequencing with Sarek requires the BED file that specifies the Exomic regions or the Targeted regions that were used in the exome capture kit or Targeted design.</p>
 <div class="section" id="id1">
 <h3>Quick start<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Latest stable release <code class="docutils literal notranslate"><span class="pre">-r</span> <span class="pre">2.6.1</span></code>.</p></li>
+</ul>
 <p>Please use these parameters to run your WES analysis with sarek:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 module purge
@@ -273,8 +277,13 @@ nextflow run nf-core/sarek -r <span class="m">2</span>.6.1 <span class="se">\</s
 </pre></div>
 </div>
 </li>
-<li><p>Mouse <code class="docutils literal notranslate"><span class="pre">GRCm38</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">Agilent</span> <span class="pre">SureSelect</span> <span class="pre">All</span> <span class="pre">Exon</span></code></p>
+<li><p>Mouse <code class="docutils literal notranslate"><span class="pre">mm10</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">Agilent</span> <span class="pre">SureSelect</span> <span class="pre">All</span> <span class="pre">Exon</span></code></p>
 <div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>/nfsmounts/igenomes/Mus_musculus/UCSC/mm10/Exome_BED/mm10_Agilent_SureSelect_Mouse_All_Exon_Kit_2016_01_21_sorted.bed
+</pre></div>
+</div>
+</li>
+<li><p>Mouse <code class="docutils literal notranslate"><span class="pre">GRCm38</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">Agilent</span> <span class="pre">SureSelect</span> <span class="pre">Mouse</span></code></p>
+<div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>/nfsmounts/igenomes/Mus_musculus/Ensembl/GRCm38/Exome_BED/GRCm38_Agilent_SureSelect_Mouse_All_Exon_Kit_2016_01_21_sorted.bed
 </pre></div>
 </div>
 </li>
@@ -289,6 +298,7 @@ nextflow run nf-core/sarek -r <span class="m">2</span>.6.1 <span class="se">\</s
 <li><p>Sarek actually maps reads against the whole reference, and then uses the targetBED file for the QC and to filter variants. So <em>simply hand over the unpadded target region</em>. This is usually provided by the Exon capture kit company.</p></li>
 </ul>
 </li>
+<li><p>BED file compatibility: if you have to use your own BED file, make sure the chromosome names are compatible between the reference and the targetBED file (e.g. UCSC “chr1” &lt;-&gt; Ensemble “1”). For human, if they differ and your analysis is done only on main chromosomes, then you could simply convert the names by adding “chr” to the chromosome names.</p></li>
 </ul>
 </div>
 <div class="section" id="id2">
@@ -302,7 +312,7 @@ nextflow run nf-core/sarek -r <span class="m">2</span>.6.1 <span class="se">\</s
 </div>
 <div class="section" id="reporting">
 <h2>Reporting<a class="headerlink" href="#reporting" title="Permalink to this headline">¶</a></h2>
-<p>Reporting hasn’t been established yet.</p>
+<p>Reporting hasn’t been established yet for Exome sequencing.</p>
 </div>
 </div>
 
@@ -314,7 +324,7 @@ nextflow run nf-core/sarek -r <span class="m">2</span>.6.1 <span class="se">\</s
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../debugging.html" class="btn btn-neutral float-right" title="Debugging" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="ampliseq.html" class="btn btn-neutral float-right" title="16S amplicon sequencing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="rnaseq.html" class="btn btn-neutral float-left" title="RNAseq analysis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

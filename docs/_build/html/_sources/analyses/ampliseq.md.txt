@@ -2,6 +2,9 @@
 
 This is how to perform 16S amplicon analyses.
 
+* [Ampliseq pipeline](#ampliseq-pipeline)
+* [Reporting](#reporting)
+
 ## Ampliseq pipeline
 
 To perform 16S amplicon sequencing analyses we employ the [nf-core/ampliseq](https://github.com/nf-core/ampliseq) pipeline.

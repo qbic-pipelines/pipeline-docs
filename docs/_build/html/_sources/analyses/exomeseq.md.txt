@@ -47,7 +47,7 @@ Running WGS analysis with Sarek does not require any additional files.
 
 ### Quick start
 
-* Latest release `-r 2.6.1`.
+* Latest stable release `-r 2.6.1`.
 
 Please use these parameters to run your WGS analysis with sarek:
 
@@ -74,6 +74,8 @@ nextflow run nf-core/sarek -r 2.6.1 \
 Running WES analysis and targeted sequencing with Sarek requires the BED file that specifies the Exomic regions or the Targeted regions that were used in the exome capture kit or Targeted design.
 
 ### Quick start
+
+* Latest stable release `-r 2.6.1`.
 
 Please use these parameters to run your WES analysis with sarek:
 
@@ -106,10 +108,16 @@ nextflow run nf-core/sarek -r 2.6.1 \
     /nfsmounts/igenomes/Homo_sapiens/UCSC/hg19/Exome_BED/Twist_Exome_Target_hg19_noUn_gl000228_2020_05_05.bed
     ```
 
-  * Mouse `GRCm38` & `Agilent SureSelect All Exon`
+  * Mouse `mm10` & `Agilent SureSelect All Exon`
 
     ```txt
     /nfsmounts/igenomes/Mus_musculus/UCSC/mm10/Exome_BED/mm10_Agilent_SureSelect_Mouse_All_Exon_Kit_2016_01_21_sorted.bed
+    ```
+
+  * Mouse `GRCm38` & `Agilent SureSelect Mouse`
+
+    ```txt
+    /nfsmounts/igenomes/Mus_musculus/Ensembl/GRCm38/Exome_BED/GRCm38_Agilent_SureSelect_Mouse_All_Exon_Kit_2016_01_21_sorted.bed
     ```
 
 * Notes on Target BEDs: In general for WES data analysis people advise to use target regions that are padded (e.g. +- 150 bp), also the Sarek docs said that. But to be precise there are multiple aspects:
@@ -118,6 +126,7 @@ nextflow run nf-core/sarek -r 2.6.1 \
   * for QC to get an unbiased view about the overall quality of the experiment its best to use the exact target regions without padding
   * and for the final variants it depends, if one want to be sure not to increase the number of FPs it would also make sense to use unpadded target regions. If the goal would be to get as many variants as possible, then of course one could use padded regions (which made quite a difference in the final numbers in my case)
   * Sarek actually maps reads against the whole reference, and then uses the targetBED file for the QC and to filter variants. So *simply hand over the unpadded target region*. This is usually provided by the Exon capture kit company.
+* BED file compatibility: if you have to use your own BED file, make sure the chromosome names are compatible between the reference and the targetBED file (e.g. UCSC “chr1” <-> Ensemble “1”). For human, if they differ and your analysis is done only on main chromosomes, then you could simply convert the names by adding “chr” to the chromosome names.
 
 ### Known issues
 
@@ -127,4 +136,4 @@ nextflow run nf-core/sarek -r 2.6.1 \
 
 ## Reporting
 
-Reporting hasn't been established yet.
+Reporting hasn't been established yet for Exome sequencing.

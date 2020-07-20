@@ -1,7 +1,5 @@
 # RNAseq analysis
 
-This is how to do RNAseq analyses.
-
 * [RNAseq pipeline](#rnaseq-pipeline)
 * [Differential expression analysis](#differential-expression-analysis)
 * [Reporting](#reporting)

@@ -4,11 +4,6 @@ To perform Exome seq and Variant calling analyses, we use the [nf-core/sarek](ht
 The pipeline can be utilized for Whole genome sequencing (WGS) and Whole exome sequencing (WES) analyses.
 There are some differences in running the pipeline for the two modalities, so the next sections provide examples and tips for the different types of analyses.
 
-* [Input tsv file](#input-tsv-file)
-* [Variant calling tools](#variant-calling-tools)
-* [Whole genome sequencing](#whole-genome-sequencing)
-* [Whole exome and targeted sequencing](#whole-exome-and-targeted-sequencing)
-
 ## Input tsv file
 
 In order to use sarek, you will need to create your own input file. You can find more information on how to create your input file in the [sarek input documentation](https://github.com/nf-core/sarek/blob/master/docs/input.md).

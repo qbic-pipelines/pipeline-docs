@@ -36,7 +36,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Exome seq analysis" href="analyses/exomeseq.html" /> 
+    <link rel="prev" title="16S amplicon sequencing" href="analyses/ampliseq.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -86,11 +86,13 @@
 <li class="toctree-l1"><a class="reference internal" href="running_jobs.html">Submitting jobs to the cluster</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analyses/rnaseq.html">RNAseq analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analyses/exomeseq.html">Exome seq analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analyses/ampliseq.html">16S amplicon sequencing</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Debugging</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#general-error-reporting">General error reporting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#common-errors">Common errors</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#error-cannot-find-file-in-folder">Error: “cannot find file in folder”</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#error-your-process-was-killed-by-the-external-system">Error: “Your process was killed by the external system…”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#error-your-process-was-likely-terminated-by-the-external-system">Error: “Your process was likely terminated by the external system”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#error-unable-to-create-tmpdir-xxxx-no-space-left-on-device">Error: “Unable to create TMPDIR [xxxx]: No space left on device”</a></li>
 </ul>
 </li>
 </ul>
@@ -229,8 +231,8 @@ ls -l, less -S &lt;file&gt;
 </div>
 <p>If not, the path your are staging the files from might actually be missing from the respective singularity configuration file. Open an issue in Zendesk telling Matthias Seybold about it.</p>
 </div>
-<div class="section" id="error-your-process-was-killed-by-the-external-system">
-<h3>Error: “Your process was killed by the external system…”<a class="headerlink" href="#error-your-process-was-killed-by-the-external-system" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="error-your-process-was-likely-terminated-by-the-external-system">
+<h3>Error: “Your process was likely terminated by the external system”<a class="headerlink" href="#error-your-process-was-likely-terminated-by-the-external-system" title="Permalink to this headline">¶</a></h3>
 <p>This is typically just a cluster message, that your job / process was killed because it consumed:</p>
 <ul class="simple">
 <li><p>Too much memory</p></li>
@@ -253,6 +255,35 @@ ls -l, less -S &lt;file&gt;
 </pre></div>
 </div>
 </div>
+<div class="section" id="error-unable-to-create-tmpdir-xxxx-no-space-left-on-device">
+<h3>Error: “Unable to create TMPDIR [xxxx]: No space left on device”<a class="headerlink" href="#error-unable-to-create-tmpdir-xxxx-no-space-left-on-device" title="Permalink to this headline">¶</a></h3>
+<p>An example of this error as shown in the <code class="docutils literal notranslate"><span class="pre">.command.err</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>slurmstepd: error: Unable to create TMPDIR <span class="o">[</span>/scratch/521635<span class="o">]</span>: No space left on device
+slurmstepd: error: Setting TMPDIR to /tmp
+nxf-scratch-dir cfc011:/tmp/nxf.cY1BzV3jqA
+Using GATK jar /opt/conda/envs/nf-core-sarek-2.6.1/share/gatk4-4.1.7.0-0/gatk-package-4.1.7.0-local.jar
+</pre></div>
+</div>
+<p>And somewhere hidden in the <code class="docutils literal notranslate"><span class="pre">.command.log</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Suppressed: java.io.IOException: No space left on device
+</pre></div>
+</div>
+<p>This error occurs because the <code class="docutils literal notranslate"><span class="pre">scratch</span></code> space on the nodes for staging files there is not sufficent. In this case your workspace can be used instead as <code class="docutils literal notranslate"><span class="pre">tmp</span></code>dir. To do that:</p>
+<ol class="simple">
+<li><p>Create a directory named <code class="docutils literal notranslate"><span class="pre">tmp</span></code> in your workspace</p></li>
+<li><p>Specify this directory as <code class="docutils literal notranslate"><span class="pre">scratch</span></code> for the failing process. This can be provided as a <code class="docutils literal notranslate"><span class="pre">custom.config</span></code> file. Example:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>process <span class="o">{</span>
+withName:MarkDuplicates <span class="o">{</span>
+<span class="nv">scratch</span> <span class="o">=</span> <span class="s1">&#39;/sfs/7/workspace/ws/my-ws-name/tmp&#39;</span>
+<span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Resume the pipeline specifying this config with the `-c &lt;your-custom.config&gt;</p></li>
+</ol>
+</div>
 </div>
 </div>
 
@@ -265,7 +296,7 @@ ls -l, less -S &lt;file&gt;
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="analyses/exomeseq.html" class="btn btn-neutral float-left" title="Exome seq analysis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="analyses/ampliseq.html" class="btn btn-neutral float-left" title="16S amplicon sequencing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
