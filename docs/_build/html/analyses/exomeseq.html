@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Debugging" href="../debugging.html" />
-    <link rel="prev" title="RNAseq analyses" href="rnaseq.html" /> 
+    <link rel="prev" title="RNAseq analysis" href="rnaseq.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -85,10 +85,21 @@
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../running_jobs.html">Submitting jobs to the cluster</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rnaseq.html">RNAseq analyses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rnaseq.html">RNAseq analysis</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Exome seq analysis</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#whole-exome-sequencing">Whole Exome Sequencing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#whole-genome-sequencing-targeted-sequencing">Whole Genome Sequencing &amp; Targeted Sequencing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#input-tsv-file">Input tsv file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#variant-calling-tools">Variant calling tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#whole-genome-sequencing">Whole Genome Sequencing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#quick-start">Quick start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#known-issues">Known issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#whole-exome-and-targeted-sequencing">Whole Exome and Targeted Sequencing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Quick start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#important-remarks-for-wes-analysis">Important remarks for WES analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Known issues</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#reporting">Reporting</a></li>
 </ul>
 </li>
@@ -160,18 +171,134 @@
             
   <div class="section" id="exome-seq-analysis">
 <h1>Exome seq analysis<a class="headerlink" href="#exome-seq-analysis" title="Permalink to this headline">¶</a></h1>
-<p>This is how to do Exome seq analyses.</p>
+<p>To perform Exome seq and Variant calling analyses, we use the <a class="reference external" href="https://github.com/nf-core/sarek">nf-core/sarek</a> pipeline.
+The pipeline can be utilized for Whole genome sequencing (WGS) and Whole exome sequencing (WES) analyses.
+There are some differences in running the pipeline for the two modalities, so the next sections provide examples and tips for the different types of analyses.</p>
 <ul class="simple">
-<li><p><a class="reference external" href="#whole-exome-sequencing">Whole exome sequencing</a></p></li>
+<li><p><a class="reference external" href="#input-tsv-file">Input tsv file</a></p></li>
+<li><p><a class="reference external" href="#variant-calling-tools">Variant calling tools</a></p></li>
 <li><p><a class="reference external" href="#whole-genome-sequencing">Whole genome sequencing</a></p></li>
+<li><p><a class="reference external" href="#whole-exome-and-targeted-sequencing">Whole exome and targeted sequencing</a></p></li>
 </ul>
-<div class="section" id="whole-exome-sequencing">
-<h2>Whole Exome Sequencing<a class="headerlink" href="#whole-exome-sequencing" title="Permalink to this headline">¶</a></h2>
-<p>asdlfjasödlfkj</p>
+<div class="section" id="input-tsv-file">
+<h2>Input tsv file<a class="headerlink" href="#input-tsv-file" title="Permalink to this headline">¶</a></h2>
+<p>In order to use sarek, you will need to create your own input file. You can find more information on how to create your input file in the <a class="reference external" href="https://github.com/nf-core/sarek/blob/master/docs/input">sarek input documentation</a>.</p>
+<p>We usually start our analyses at QBiC from paired-end Fastq files. For these files, so you can take this <code class="docutils literal notranslate"><span class="pre">input.tsv</span></code> as example:</p>
+<div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>Patient1    XY  0   Sample1 Lane1   /path/to/Data/Sample1_L001_R1.fastq.gz  /path/to/Data/Sample1_L001_R2.fastq.gz
+Patient1    XY  0   Sample1 Lane2   /path/to/Data/Sample1_L002_R1.fastq.gz  /path/to/Data/Sample1_L002_R2.fastq.gz
+Patient1    XY  1   Sample2 Lane1   /path/to/Data/Sample2_L001_R1.fastq.gz  /path/to/Data/Sample2_L001_R2.fastq.gz
+Patient1    XY  1   Sample2 Lane2   /path/to/Data/Sample2_L002_R1.fastq.gz  /path/to/Data/Sample2_L002_R2.fastq.gz
+Patient1    XY  1   Sample2 Lane3   /path/to/Data/Sample2_L003_R1.fastq.gz  /path/to/Data/Sample2_L003_R2.fastq.gz
+Patient2    XY  0   Sample3 Lane1   /path/to/Data/Sample3_L001_R1.fastq.gz  /path/to/Data/Sample3_L001_R2.fastq.gz
+Patient2    XY  1   Sample4 Lane1   /path/to/Data/Sample4_L001_R1.fastq.gz  /path/to/Data/Sample4_L001_R2.fastq.gz
+</pre></div>
 </div>
-<div class="section" id="whole-genome-sequencing-targeted-sequencing">
-<h2>Whole Genome Sequencing &amp; Targeted Sequencing<a class="headerlink" href="#whole-genome-sequencing-targeted-sequencing" title="Permalink to this headline">¶</a></h2>
-<p>aöslidjfaölsdjf</p>
+<p>Columns:</p>
+<ul class="simple">
+<li><p><em>Subject</em>: the first column contains the subject ID. Samples belonging to the same patient / animal, should have the same subject ID.</p></li>
+<li><p><em>Sex</em>: the subject sex. XX for women, XY for men.</p></li>
+<li><p>Status: 0 for normal samples, 1 for tumor samples. This is important for somatic variant calling.</p></li>
+<li><p><em>Sample ID</em>: sample ID should be unique across all samples. However, samples that are spread over several lanes should have the same ID.</p></li>
+<li><p><em>Lane ID</em>: if a sample is spread over multiple lanes, just enter the files individually in different rows, with the same sample ID but different lane IDs. In this example, Sample 1 is spread over 2 lanes, and Sample 2 over 3 lanes. Sample 3 and 4 are not spread over several lanes.</p></li>
+<li><p><em>Fastq1</em>: First Fastq pair (R1).</p></li>
+<li><p><em>Fastq2</em>: Second Fastq pair (R2).</p></li>
+</ul>
+</div>
+<div class="section" id="variant-calling-tools">
+<h2>Variant calling tools<a class="headerlink" href="#variant-calling-tools" title="Permalink to this headline">¶</a></h2>
+<p>You can check which tools are available for Germline variant calling and Somatic variant calling. Not all tools are available for both steps.</p>
+<p>Please familiarize yourself with the <a class="reference external" href="https://github.com/nf-core/sarek/blob/dev/docs/variant_calling">variant calling docs</a>.</p>
+</div>
+<div class="section" id="whole-genome-sequencing">
+<h2>Whole Genome Sequencing<a class="headerlink" href="#whole-genome-sequencing" title="Permalink to this headline">¶</a></h2>
+<p>Running WGS analysis with Sarek does not require any additional files.</p>
+<div class="section" id="quick-start">
+<h3>Quick start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Latest release <code class="docutils literal notranslate"><span class="pre">-r</span> <span class="pre">2.6.1</span></code>.</p></li>
+</ul>
+<p>Please use these parameters to run your WGS analysis with sarek:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+module purge
+module load devel/singularity/3.4.2
+nextflow run nf-core/sarek -r <span class="m">2</span>.6.1 <span class="se">\</span>
+-profile cfc <span class="se">\</span>
+--genome <span class="s1">&#39;GRCh38&#39;</span> <span class="se">\</span>
+--input <span class="s1">&#39;input.tsv&#39;</span> <span class="se">\</span>
+--tools <span class="s1">&#39;HaplotypeCaller,Strelka,manta,ascat,controlFreec,VEP,snpEff&#39;</span> <span class="se">\</span>
+--no_gatk_spark
+</pre></div>
+</div>
+</div>
+<div class="section" id="known-issues">
+<h3>Known issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">2.6.1</span></code> release has a bug with <code class="docutils literal notranslate"><span class="pre">mutect2</span></code>, so avoid using this variant caller.</p></li>
+<li><p>our cluster has problems with MarkDuplicates Spark so that is why the <code class="docutils literal notranslate"><span class="pre">--no_gatk_spark</span></code> parameter should be provided.</p></li>
+<li><p>There is currently a bug regarding the reference names: if you specify <code class="docutils literal notranslate"><span class="pre">--genome</span> <span class="pre">GRCh38</span></code>, sarek actually uses <code class="docutils literal notranslate"><span class="pre">hg38</span></code> (UCSC naming convention, and not Ensembl). See the <a class="reference external" href="https://github.com/nf-core/sarek/issues/86">issue</a>.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="whole-exome-and-targeted-sequencing">
+<h2>Whole Exome and Targeted Sequencing<a class="headerlink" href="#whole-exome-and-targeted-sequencing" title="Permalink to this headline">¶</a></h2>
+<p>Running WES analysis and targeted sequencing with Sarek requires the BED file that specifies the Exomic regions or the Targeted regions that were used in the exome capture kit or Targeted design.</p>
+<div class="section" id="id1">
+<h3>Quick start<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Please use these parameters to run your WES analysis with sarek:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+module purge
+module load devel/singularity/3.4.2
+nextflow run nf-core/sarek -r <span class="m">2</span>.6.1 <span class="se">\</span>
+-profile cfc <span class="se">\</span>
+--genome <span class="s1">&#39;GRCh38&#39;</span> <span class="se">\</span>
+--input <span class="s1">&#39;input.tsv&#39;</span> <span class="se">\</span>
+--tools <span class="s1">&#39;HaplotypeCaller,Strelka,manta,ascat,controlFreec,VEP,snpEff&#39;</span> <span class="se">\</span>
+--no_gatk_spark <span class="se">\</span>
+--targetBED <span class="sb">`</span>/path/to/targetBED<span class="sb">`</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="important-remarks-for-wes-analysis">
+<h3>Important remarks for WES analysis<a class="headerlink" href="#important-remarks-for-wes-analysis" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p><em>TargetBED</em> files: the target BED files are provided by the Exome capture kit companies. For common Human genomes and capture kits, the BED files are available in the <code class="docutils literal notranslate"><span class="pre">cfc</span></code> and <code class="docutils literal notranslate"><span class="pre">Binac</span></code> clusters. If your BED file is not there, contact your team leader.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">hg38</span></code> (<code class="docutils literal notranslate"><span class="pre">--genome</span> <span class="pre">GRCh38</span></code>) &amp; <code class="docutils literal notranslate"><span class="pre">Agilent</span> <span class="pre">Technologies</span> <span class="pre">capture</span> <span class="pre">kit</span></code></p>
+<div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>/nfsmounts/igenomes/Homo_sapiens/UCSC/hg38/Exome_BED/S31285117_Regions_Agilent_Technologies_exome_hc38.bed
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hg19</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">Twist</span> <span class="pre">capture</span> <span class="pre">kit</span></code></p>
+<div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>/nfsmounts/igenomes/Homo_sapiens/UCSC/hg19/Exome_BED/Twist_Exome_Target_hg19_noUn_gl000228_2020_05_05.bed
+</pre></div>
+</div>
+</li>
+<li><p>Mouse <code class="docutils literal notranslate"><span class="pre">GRCm38</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">Agilent</span> <span class="pre">SureSelect</span> <span class="pre">All</span> <span class="pre">Exon</span></code></p>
+<div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>/nfsmounts/igenomes/Mus_musculus/UCSC/mm10/Exome_BED/mm10_Agilent_SureSelect_Mouse_All_Exon_Kit_2016_01_21_sorted.bed
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>Notes on Target BEDs: In general for WES data analysis people advise to use target regions that are padded (e.g. +- 150 bp), also the Sarek docs said that. But to be precise there are multiple aspects:</p>
+<ul class="simple">
+<li><p>The mapping should be done on the whole reference to get information about multi reads mapping also outside of the exome (to discard)</p></li>
+<li><p>Then reads mapping within the target exome regions should be kept, for this a padding should be added to prevent loosing reads at the boarders</p></li>
+<li><p>for QC to get an unbiased view about the overall quality of the experiment its best to use the exact target regions without padding</p></li>
+<li><p>and for the final variants it depends, if one want to be sure not to increase the number of FPs it would also make sense to use unpadded target regions. If the goal would be to get as many variants as possible, then of course one could use padded regions (which made quite a difference in the final numbers in my case)</p></li>
+<li><p>Sarek actually maps reads against the whole reference, and then uses the targetBED file for the QC and to filter variants. So <em>simply hand over the unpadded target region</em>. This is usually provided by the Exon capture kit company.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3>Known issues<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">2.6.1</span></code> release has a bug with <code class="docutils literal notranslate"><span class="pre">mutect2</span></code>, so avoid using this variant caller.</p></li>
+<li><p>our cluster has problems with MarkDuplicates Spark so that is why the <code class="docutils literal notranslate"><span class="pre">--no_gatk_spark</span></code> parameter should be provided.</p></li>
+<li><p>There is currently a bug regarding the reference names: if you specify <code class="docutils literal notranslate"><span class="pre">--genome</span> <span class="pre">GRCh38</span></code>, sarek actually uses <code class="docutils literal notranslate"><span class="pre">hg38</span></code> (UCSC naming convention, and not Ensembl). See the <a class="reference external" href="https://github.com/nf-core/sarek/issues/86">issue</a>.</p></li>
+</ul>
+</div>
 </div>
 <div class="section" id="reporting">
 <h2>Reporting<a class="headerlink" href="#reporting" title="Permalink to this headline">¶</a></h2>
@@ -190,7 +317,7 @@
         <a href="../debugging.html" class="btn btn-neutral float-right" title="Debugging" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="rnaseq.html" class="btn btn-neutral float-left" title="RNAseq analyses" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="rnaseq.html" class="btn btn-neutral float-left" title="RNAseq analysis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

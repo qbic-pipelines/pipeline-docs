@@ -80,7 +80,7 @@ ls -l, less -S <file>
 
 If not, the path your are staging the files from might actually be missing from the respective singularity configuration file. Open an issue in Zendesk telling Matthias Seybold about it.
 
-### Error: "Your process was killed by the external system..."
+### Error: "Your process was likely terminated by the external system"
 
 This is typically just a cluster message, that your job / process was killed because it consumed:
 
@@ -106,3 +106,35 @@ Then run your pipeline providing this config file wiht the `-c` parameter:
 ```bash
 nextflow run nf-core/sarek -r 2.6.1 -profile cfc ... -c <your-custom.config>
 ```
+
+### Error: "Unable to create TMPDIR [xxxx]: No space left on device"
+
+An example of this error as shown in the `.command.err`:
+
+```bash
+slurmstepd: error: Unable to create TMPDIR [/scratch/521635]: No space left on device
+slurmstepd: error: Setting TMPDIR to /tmp
+nxf-scratch-dir cfc011:/tmp/nxf.cY1BzV3jqA
+Using GATK jar /opt/conda/envs/nf-core-sarek-2.6.1/share/gatk4-4.1.7.0-0/gatk-package-4.1.7.0-local.jar
+```
+
+And somewhere hidden in the `.command.log`:
+
+```bash
+Suppressed: java.io.IOException: No space left on device
+```
+
+This error occurs because the `scratch` space on the nodes for staging files there is not sufficent. In this case your workspace can be used instead as `tmp`dir. To do that:
+
+1. Create a directory named `tmp` in your workspace
+2. Specify this directory as `scratch` for the failing process. This can be provided as a `custom.config` file. Example:
+
+  ```bash
+  process {
+  withName:MarkDuplicates {
+  scratch = '/sfs/7/workspace/ws/my-ws-name/tmp'
+  }
+  }
+  ```
+
+3. Resume the pipeline specifying this config with the `-c <your-custom.config>

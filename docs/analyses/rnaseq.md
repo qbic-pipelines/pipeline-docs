@@ -1,6 +1,4 @@
-# RNAseq analyses
-
-This is how to do RNAseq analyses.
+# RNAseq analysis
 
 * [RNAseq pipeline](#rnaseq-pipeline)
 * [Differential expression analysis](#differential-expression-analysis)
@@ -13,12 +11,12 @@ Start by running the [nf-core/rnaseq](https://github.com/nf-core/rnaseq) pipelin
 ### Quick start
 
 * Latest stable release `-r 1.4.2`.
-* Use with singularity module `devel/singularity/3.4.2`
 
 Example command (change `cfc` for `binac` on binac cluster):
 
 ```bash
 #!/usr/bin/bash
+module purge
 module load devel/singularity/3.4.2
 nextflow run nf-core/rnaseq -r 1.4.2 -profile cfc \
 --reads "Data/*{R1,R2}.fastq.gz" \
@@ -38,11 +36,13 @@ For differential expression analysis we use the [qbic-pipelines/rnadeseq](https:
 ### Quick start
 
 * Latest stable release `-r 1.1.0`.
-* Use with singularity module `devel/singularity/3.4.2`
 
 Example command (change `cfc` for `binac` on binac cluster):
 
 ```bash
+#!/usr/bin/bash
+module purge
+module load devel/singularity/3.4.2
 nextflow run qbicsoftware/rnadeseq -r 1.1.0 -profile docker \
 --rawcounts 'merged_gene_counts.txt' \
 --metadata 'QXXXX_sample_preparations.tsv' \

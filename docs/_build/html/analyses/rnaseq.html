@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>RNAseq analyses &mdash; QBiC-pipelines dev documentation</title>
+  <title>RNAseq analysis &mdash; QBiC-pipelines dev documentation</title>
   
 
   
@@ -85,7 +85,7 @@
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../running_jobs.html">Submitting jobs to the cluster</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">RNAseq analyses</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">RNAseq analysis</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#rnaseq-pipeline">RNAseq pipeline</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#quick-start">Quick start</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#known-issues">Known issues</a></li>
@@ -147,7 +147,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>RNAseq analyses</li>
+      <li>RNAseq analysis</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -166,8 +166,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="rnaseq-analyses">
-<h1>RNAseq analyses<a class="headerlink" href="#rnaseq-analyses" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="rnaseq-analysis">
+<h1>RNAseq analysis<a class="headerlink" href="#rnaseq-analysis" title="Permalink to this headline">¶</a></h1>
 <p>This is how to do RNAseq analyses.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="#rnaseq-pipeline">RNAseq pipeline</a></p></li>
@@ -181,10 +181,10 @@
 <h3>Quick start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Latest stable release <code class="docutils literal notranslate"><span class="pre">-r</span> <span class="pre">1.4.2</span></code>.</p></li>
-<li><p>Use with singularity module <code class="docutils literal notranslate"><span class="pre">devel/singularity/3.4.2</span></code></p></li>
 </ul>
 <p>Example command (change <code class="docutils literal notranslate"><span class="pre">cfc</span></code> for <code class="docutils literal notranslate"><span class="pre">binac</span></code> on binac cluster):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/bash</span>
+module purge
 module load devel/singularity/3.4.2
 nextflow run nf-core/rnaseq -r <span class="m">1</span>.4.2 -profile cfc <span class="se">\</span>
 --reads <span class="s2">&quot;Data/*{R1,R2}.fastq.gz&quot;</span> <span class="se">\</span>
@@ -207,10 +207,12 @@ nextflow run nf-core/rnaseq -r <span class="m">1</span>.4.2 -profile cfc <span c
 <h3>Quick start<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Latest stable release <code class="docutils literal notranslate"><span class="pre">-r</span> <span class="pre">1.1.0</span></code>.</p></li>
-<li><p>Use with singularity module <code class="docutils literal notranslate"><span class="pre">devel/singularity/3.4.2</span></code></p></li>
 </ul>
 <p>Example command (change <code class="docutils literal notranslate"><span class="pre">cfc</span></code> for <code class="docutils literal notranslate"><span class="pre">binac</span></code> on binac cluster):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nextflow run qbicsoftware/rnadeseq -r <span class="m">1</span>.1.0 -profile docker <span class="se">\</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/bash</span>
+module purge
+module load devel/singularity/3.4.2
+nextflow run qbicsoftware/rnadeseq -r <span class="m">1</span>.1.0 -profile docker <span class="se">\</span>
 --rawcounts <span class="s1">&#39;merged_gene_counts.txt&#39;</span> <span class="se">\</span>
 --metadata <span class="s1">&#39;QXXXX_sample_preparations.tsv&#39;</span> <span class="se">\</span>
 --model <span class="s1">&#39;linear_model.txt&#39;</span> <span class="se">\</span>

@@ -36,8 +36,8 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="RNAseq analyses" href="analyses/rnaseq.html" />
-    <link rel="prev" title="Welcome to QBiC-pipelines’s documentation!" href="index.html" /> 
+    <link rel="next" title="RNAseq analysis" href="analyses/rnaseq.html" />
+    <link rel="prev" title="Welcome to QBiC-pipelines’ documentation!" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -109,7 +109,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="analyses/rnaseq.html">RNAseq analyses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analyses/rnaseq.html">RNAseq analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analyses/exomeseq.html">Exome seq analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging</a></li>
 </ul>
@@ -258,15 +258,27 @@ so you don’t need to take care of that.</p>
 <h3>Pipeline profiles<a class="headerlink" href="#pipeline-profiles" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="on-cfc">
 <h4>On CFC<a class="headerlink" href="#on-cfc" title="Permalink to this headline">¶</a></h4>
-<p>Please use the cfc profile to run nf-core pipelines on the CFC cluster <code class="docutils literal notranslate"><span class="pre">-profile</span> <span class="pre">cfc</span></code>.
-If you need the development version of a pipeline, please use the <code class="docutils literal notranslate"><span class="pre">-profile</span> <span class="pre">cfc_dev</span></code> so that the containers are not cached and you pull the latest version of the container.</p>
+<p>Please use the <a class="reference external" href="https://github.com/nf-core/configs/blob/master/conf/cfc.config">cfc profile</a> to run nf-core pipelines on the CFC cluster, by adding <code class="docutils literal notranslate"><span class="pre">-profile</span> <span class="pre">cfc</span></code> to your command. For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nextflow run nf-core/rnaseq -r <span class="m">1</span>.4.2 -profile cfc
+</pre></div>
+</div>
+<p>If you need the development version of a pipeline, please use the <a class="reference external" href="https://github.com/nf-core/configs/blob/master/conf/cfc_dev.config">cfc_dev profile</a> <code class="docutils literal notranslate"><span class="pre">-profile</span> <span class="pre">cfc_dev</span></code> so that the containers are not cached and you pull the latest version of the container.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nextflow run nf-core/rnaseq -r <span class="m">1</span>.4.2 -profile cfc_dev
+</pre></div>
+</div>
 <p>For Nextflow pipelines not part of nf-core and not created with the nf-core create command, these profiles will not be available.
 If you need to run one of these pipelines, you can get the profile
 from the <a class="reference external" href="https://github.com/nf-core/configs">nf-core configs</a> repository and provide it to the pipeline as <code class="docutils literal notranslate"><span class="pre">-c</span> <span class="pre">custom.config</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nextflow run custom/pipeline -c custom.config
+</pre></div>
+</div>
 </div>
 <div class="section" id="on-binac">
 <h4>On BinAC<a class="headerlink" href="#on-binac" title="Permalink to this headline">¶</a></h4>
-<p>Please use the binac profile <code class="docutils literal notranslate"><span class="pre">-profile</span> <span class="pre">binac</span></code> to run your analyses.</p>
+<p>Please use the <a class="reference external" href="https://github.com/nf-core/configs/blob/master/conf/binac.config">binac profile</a> by adding <code class="docutils literal notranslate"><span class="pre">-profile</span> <span class="pre">binac</span></code> to run your analyses. For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nextflow run nf-core/rnaseq -r <span class="m">1</span>.4.2 -profile cfc_dev
+</pre></div>
+</div>
 <p>For Nextflow pipelines not part of nf-core and not created with the nf-core create command, these profiles will not be available.
 If you need to run one of these pipelines, you can get the profile
 from the <a class="reference external" href="https://github.com/nf-core/configs">nf-core configs</a> repository and provide it to the pipeline as <code class="docutils literal notranslate"><span class="pre">-c</span> <span class="pre">custom.config</span></code>.</p>
@@ -429,10 +441,10 @@ Take this bash script as example, which merges <code class="docutils literal not
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="analyses/rnaseq.html" class="btn btn-neutral float-right" title="RNAseq analyses" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="analyses/rnaseq.html" class="btn btn-neutral float-right" title="RNAseq analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to QBiC-pipelines’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to QBiC-pipelines’ documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
