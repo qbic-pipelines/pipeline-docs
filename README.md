@@ -6,10 +6,10 @@ This repository contains the documentation necessary to run different types of a
 
 ## Checking the documentation locally
 
-To check locally how the documentation is building, you need to install the `sphinx`, `recommonmark` and `httpserver` dependencies. It requires Python 3!
+To check locally how the documentation is building, you need to install the `sphinx`, `recommonmark`, `sphinx-rtd-theme` and `httpserver` dependencies. It requires Python 3!
 
 ```bash
-pip install sphinx recommonmark httpserver
+pip install sphinx recommonmark httpserver sphinx-rtd-theme
 ```
 
 Then clone this repository from GitHub:
@@ -30,8 +30,8 @@ All the html files will be build under the `_build` directory. Then you can view
 python -m http.server
 ```
 
-Navigate to the `_build` directory and you can check out locally the documentation.
+Go to the address shown in your browser, navigate to the `_build` directory and you can check out locally the documentation.
 
-## Setup the documentation
+## Set up the documentation
 
-## Setup the server
+## Set up the server
