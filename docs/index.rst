@@ -8,10 +8,13 @@ Welcome to the QBiC analysis documentation!
 
 This documentation contains the guidelines for running Bioinformatics analyses at QBiC.
 How to run nf-core pipelines, which are the latest tested releases and how to report the results.
+
+You can contribute or add changes to the documentation, by making a pull request to the pipelines-docs_ github repository.
+
+.. _pipelines-docs: https://github.com/qbic-pipelines/pipeline-docs
+
 Additionally, this repository will collect example reports and analysis scripts 
 that are necessary for the different analysis types.
-
-You can contribute or add changes to the documentation, by making a pull request to the [qbic-pipelines/pipelines-docs github repository](https://github.com/qbic-pipelines/pipeline-docs)
 
 .. toctree::
    :maxdepth: 2
