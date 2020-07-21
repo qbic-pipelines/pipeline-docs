@@ -1,0 +1,259 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>16S amplicon sequencing &mdash; QBiC-pipelines dev documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Debugging" href="debugging.html" />
+    <link rel="prev" title="Exome seq analysis" href="exomeseq.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> QBiC-pipelines
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="running_jobs.html">Submitting jobs to the cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rnaseq.html">RNAseq analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exomeseq.html">Exome seq analysis</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">16S amplicon sequencing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ampliseq-pipeline">Ampliseq pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#quick-start">Quick start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#known-bugs">Known bugs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#reporting">Reporting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="igenomes.html">Updating igenomes</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">QBiC-pipelines</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>16S amplicon sequencing</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/markdown/ampliseq.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="s-amplicon-sequencing">
+<h1>16S amplicon sequencing<a class="headerlink" href="#s-amplicon-sequencing" title="Permalink to this headline">¶</a></h1>
+<p>This is how to perform 16S amplicon analyses.</p>
+<div class="section" id="ampliseq-pipeline">
+<h2>Ampliseq pipeline<a class="headerlink" href="#ampliseq-pipeline" title="Permalink to this headline">¶</a></h2>
+<p>To perform 16S amplicon sequencing analyses we employ the <a class="reference external" href="https://github.com/nf-core/ampliseq">nf-core/ampliseq</a> pipeline.</p>
+<div class="section" id="quick-start">
+<h3>Quick start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Latest stable release <code class="docutils literal notranslate"><span class="pre">-r</span> <span class="pre">1.1.0</span></code></p></li>
+</ul>
+<p>A typical command would look like this</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nextflow run nf-core/ampliseq -profile binac -r <span class="m">1</span>.1.0 <span class="se">\</span>
+--reads “data” <span class="se">\</span>
+--FW_primer <span class="s2">&quot;GTGYCAGCMGCCGCGGTAA&quot;</span> <span class="se">\</span>
+--RV_primer <span class="s2">&quot;GGACTACNVGGGTWTCTAAT&quot;</span> <span class="se">\</span>
+--metadata <span class="s2">&quot;metadata.tsv&quot;</span> <span class="se">\</span>
+--trunc_qmin <span class="m">35</span> <span class="se">\</span>
+--classifier_removeHash
+</pre></div>
+</div>
+<p>See <a class="reference external" href="https://github.com/nf-core/ampliseq/blob/master/docs/usage.md#--multiplesequencingruns">here</a> the info on how to create the <code class="docutils literal notranslate"><span class="pre">metadata.tsv</span></code> file.</p>
+<p>If data are distributed on multiple sequencing runs, please use <code class="docutils literal notranslate"><span class="pre">--multipleSequencingRuns</span></code> and note the different requirements for metadata file and folder structure in the <a class="reference external" href="https://github.com/nf-core/ampliseq/blob/master/docs/usage.md#--multiplesequencingruns">pipeline documentation</a></p>
+</div>
+<div class="section" id="known-bugs">
+<h3>Known bugs<a class="headerlink" href="#known-bugs" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">1.0.0</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">1.1.0</span></code> have a known bug that is why the <code class="docutils literal notranslate"><span class="pre">--classifier_removeHash</span></code> param should be used for these versions.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="reporting">
+<h2>Reporting<a class="headerlink" href="#reporting" title="Permalink to this headline">¶</a></h2>
+<p>There are no details about reporting yet.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="debugging.html" class="btn btn-neutral float-right" title="Debugging" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="exomeseq.html" class="btn btn-neutral float-left" title="Exome seq analysis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, QBiC
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

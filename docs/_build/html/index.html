@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to QBiC-pipelines’ documentation! &mdash; QBiC-pipelines dev documentation</title>
+  <title>Welcome to the QBiC analysis documentation! &mdash; QBiC-pipelines dev documentation</title>
   
 
   
@@ -36,7 +36,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Submitting jobs to the cluster" href="running_jobs.html" /> 
+    <link rel="next" title="Submitting jobs to the cluster" href="markdown/running_jobs.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -83,12 +83,12 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="running_jobs.html">Submitting jobs to the cluster</a></li>
-<li class="toctree-l1"><a class="reference internal" href="analyses/rnaseq.html">RNAseq analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="analyses/exomeseq.html">Exome seq analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="analyses/ampliseq.html">16S amplicon sequencing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="analyses/igenomes.html">Updating igenomes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown/running_jobs.html">Submitting jobs to the cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown/rnaseq.html">RNAseq analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown/exomeseq.html">Exome seq analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown/ampliseq.html">16S amplicon sequencing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown/debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown/igenomes.html">Updating igenomes</a></li>
 </ul>
 
             
@@ -135,7 +135,7 @@
     
       <li><a href="#" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Welcome to QBiC-pipelines’ documentation!</li>
+      <li>Welcome to the QBiC analysis documentation!</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -154,44 +154,47 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="welcome-to-qbic-pipelines-documentation">
-<h1>Welcome to QBiC-pipelines’ documentation!<a class="headerlink" href="#welcome-to-qbic-pipelines-documentation" title="Permalink to this headline">¶</a></h1>
-<p>This documentation contains the guidelines for running Bioinformatics analyses at QBiC.</p>
+  <div class="section" id="welcome-to-the-qbic-analysis-documentation">
+<h1>Welcome to the QBiC analysis documentation!<a class="headerlink" href="#welcome-to-the-qbic-analysis-documentation" title="Permalink to this headline">¶</a></h1>
+<p>This documentation contains the guidelines for running Bioinformatics analyses at QBiC.
+How to run nf-core pipelines, which are the latest tested releases and how to report the results.
+Additionally, this repository will collect example reports and analysis scripts
+that are necessary for the different analysis types.</p>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="running_jobs.html">Submitting jobs to the cluster</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="running_jobs.html#submitting-nextflow-pipelines">Submitting Nextflow pipelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="running_jobs.html#screen-sessions">Screen sessions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="running_jobs.html#useful-scheduler-commands">Useful scheduler commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="running_jobs.html#submitting-custom-jobs">Submitting custom jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown/running_jobs.html">Submitting jobs to the cluster</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="markdown/running_jobs.html#submitting-nextflow-pipelines">Submitting Nextflow pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="markdown/running_jobs.html#screen-sessions">Screen sessions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="markdown/running_jobs.html#useful-scheduler-commands">Useful scheduler commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="markdown/running_jobs.html#submitting-custom-jobs">Submitting custom jobs</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="analyses/rnaseq.html">RNAseq analysis</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="analyses/rnaseq.html#rnaseq-pipeline">RNAseq pipeline</a></li>
-<li class="toctree-l2"><a class="reference internal" href="analyses/rnaseq.html#differential-expression-analysis">Differential expression analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="analyses/rnaseq.html#reporting">Reporting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown/rnaseq.html">RNAseq analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="markdown/rnaseq.html#rnaseq-pipeline">RNAseq pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="markdown/rnaseq.html#differential-expression-analysis">Differential expression analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="markdown/rnaseq.html#reporting">Reporting</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="analyses/exomeseq.html">Exome seq analysis</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="analyses/exomeseq.html#input-tsv-file">Input tsv file</a></li>
-<li class="toctree-l2"><a class="reference internal" href="analyses/exomeseq.html#variant-calling-tools">Variant calling tools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="analyses/exomeseq.html#whole-genome-sequencing">Whole Genome Sequencing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="analyses/exomeseq.html#whole-exome-and-targeted-sequencing">Whole Exome and Targeted Sequencing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="analyses/exomeseq.html#reporting">Reporting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown/exomeseq.html">Exome seq analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="markdown/exomeseq.html#input-tsv-file">Input tsv file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="markdown/exomeseq.html#variant-calling-tools">Variant calling tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="markdown/exomeseq.html#whole-genome-sequencing">Whole Genome Sequencing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="markdown/exomeseq.html#whole-exome-and-targeted-sequencing">Whole Exome and Targeted Sequencing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="markdown/exomeseq.html#reporting">Reporting</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="analyses/ampliseq.html">16S amplicon sequencing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="analyses/ampliseq.html#ampliseq-pipeline">Ampliseq pipeline</a></li>
-<li class="toctree-l2"><a class="reference internal" href="analyses/ampliseq.html#reporting">Reporting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown/ampliseq.html">16S amplicon sequencing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="markdown/ampliseq.html#ampliseq-pipeline">Ampliseq pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="markdown/ampliseq.html#reporting">Reporting</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="debugging.html#general-error-reporting">General error reporting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="debugging.html#common-errors">Common errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown/debugging.html">Debugging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="markdown/debugging.html#general-error-reporting">General error reporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="markdown/debugging.html#common-errors">Common errors</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="analyses/igenomes.html">Updating igenomes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown/igenomes.html">Updating igenomes</a></li>
 </ul>
 </div>
 </div>
@@ -212,7 +215,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="running_jobs.html" class="btn btn-neutral float-right" title="Submitting jobs to the cluster" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="markdown/running_jobs.html" class="btn btn-neutral float-right" title="Submitting jobs to the cluster" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>
