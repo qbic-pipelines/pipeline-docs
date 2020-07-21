@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'QBiC-pipelines'
+project = 'QBiC analysis documentation'
 copyright = '2020, QBiC'
 author = 'QBiC'
 
