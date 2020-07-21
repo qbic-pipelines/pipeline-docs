@@ -11,6 +11,8 @@ How to run nf-core pipelines, which are the latest tested releases and how to re
 Additionally, this repository will collect example reports and analysis scripts 
 that are necessary for the different analysis types.
 
+You can contribute or add changes to the documentation, by making a pull request to the [qbic-pipelines/pipelines-docs github repository](https://github.com/qbic-pipelines/pipeline-docs)
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
