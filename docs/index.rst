@@ -24,6 +24,7 @@ that are necessary for the different analysis types.
    markdown/rnaseq
    markdown/exomeseq
    markdown/ampliseq
+   markdown/hlatyping
    markdown/debugging
    markdown/igenomes
 
