@@ -313,7 +313,7 @@ Some basic screen commands are:</p>
 </li>
 <li><p>To detach from a screen session, use <code class="docutils literal notranslate"><span class="pre">ctrl</span> <span class="pre">+</span> <span class="pre">alt</span> <span class="pre">+</span> <span class="pre">d</span></code></p></li>
 <li><p>List existing screen sessions:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scren -ls
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>screen -ls
 </pre></div>
 </div>
 </li>
@@ -369,7 +369,7 @@ To run custom scripts you can either start an interactive session or submit a ba
 </pre></div>
 </div>
 <p>Then request an interactive job to the Slurm scheduler with the desired resources. For example:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>srun -N <span class="m">1</span> --ntasks-per-node?8 --mem<span class="o">=</span>16G --time<span class="o">=</span><span class="m">12000</span> --pty bash
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>srun -N <span class="m">1</span> --ntasks-per-node<span class="o">=</span><span class="m">8</span> --mem<span class="o">=</span>16G --time<span class="o">=</span><span class="m">12000</span> --pty bash
 </pre></div>
 </div>
 <p>Change the resources as needed:</p>
