@@ -6,7 +6,7 @@ Either request a project to [deNBI cloud](cloud.denbi.de) or ask someone at QBiC
 
 ## Documentation
 
-The documentation on how to create instances and other important things is collected here: https://cloud.denbi.de/wiki/Compute_Center/Tuebingen. This documentation is not great, though, and I found it useful to add a few more notes here.
+The documentation on how to create instances and other important things is collected on the [deNBI Tübingen page](https://cloud.denbi.de/wiki/Compute_Center/Tuebingen). This documentation is not great, though, and I found it useful to add a few more notes here.
 
 ## Create an instance
 
