@@ -79,7 +79,7 @@ This guides through the execution of a DEU analysis, pointing out the necessary 
 
 ### Process
 
-Run nf-core/rnaseq pipeline on rnaseq data -> Transform your annotation .gtf -> execute featureCounts on the BAM files in results/MarkDuplicates/ -> Analyse this output in R.
+Run nf-core/rnaseq pipeline on rnaseq data **->** Transform your annotation .gtf **->** execute featureCounts on the BAM files in results/MarkDuplicates/ **->** Analyse this output in R
 
 ### Procedure
 
