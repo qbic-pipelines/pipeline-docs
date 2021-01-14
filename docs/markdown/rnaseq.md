@@ -100,7 +100,9 @@ Run nf-core/rnaseq pipeline on rnaseq data **->** Transform your annotation .gtf
 #### Step 3: execute featureCounts
 
 1. On cfc: module load qbic/subread/1.6.0
-2. Run featureCounts on the BAM files produced by the pipeline: featureCounts -p -F GTF -a out.gtf -o counts.out Cont_1.bam Cont_2.bam
+2. Run featureCounts on the BAM files produced by the pipeline: 
+```bash
+featureCounts -p -F GTF -a out.gtf -o counts.out Cont_1.bam Cont_2.bam
 3. As output you have now a count table with a column for every input file; copy it locally on your machine
 4. Open Rstudio and the script
 
