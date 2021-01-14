@@ -6,14 +6,14 @@ Either request a project to [deNBI cloud](cloud.denbi.de) or ask someone at QBiC
 
 ## Documentation
 
-The documentation on how to create instances and other important things is collected on the [deNBI Tübingen page](https://cloud.denbi.de/wiki/Compute_Center/Tuebingen). This documentation is not great, though, and I found it useful to add a few more notes here.
+The documentation on how to create instances and other important things is collected on the [deNBI Tübingen page](https://cloud.denbi.de/wiki/Compute_Center/Tuebingen). This documentation is not perfect, though, and I found it useful to add a few more notes here.
 
 ## Create an instance
 
 Go to the menu: Compute -> Instances -> Launch Instance button.
 
 * Details: add an Instance Name
-* Source: select either "Image" for a generic image e.g. CentOS operating system, or "Instance Snapshot" for creating an Instance from a previous snapshot. For running `Nextflow` workflows, you can use the Instance Snapshot `nextflow-singularity` which already has java-jdk12, Nextflow and Singularity and Docker installed (check if Nextflow should be updated with `nextflow self-update`).
+* Source: select either "Image" for a generic image e.g. CentOS operating system, or "Instance Snapshot" for creating an Instance from a previous snapshot. For running `Nextflow` workflows, you can use the Instance Snapshot `nextflow-singularity` which already has `java-jdk12`, `Nextflow`, `Singularity` and `Docker` installed (check if Nextflow should be updated with `nextflow self-update`).
 * Flavour: select the instance flavour (number of CPUs and RAM).
 * Networks: select `denbi_uni_tuebingen_external` network.
 * Network Ports: leave empty.
