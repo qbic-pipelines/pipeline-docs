@@ -1,4 +1,4 @@
-# Analyis types
+# Pipeline releases
 
 Below is a list of the pipeline releases that should be used at QBiC for the analysis.
 Unless a release has a bug that makes it impossible to work with your data, please use this fixed releases.
