@@ -17,10 +17,11 @@ Additionally, this repository will collect example reports and analysis scripts
 that are necessary for the different analysis types.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Contents:
 
    markdown/running_jobs
+   markdown/denbi_cloud
    markdown/rnaseq
    markdown/exomeseq
    markdown/ampliseq
