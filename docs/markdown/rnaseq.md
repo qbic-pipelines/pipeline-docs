@@ -96,19 +96,23 @@ Run nf-core/rnaseq pipeline on rnaseq data **->** Transform your annotation .gtf
 2. Install HTSeq:
 ```bash
 conda install -c bioconda htseq
+```
 3. Download the script dexseq_prepare_annotation2.py from [https://github.com/vivekbhr/Subread_to_DEXSeq](https://github.com/vivekbhr/Subread_to_DEXSeq)
 4. Execute: 
 ```bash
 python dexseq_prepare_annotation2.py -f out.gtf in.gtf out.gff
+```
 
 #### Step 3: execute featureCounts
 
 1. On cfc load the subread module: 
 ```bash
 module load qbic/subread/1.6.0
+```
 2. Run featureCounts on the BAM files produced by the pipeline: 
 ```bash
 featureCounts -p -F GTF -a out.gtf -o counts.out Cont_1.bam Cont_2.bam
+```
 3. As output you have now a count table with a column for every input file; copy it locally on your machine
 4. Open Rstudio and the script
 
