@@ -1,0 +1,7 @@
+# .readthedocs.yml
+# Required for automatically building the docs in readthedocs
+build:
+  image: latest
+python:
+  version: 3.6
+  setup_py_install: true
