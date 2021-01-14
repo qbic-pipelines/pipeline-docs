@@ -22,6 +22,7 @@ that are necessary for the different analysis types.
 
    markdown/running_jobs
    markdown/denbi_cloud
+   markdown/pipeline_releases
    markdown/rnaseq
    markdown/exomeseq
    markdown/ampliseq
