@@ -93,7 +93,9 @@ Run nf-core/rnaseq pipeline on rnaseq data **->** Transform your annotation .gtf
 #### Step 2: Transform your annotation .gtf file
 
 1. Create a conda environment, or use one that you already have, and activate it
-2. Install HTSeq (conda install -c bioconda htseq)
+2. Install HTSeq:
+```bash
+conda install -c bioconda htseq
 3. Download the script dexseq_prepare_annotation2.py from [https://github.com/vivekbhr/Subread_to_DEXSeq](https://github.com/vivekbhr/Subread_to_DEXSeq)
 4. Execute: python dexseq_prepare_annotation2.py -f out.gtf in.gtf out.gff (from your originary in.gtf you get and out.gtf (for featureCounts) and an out.gff.
 
