@@ -103,7 +103,9 @@ python dexseq_prepare_annotation2.py -f out.gtf in.gtf out.gff
 
 #### Step 3: execute featureCounts
 
-1. On cfc: module load qbic/subread/1.6.0
+1. On cfc load the subread module: 
+```bash
+module load qbic/subread/1.6.0
 2. Run featureCounts on the BAM files produced by the pipeline: 
 ```bash
 featureCounts -p -F GTF -a out.gtf -o counts.out Cont_1.bam Cont_2.bam
