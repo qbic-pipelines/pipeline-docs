@@ -108,7 +108,7 @@ Run nf-core/rnaseq pipeline on rnaseq data **->** Transform your annotation .gtf
 
 1. Open Rstudio and the script demo_dexseq.R.
 2. In the same folder as the script you need to place:
-	* load_SubreadOutput.R
-	* Counts.out (output from featureCounts)
-	* out.gtf
+    * load_SubreadOutput.R
+    * Counts.out (output from featureCounts)
+    * out.gtf
 3. NOTE: in the script, the number of workers is set to 1 to adapt the condition to my local machine (setting it to higher numbers was causing R not to execute the command successfully), but this parameter is typically increased on other machines.
