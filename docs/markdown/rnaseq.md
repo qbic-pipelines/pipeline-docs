@@ -71,7 +71,7 @@ This guides through the execution of a DEU analysis, pointing out the necessary 
 * The script dexseq_prepare_annotation2.py from [https://github.com/vivekbhr/Subread_to_DEXSeq](https://github.com/vivekbhr/Subread_to_DEXSeq)
 * Python
 * The annotation .gtf file you have obtained the BAM files with
-* The file /DESeq2/raw_counts/merged_gene_counts.txt copied in its location by the DESeq2 script
+* The file `DESeq2/raw_counts/merged_gene_counts.txt` copied in its location by the DESeq2 script
 
 ### Definitions
 
