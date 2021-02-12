@@ -1,0 +1,300 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Pipeline releases &mdash; QBiC analysis documentation dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="RNAseq analysis" href="rnaseq.html" />
+    <link rel="prev" title="Running jobs on denbi cloud" href="denbi_cloud.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> QBiC analysis documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="running_jobs.html">Submitting jobs to the cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="denbi_cloud.html">Running jobs on denbi cloud</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Pipeline releases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pipeline-releases-to-be-used-at-qbic">Pipeline releases to be used at QBiC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rnaseq.html">RNAseq analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exomeseq.html">Exome seq analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ampliseq.html">16S amplicon sequencing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hlatyping.html">HLA typing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="igenomes.html">Updating igenomes</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">QBiC analysis documentation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Pipeline releases</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/markdown/pipeline_releases.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pipeline-releases">
+<h1>Pipeline releases<a class="headerlink" href="#pipeline-releases" title="Permalink to this headline">¶</a></h1>
+<p>Below is a list of the pipeline releases that should be used at QBiC for the analysis.
+Unless a release has a bug that makes it impossible to work with your data, please use this fixed releases.
+These versions will be revised periodically and tested in our infrastructure before update.</p>
+<div class="section" id="pipeline-releases-to-be-used-at-qbic">
+<h2>Pipeline releases to be used at QBiC<a class="headerlink" href="#pipeline-releases-to-be-used-at-qbic" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Analysis type</th>
+<th>Pipeline</th>
+<th align="center">Use version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RNAseq</td>
+<td><a href="https://nf-co.re/rnaseq/1.4.2">nf-core/rnaseq</a></td>
+<td align="center">1.4.2</td>
+</tr>
+<tr>
+<td>RNAseq DE analysis</td>
+<td><a href="https://github.com/qbic-pipelines/rnadeseq">qbic-pipelines/rnadeseq</a></td>
+<td align="center">1.3.2</td>
+</tr>
+<tr>
+<td>WGS / WES</td>
+<td><a href="https://nf-co.re/sarek/2.6.1">nf-core/sarek</a></td>
+<td align="center">2.6.1</td>
+</tr>
+<tr>
+<td>HLAtyping</td>
+<td><a href="https://nf-co.re/hlatyping/1.2.0">nf-core/hlatyping</a></td>
+<td align="center">1.2.0</td>
+</tr>
+<tr>
+<td>16S amplicon</td>
+<td><a href="https://nf-co.re/ampliseq/1.1.3">nf-core/ampliseq</a></td>
+<td align="center">1.1.3</td>
+</tr>
+<tr>
+<td>Shotgun metagenomics</td>
+<td><a href="https://nf-co.re/mag/1.1.2">nf-core/mag</a></td>
+<td align="center">1.1.2</td>
+</tr>
+<tr>
+<td>BCR / TCR repseq</td>
+<td><a href="https://nf-co.re/bcellmagic/1.2.0">nf-core/bcellmagic</a></td>
+<td align="center">1.2.0</td>
+</tr>
+<tr>
+<td>CAGEseq</td>
+<td><a href="https://nf-co.re/cageseq/1.0.2">nf-core/cageseq</a></td>
+<td align="center">1.0.2</td>
+</tr>
+<tr>
+<td>MHC immunopeptidomics</td>
+<td><a href="https://nf-co.re/mhcquant/1.6.0">nf-core/mhcquant</a></td>
+<td align="center">1.6.0</td>
+</tr>
+<tr>
+<td>ATACseq</td>
+<td><a href="https://nf-co.re/atacseq/1.2.1">nf-core/atacseq</a></td>
+<td align="center">1.2.1</td>
+</tr>
+<tr>
+<td>Chipseq</td>
+<td><a href="https://nf-co.re/chipseq/1.2.1">nf-core/chipseq</a></td>
+<td align="center">1.2.1</td>
+</tr>
+<tr>
+<td>Epitope prediction</td>
+<td><a href="https://nf-co.re/epitopeprediction/1.1.0">nf-core/epitopeprediction</a></td>
+<td align="center">1.1.0</td>
+</tr>
+<tr>
+<td>Bacterial assembly</td>
+<td><a href="https://nf-co.re/bacass/1.1.1">nf-core/bacass</a></td>
+<td align="center">1.1.1</td>
+</tr>
+<tr>
+<td>RNA fusion</td>
+<td><a href="https://nf-co.re/rnafusion/1.2.0">nf-core/rnafusion</a></td>
+<td align="center">1.2.0</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="rnaseq.html" class="btn btn-neutral float-right" title="RNAseq analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="denbi_cloud.html" class="btn btn-neutral float-left" title="Running jobs on denbi cloud" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, QBiC
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,4 +1,4 @@
-# Exome seq analysis
+# WES & WGS analysis
 
 To perform Exome seq and Variant calling analyses, we use the [nf-core/sarek](https://github.com/nf-core/sarek) pipeline.
 The pipeline can be utilized for Whole genome sequencing (WGS) and Whole exome sequencing (WES) analyses.
@@ -42,7 +42,7 @@ Running WGS analysis with Sarek does not require any additional files.
 
 ### Quick start
 
-* Latest stable release `-r 2.6.1`.
+* Latest stable release `-r 2.7`.
 
 Please use these parameters to run your WGS analysis with sarek:
 
@@ -50,19 +50,21 @@ Please use these parameters to run your WGS analysis with sarek:
 #!/bin/bash
 module purge
 module load devel/singularity/3.4.2
-nextflow run nf-core/sarek -r 2.6.1 \
+nextflow run nf-core/sarek -r 2.7 \
 -profile cfc \
 --genome 'GRCh38' \
 --input 'input.tsv' \
---tools 'HaplotypeCaller,Strelka,manta,ascat,controlFreec,VEP,snpEff' \
---no_gatk_spark
+--tools 'HaplotypeCaller,Strelka,mutect2,manta,ascat,controlFreec,VEP,snpEff' \
 ```
 
 ### Known issues
-
-* `2.6.1` release has a bug with `mutect2`, so avoid using this variant caller.
-* our cluster has problems with MarkDuplicates Spark so that is why the `--no_gatk_spark` parameter should be provided.
 * There is currently a bug regarding the reference names: if you specify `--genome GRCh38`, sarek actually uses `hg38` (UCSC naming convention, and not Ensembl). See the [issue](https://github.com/nf-core/sarek/issues/86).
+
+### Fixed issues since 2.6.1
+
+* The `2.6.1` release had a bug with `mutect2`, this is now addressed and can be used.
+* Our cluster has problems with MarkDuplicates Spark, which is why is should be avoided. As of `2.7` the non-spark variant is run by default. Please be aware to set `--no_gatk_spark` if you run `2.6.1` or earlier.
+
 
 ## Whole Exome and Targeted Sequencing
 
@@ -70,7 +72,7 @@ Running WES analysis and targeted sequencing with Sarek requires the BED file th
 
 ### Quick start
 
-* Latest stable release `-r 2.6.1`.
+* Latest stable release `-r 2.7`.
 
 Please use these parameters to run your WES analysis with sarek:
 
@@ -78,12 +80,11 @@ Please use these parameters to run your WES analysis with sarek:
 #!/bin/bash
 module purge
 module load devel/singularity/3.4.2
-nextflow run nf-core/sarek -r 2.6.1 \
+nextflow run nf-core/sarek -r 2.7 \
 -profile cfc \
 --genome 'GRCh38' \
 --input 'input.tsv' \
---tools 'HaplotypeCaller,Strelka,manta,ascat,controlFreec,VEP,snpEff' \
---no_gatk_spark \
+--tools 'HaplotypeCaller,Strelka,mutect2,manta,ascat,controlFreec,VEP,snpEff' \
 --targetBED `/path/to/targetBED`
 ```
 
@@ -125,10 +126,14 @@ nextflow run nf-core/sarek -r 2.6.1 \
 
 ### Known issues
 
-* `2.6.1` release has a bug with `mutect2`, so avoid using this variant caller.
-* our cluster has problems with MarkDuplicates Spark so that is why the `--no_gatk_spark` parameter should be provided.
 * There is currently a bug regarding the reference names: if you specify `--genome GRCh38`, sarek actually uses `hg38` (UCSC naming convention, and not Ensembl). See the [issue](https://github.com/nf-core/sarek/issues/86).
+
+### Fixed issues since 2.6.1
+
+* The `2.6.1` release had a bug with `mutect2`, this is now addressed and can be used.
+* Our cluster has problems with MarkDuplicates Spark, which is why is should be avoided. As of `2.7` the non-spark variant is run by default. Please be aware to set `--no_gatk_spark` if you run `2.6.1` or earlier.
+
 
 ## Reporting
 
-Reporting hasn't been established yet for Exome sequencing.
+Reporting hasn't been established yet for WGS & WES.

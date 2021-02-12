@@ -131,10 +131,30 @@ This error occurs because the `scratch` space on the nodes for staging files the
 
   ```bash
   process {
-  withName:MarkDuplicates {
-  scratch = '/sfs/7/workspace/ws/my-ws-name/tmp'
-  }
+    withName:MarkDuplicates {
+    scratch = '/sfs/7/workspace/ws/my-ws-name/tmp'
+    }
   }
   ```
 
 * Resume the pipeline specifying this config with the `-c <your-custom.config>
+
+### Error: "xxx.img.lock (Read-only file system)"
+
+An example of this error:
+
+```bash
+java.io.FileNotFoundException: /nfsmounts/container/.nfcore-cageseq-1.0.0.img.lock (Read-only file system)
+```
+
+This error occurs because the download of the singularity image was corrupted.
+
+* Navigate to
+
+```bash
+cd /nfsmounts/container
+```
+
+and remove the corrupted container.
+
+* Re-run your pipeline.
