@@ -239,6 +239,7 @@ Take this bash script as example, which merges `*.fastq.gz` files starting with 
 
 ```bash
 #!/bin/bash
+set -eou pipefail
 # set the number of nodes and processes
 #SBATCH --nodes=1
 
