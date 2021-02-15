@@ -10,7 +10,7 @@ These versions will be revised periodically and tested in our infrastructure bef
 |-----------------------|-----------------------------------------------------------------------|:-----------:|
 | RNAseq                | [nf-core/rnaseq](https://nf-co.re/rnaseq/1.4.2)                               |    1.4.2    |
 | RNAseq DE analysis    | [qbic-pipelines/rnadeseq](https://github.com/qbic-pipelines/rnadeseq) |    1.3.2    |
-| WGS / WES             | [nf-core/sarek](https://nf-co.re/sarek/2.6.1)                                 |    2.6.1    |
+| WGS / WES             | [nf-core/sarek](https://nf-co.re/sarek/2.6.1)                                 |    2.7    |
 | HLAtyping             | [nf-core/hlatyping](https://nf-co.re/hlatyping/1.2.0)                         |    1.2.0    |
 | 16S amplicon          | [nf-core/ampliseq](https://nf-co.re/ampliseq/1.1.3)                           |    1.1.3    |
 | Shotgun metagenomics  | [nf-core/mag](https://nf-co.re/mag/1.1.2)                                     |    1.1.2    |
