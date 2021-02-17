@@ -34,7 +34,7 @@ Columns:
 
 You can check which tools are available for Germline variant calling and Somatic variant calling. Not all tools are available for both steps.
 
-Please familiarize yourself with the [variant calling docs](https://github.com/nf-core/sarek/blob/dev/docs/variant_calling.md).
+Please familiarize yourself with the [sarek docs](https://nf-co.re/sarek).
 
 ## Whole Genome Sequencing
 
