@@ -6,7 +6,7 @@ There are some differences in running the pipeline for the two modalities, so th
 
 ## Input tsv file
 
-In order to use sarek, you will need to create your own input file. You can find more information on how to create your input file in the [sarek input documentation](https://github.com/nf-core/sarek/blob/master/docs/input.md).
+In order to use sarek, you will need to create your own input file. You can find more information on how to create your input file in the [sarek input documentation](https://nf-co.re/sarek/2.7/usage#tsv-file).
 
 We usually start our analyses at QBiC from paired-end Fastq files. For these files, so you can take this `input.tsv` as example:
 
@@ -92,7 +92,13 @@ nextflow run nf-core/sarek -r 2.7 \
 
 * *TargetBED* files: the target BED files are provided by the Exome capture kit companies. For common Human genomes and capture kits, the BED files are available in the `cfc` and `Binac` clusters. If your BED file is not there, contact your team leader.
 
-  * `hg38` (`--genome GRCh38`) & `Agilent Technologies capture kit`
+  * `GRCh37` & `Twist capture kit`
+
+    ```txt
+    /nfsmounts/igenomes/Homo_sapiens/Ensembl/GRCh37/Exome_BED/Twist_Exome_Target_GRCh37_noUn_gl000228_2020_05_05.bed
+    ```
+
+  * `hg38` & `Agilent Technologies capture kit`
 
     ```txt
     /nfsmounts/igenomes/Homo_sapiens/UCSC/hg38/Exome_BED/S31285117_Regions_Agilent_Technologies_exome_hc38.bed
