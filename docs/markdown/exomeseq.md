@@ -163,7 +163,6 @@ The following parameters have to be added :
 * `--annotation_cache true`,
 * `--snpeff_db` with the name of the genome you downloaded through SnpEff (see below).
 
-
 ### SnpEff cache
 
 To download the SnpEff cache on the cfc, you can run the following command :
