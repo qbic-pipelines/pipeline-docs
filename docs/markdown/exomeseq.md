@@ -132,7 +132,7 @@ nextflow run nf-core/sarek -r 2.7 \
 
 ## Running the pipeline with a non iGenomes genome
 
-If you wish to run Sarek with a genome not present in iGenomes, the command line will look similar to the following : 
+If you wish to run Sarek with a genome not present in iGenomes, the command line will look similar to the following :
 
 ```bash
 module purge
@@ -154,20 +154,24 @@ nextflow run nf-core/sarek -r 2.7  \
 ```
 
 We here take _Solanum lycopersicum_ (tomato) as an example.
-The following parameters have to be added : 
-* `--fasta path/to/genome.fa`. The assembly file should come from standardized reference genomes (i.e NCBI, ENSEMBL). 
+The following parameters have to be added :
+
+* `--fasta path/to/genome.fa`. The assembly file should come from standardized reference genomes (i.e NCBI, ENSEMBL).
 * `--igenomes_ignore`,
 * `--genome custom`,
 * `--snpeff_cache`, with the path to the SnpEff cache file (see below for more explanations),
 * `--annotation_cache true`,
 * `--snpeff_db` with the name of the genome you downloaded through SnpEff (see below).
 
+
 ### SnpEff cache
-To download the SnpEff cache on the cfc, you can run the following command : 
+
+To download the SnpEff cache on the cfc, you can run the following command :
 
 ```bash
 java -jar /lustre_cfc/software/qbic/snpEff/snpEff.jar -download -v Solanum_lycopersicum -dataDir .
 ```
+
 with `-v name_of_your_genome`. This will create the cache in your directory, which you will then specify in the sarek pipeline.
 
 ### Known issues
