@@ -130,6 +130,46 @@ nextflow run nf-core/sarek -r 2.7 \
   * Sarek actually maps reads against the whole reference, and then uses the targetBED file for the QC and to filter variants. So *simply hand over the unpadded target region*. This is usually provided by the Exon capture kit company.
 * BED file compatibility: if you have to use your own BED file, make sure the chromosome names are compatible between the reference and the targetBED file (e.g. UCSC “chr1” <-> Ensemble “1”). For human, if they differ and your analysis is done only on main chromosomes, then you could simply convert the names by adding “chr” to the chromosome names.
 
+## Running the pipeline with a non iGenomes genome
+
+If you wish to run Sarek with a genome not present in iGenomes, the command line will look similar to the following : 
+
+```bash
+module purge
+module load devel/singularity/3.4.2
+nextflow run nf-core/sarek -r 2.7  \
+-resume \
+-profile cfc \
+--fasta '/sfs/7/workspace/ws/qealk01-QVBAP-0/reference/genome.fa' \
+--input 'samples.tsv' \
+--save_reference \
+--bwa false \
+--igenomes_ignore \
+--genome custom \
+--no_gatk_spark \
+--tools 'strelka,snpEff' \
+--snpeff_cache '/sfs/7/workspace/ws/qealk01-QVBAP-0/reference/cache/' \
+--annotation_cache true \
+--snpeff_db Solanum_lycopersicum
+```
+
+We here take _Solanum lycopersicum_ (tomato) as an example.
+The following parameters have to be added : 
+* `--fasta path/to/genome.fa`. The assembly file should come from standardized reference genomes (i.e NCBI, ENSEMBL). 
+* `--igenomes_ignore`,
+* `--genome custom`,
+* `--snpeff_cache`, with the path to the SnpEff cache file (see below for more explanations),
+* `--annotation_cache true`,
+* `--snpeff_db` with the name of the genome you downloaded through SnpEff (see below).
+
+### SnpEff cache
+To download the SnpEff cache on the cfc, you can run the following command : 
+
+```bash
+java -jar /lustre_cfc/software/qbic/snpEff/snpEff.jar -download -v Solanum_lycopersicum -dataDir .
+```
+with `-v name_of_your_genome`. This will create the cache in your directory, which you will then specify in the sarek pipeline.
+
 ### Known issues
 
 * There is currently a bug regarding the reference names: if you specify `--genome GRCh38`, sarek actually uses `hg38` (UCSC naming convention, and not Ensembl). See the [issue](https://github.com/nf-core/sarek/issues/86).
