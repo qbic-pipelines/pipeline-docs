@@ -6,7 +6,7 @@ The RDDS team leader and sys admin will take care of it so if you are missing so
 Steps:
 
 * You will need AWS credentials.
-* Install miniconda and the `awscli` within miniconda in the `cfc` cluster.
+* Install miniconda and the `aws cli` within miniconda in the `cfc` cluster.
 * Configure the AWS cli:
 
   ```bash
