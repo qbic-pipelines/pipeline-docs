@@ -115,13 +115,13 @@ nextflow run nf-core/sarek -r 2.7 \
     ```txt
     /nfsmounts/igenomes/Mus_musculus/UCSC/mm10/Exome_BED/mm10_Agilent_SureSelect_Mouse_All_Exon_Kit_2016_01_21_sorted.bed
     ```
-    
+  
   * Mouse `GRCm38` & `Agilent SureSelect Mouse`
 
     ```txt
     /nfsmounts/igenomes/Mus_musculus/Ensembl/GRCm38/Exome_BED/GRCm38_Agilent_SureSelect_Mouse_All_Exon_Kit_2016_01_21_sorted.bed
     ```
-    
+  
 * Notes on Target BEDs: In general for WES data analysis people advise to use target regions that are padded (e.g. +- 150 bp), also the Sarek docs said that. But to be precise there are multiple aspects:
   * The mapping should be done on the whole reference to get information about multi reads mapping also outside of the exome (to discard)
   * Then reads mapping within the target exome regions should be kept, for this a padding should be added to prevent loosing reads at the boarders
