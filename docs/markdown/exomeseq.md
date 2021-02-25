@@ -115,7 +115,6 @@ nextflow run nf-core/sarek -r 2.7 \
     ```txt
     /nfsmounts/igenomes/Mus_musculus/UCSC/mm10/Exome_BED/mm10_Agilent_SureSelect_Mouse_All_Exon_Kit_2016_01_21_sorted.bed
     ```
-    
   * Mouse `GRCm38` & `Agilent SureSelect Mouse`
 
     ```txt
