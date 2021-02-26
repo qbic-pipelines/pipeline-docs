@@ -37,13 +37,13 @@ To run pipeline tests use the following command:
 nextflow run nf-core/sarek -r 2.7 -profile test,cfc
 ```
 
-To launch sarek for germline WGS using the [example params](https://github.com/qbic-pipelines/pipeline-docs/docs/params/sarek_WGS_germline.json) use the following command:
+To launch sarek for germline WGS using the [example params](https://github.com/qbic-pipelines/pipeline-docs/blob/master/docs/params/sarek_WGS_germline.json) use the following command:
 
 ```bash
 nextflow run nf-core/sarek -r 2.7 -profile cfc -params-file sarek_WGS_germline.json
 ```
 
-To launch sarek for somatic WES using the [example params](https://github.com/qbic-pipelines/pipeline-docs/docs/params/sarek_WXS_somatic.json) use the following command:
+To launch sarek for somatic WES / WXS using the [example params](https://github.com/qbic-pipelines/pipeline-docs/blob/master/docs/params/sarek_WXS_somatic.json) use the following command:
 
 ```bash
 nextflow run nf-core/sarek -r 2.7 -profile cfc -params-file sarek_WXS_somatic.json
@@ -57,7 +57,7 @@ To run pipeline tests we use the following command:
 nextflow run nf-core/rnaseq -r 1.4.2 -profile test,cfc
 ```
 
-To launch rnaseq for RNAseq using our [example params](https://github.com/qbic-pipelines/pipeline-docs/docs/params/rnaseq.json) use the following command:
+To launch rnaseq for RNAseq using our [example params](https://github.com/qbic-pipelines/pipeline-docs/blob/master/docs/params/rnaseq.json) use the following command:
 
 ```bash
 nextflow run nf-core/rnaseq -r 1.4.2 -profile cfc -params-file rnaseq.json
