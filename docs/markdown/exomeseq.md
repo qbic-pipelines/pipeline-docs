@@ -85,7 +85,7 @@ nextflow run nf-core/sarek -r 2.7 \
 --genome 'GRCh38' \
 --input 'input.tsv' \
 --tools 'HaplotypeCaller,Strelka,mutect2,manta,ascat,controlFreec,VEP,snpEff' \
---targetBED `/path/to/targetBED`
+--target_bed `/path/to/targetBED`
 ```
 
 ### Important remarks for WES analysis
