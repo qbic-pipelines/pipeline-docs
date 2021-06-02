@@ -1,0 +1,5 @@
+{
+    "input": "/path/to/samplesheet.tsv",
+    "tools": "HaplotypeCaller,FreeBayes,Strelka2,Manta,snpEff,VEP",
+    "genome": "GRCh38"
+}

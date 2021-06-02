@@ -1,0 +1,4 @@
+{
+    "reads": "/path/to/*{R1,R1}.fastq.gz",
+    "genome": "GRCh38"
+}

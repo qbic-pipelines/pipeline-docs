@@ -8,13 +8,13 @@ To perform 16S amplicon sequencing analyses we employ the [nf-core/ampliseq](htt
 
 ### Quick start
 
-* Latest stable release `-r 1.1.0`
+* Latest stable release `-r 1.2.0`
 
 A typical command would look like this
 
 ```bash
-nextflow run nf-core/ampliseq -profile binac -r 1.1.0 \
---reads “data” \
+nextflow run nf-core/ampliseq -profile cfc -r 1.2.0 \
+--input “data” \
 --FW_primer "GTGYCAGCMGCCGCGGTAA" \
 --RV_primer "GGACTACNVGGGTWTCTAAT" \
 --metadata "metadata.tsv" \
@@ -22,13 +22,13 @@ nextflow run nf-core/ampliseq -profile binac -r 1.1.0 \
 --classifier_removeHash
 ```
 
-See [here](https://github.com/nf-core/ampliseq/blob/master/docs/usage.md#--multiplesequencingruns) the info on how to create the `metadata.tsv` file.
+See [here](https://nf-co.re/ampliseq/1.2.0/parameters#manifest) the info on how to create the `metadata.tsv` file.
 
-If data are distributed on multiple sequencing runs, please use `--multipleSequencingRuns` and note the different requirements for metadata file and folder structure in the [pipeline documentation](https://github.com/nf-core/ampliseq/blob/master/docs/usage.md#--multiplesequencingruns)
+If data are distributed on multiple sequencing runs, please use `--multipleSequencingRuns` and note the different requirements for metadata file and folder structure in the [pipeline documentation](https://nf-co.re/ampliseq/1.2.0/parameters#multiplesequencingruns)
 
 ### Known bugs
 
-* `1.0.0` & `1.1.0` have a known bug that is why the `--classifier_removeHash` param should be used for these versions.
+* All versions include a known bug that is why the `--classifier_removeHash` param should be used.
 
 ## Reporting
 
