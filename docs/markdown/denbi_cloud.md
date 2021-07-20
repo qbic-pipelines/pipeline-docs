@@ -74,7 +74,7 @@ In order to use an external cinder volume, you need to first create one on the O
 
 Running Nextflow pipelines on deNBI VMs is like running them locally on your computer. When launching a pipeline, make sure to define the maximum resources available at your instance, either with the appropriate parameters or with a custom config file:
 
-```
+```console
 params {
   max_memory = 512.GB
   max_cpus = 28
