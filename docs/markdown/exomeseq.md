@@ -85,7 +85,7 @@ nextflow run nf-core/sarek -r 2.7 \
 --genome 'GRCh38' \
 --input 'input.tsv' \
 --tools 'HaplotypeCaller,Strelka,mutect2,manta,ascat,controlFreec,VEP,snpEff' \
---targetBED `/path/to/targetBED`
+--target_bed `/path/to/targetBED`
 ```
 
 ### Important remarks for WES analysis
@@ -115,13 +115,13 @@ nextflow run nf-core/sarek -r 2.7 \
     ```txt
     /nfsmounts/igenomes/Mus_musculus/UCSC/mm10/Exome_BED/mm10_Agilent_SureSelect_Mouse_All_Exon_Kit_2016_01_21_sorted.bed
     ```
-
+  
   * Mouse `GRCm38` & `Agilent SureSelect Mouse`
 
     ```txt
     /nfsmounts/igenomes/Mus_musculus/Ensembl/GRCm38/Exome_BED/GRCm38_Agilent_SureSelect_Mouse_All_Exon_Kit_2016_01_21_sorted.bed
     ```
-
+  
 * Notes on Target BEDs: In general for WES data analysis people advise to use target regions that are padded (e.g. +- 150 bp), also the Sarek docs said that. But to be precise there are multiple aspects:
   * The mapping should be done on the whole reference to get information about multi reads mapping also outside of the exome (to discard)
   * Then reads mapping within the target exome regions should be kept, for this a padding should be added to prevent loosing reads at the boarders
@@ -129,6 +129,49 @@ nextflow run nf-core/sarek -r 2.7 \
   * and for the final variants it depends, if one want to be sure not to increase the number of FPs it would also make sense to use unpadded target regions. If the goal would be to get as many variants as possible, then of course one could use padded regions (which made quite a difference in the final numbers in my case)
   * Sarek actually maps reads against the whole reference, and then uses the targetBED file for the QC and to filter variants. So *simply hand over the unpadded target region*. This is usually provided by the Exon capture kit company.
 * BED file compatibility: if you have to use your own BED file, make sure the chromosome names are compatible between the reference and the targetBED file (e.g. UCSC “chr1” <-> Ensemble “1”). For human, if they differ and your analysis is done only on main chromosomes, then you could simply convert the names by adding “chr” to the chromosome names.
+
+## Running the pipeline with a non iGenomes genome
+
+If you wish to run Sarek with a genome not present in iGenomes, the command line will look similar to the following :
+
+```bash
+module purge
+module load devel/singularity/3.4.2
+nextflow run nf-core/sarek -r 2.7  \
+-resume \
+-profile cfc \
+--fasta '/sfs/7/workspace/ws/qealk01-QVBAP-0/reference/genome.fa' \
+--input 'samples.tsv' \
+--save_reference \
+--bwa false \
+--igenomes_ignore \
+--genome custom \
+--no_gatk_spark \
+--tools 'strelka,snpEff' \
+--snpeff_cache '/sfs/7/workspace/ws/qealk01-QVBAP-0/reference/cache/' \
+--annotation_cache true \
+--snpeff_db Solanum_lycopersicum
+```
+
+We here take _Solanum lycopersicum_ (tomato) as an example.
+The following parameters have to be added :
+
+* `--fasta path/to/genome.fa`. The assembly file should come from standardized reference genomes (i.e NCBI, ENSEMBL).
+* `--igenomes_ignore`,
+* `--genome custom`,
+* `--snpeff_cache`, with the path to the SnpEff cache file (see below for more explanations),
+* `--annotation_cache true`,
+* `--snpeff_db` with the name of the genome you downloaded through SnpEff (see below).
+
+### SnpEff cache
+
+To download the SnpEff cache on the cfc, you can run the following command :
+
+```bash
+java -jar /lustre_cfc/software/qbic/snpEff/snpEff.jar -download -v Solanum_lycopersicum -dataDir .
+```
+
+with `-v name_of_your_genome`. This will create the cache in your directory, which you will then specify in the sarek pipeline.
 
 ### Known issues
 
