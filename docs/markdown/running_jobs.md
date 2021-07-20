@@ -239,12 +239,11 @@ Take this bash script as example, which merges `*.fastq.gz` files starting with 
 
 ```bash
 #!/bin/bash
-set -eou pipefail
 # set the number of nodes and processes
 #SBATCH --nodes=1
 
 # set the number of tasks per node
-#SBATCH --ntasks-per-node=20
+#SBATCH --cpus-per-task=20
 
 # set memory per cpu
 #SBATCH --mem=60GB
@@ -255,11 +254,16 @@ set -eou pipefail
 # set name of job
 #SBATCH --job-name=merge_lane
 
+# set queue (partition)
+#SBATCH --partition=compute
+
 # mail alert at start, end and abortion of execution
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=<your.email@example.com>
 
 # your commands start here:
+set -eou pipefail
+
 file="codes.tsv"
 while IFS= read -r f1
 do
