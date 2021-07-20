@@ -2,7 +2,7 @@
 
 ## Access to a project
 
-Either request a project to [deNBI cloud](cloud.denbi.de) or ask someone at QBiC if they can create an instance for you in one of their projects.
+Either request a project to [deNBI cloud](https://cloud.denbi.de) or ask someone at QBiC if they can create an instance for you in one of their projects.
 
 ## Documentation
 
@@ -65,7 +65,19 @@ In order to use an external cinder volume, you need to first create one on the O
 
 ## Setting-up nextflow, singularity, docker
 
-* Installation instructions for [Java](https://phoenixnap.com/kb/install-java-on-centos) on CentOS
+* Installation instructions for [Java](https://phoenixnap.com/kb/install-java-on-centos) on CentOS. For Nextflow you will need Java jdk <= 11.
 * Instructions for installing Nextflow can be found [here](https://www.nextflow.io/docs/latest/getstarted.html)
 * On CentOS, singularity can be installed with the package manager `yum`. First install the [dependencies](https://sylabs.io/guides/3.0/user-guide/installation.html#before-you-begin) and then head straight to the [CentOS section](https://sylabs.io/guides/3.0/user-guide/installation.html#install-the-centos-rhel-package-using-yum)
 * For installing docker, please follow the [instructions](https://docs.docker.com/engine/install/centos/) and the [post-installation steps](https://docs.docker.com/engine/install/linux-postinstall/)
+
+## Running Nextflow pipelines on deNBI
+
+Running Nextflow pipelines on deNBI VMs is like running them locally on your computer. When launching a pipeline, make sure to define the maximum resources available at your instance, either with the appropriate parameters or with a custom config file:
+
+```console
+params {
+  max_memory = 512.GB
+  max_cpus = 28
+  max_time = 960.h
+}
+```
