@@ -165,7 +165,8 @@ The following parameters have to be added :
 
 ### SnpEff cache
 
-To download the SnpEff cache on the cfc, you can install the latest snpEff version with conda :
+To download the SnpEff cache on the cfc, you can install the latest snpEff version with conda.
+It is important to use the snpEff version that the Sarek release you want to use is using:
 
 ```bash
 conda create -n snpeff snpeff
