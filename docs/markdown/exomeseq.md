@@ -180,7 +180,7 @@ snpEff databases | less
 And download the required cache with `-v name_of_your_genome`. This will create the cache in your directory, which you will then specify in the sarek pipeline.
 
 ```bash
-snpEff download -v Solanum_lycopersicum -dataDir .
+snpEff download -v Solanum_lycopersicum -dataDir /absolute/path/to/datadir
 ```
 
 In case your species or bacterial strain is not listed here, please refer to the snpEff [documentation](http://pcingola.github.io/SnpEff/se_buildingdb/) on how to build the cache.
