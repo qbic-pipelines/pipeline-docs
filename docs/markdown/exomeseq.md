@@ -165,13 +165,26 @@ The following parameters have to be added :
 
 ### SnpEff cache
 
-To download the SnpEff cache on the cfc, you can run the following command :
+To download the SnpEff cache on the cfc, you can install the snpEff version, that is used in the sarek version you are running, with conda. Currently, for ```sarek 2.7.1```, snpEff version ```snpeff=4.3.1t=0``` is used. If you run an older sarek release, you can check the ```environment.yml``` on GitHub for the used snpeff version.
+It is important to use the snpEff version that the Sarek release you want to use is using:
 
 ```bash
-java -jar /lustre_cfc/software/qbic/snpEff/snpEff.jar -download -v Solanum_lycopersicum -dataDir .
+conda create -n snpeff snpeff=4.3.1t=0
 ```
 
-with `-v name_of_your_genome`. This will create the cache in your directory, which you will then specify in the sarek pipeline.
+Then search for your species / bacterial strain in the available databases:
+
+```bash
+snpEff databases | less
+```
+
+And download the required cache with `-v name_of_your_genome`. This will create the cache in your directory, which you will then specify in the sarek pipeline.
+
+```bash
+snpEff download -v Solanum_lycopersicum -dataDir /absolute/path/to/datadir
+```
+
+In case your species or bacterial strain is not listed here, please refer to the snpEff [documentation](http://pcingola.github.io/SnpEff/se_buildingdb/) on how to build the cache.
 
 ### Known issues
 
