@@ -59,7 +59,7 @@ Clusters and remotes
    :caption: Analysis pipelines
    :hidden:
 
-   markdown/pipeline_releases
+   markdown/pipelines/pipeline_releases
    markdown/pipelines/exomeseq
    markdown/pipelines/rnaseq
    markdown/pipelines/ampliseq
@@ -72,6 +72,7 @@ Clusters and remotes
    :caption: Clusters and remotes
    :hidden:
 
-   markdown/running_jobs
-   markdown/denbi_cloud
-   markdown/igenomes
+   markdown/clusters/running_jobs
+   markdown/clusters/denbi_cloud
+   markdown/clusters/tower
+   markdown/clusters/igenomes
