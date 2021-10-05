@@ -13,22 +13,26 @@ You can contribute or add changes to the documentation, by making a pull request
 
 .. _pipelines-docs: https://github.com/qbic-pipelines/pipeline-docs
 
-Additionally, this repository will collect example reports and analysis scripts 
-that are necessary for the different analysis types.
+Additionally, this repository will collect background information for the different analysis types.
 
 .. toctree::
    :maxdepth: 3
-   :caption: Contents:
+   :caption: Introduction
 
    markdown/running_jobs
-   markdown/denbi_cloud
    markdown/pipeline_releases
-   markdown/rnaseq
-   markdown/exomeseq
-   markdown/ampliseq
-   markdown/hlatyping
-   markdown/debugging
    markdown/igenomes
+   markdown/debugging
+
+   :caption: Pipelines
+   markdown/pipelines/rnaseq
+   markdown/pipelines/exomeseq
+   markdown/pipelines/ampliseq
+   markdown/pipelines/hlatyping
+
+   :caption: Clusters and remotes
+   markdown/denbi_cloud
+
 
 Indices and tables
 ==================
