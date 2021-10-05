@@ -15,25 +15,63 @@ You can contribute or add changes to the documentation, by making a pull request
 
 Additionally, this repository will collect background information for the different analysis types.
 
+Analysis types
+--------------
+
+:doc:`markdown/pipelines/pipeline_releases`
+   Pipeline releases that are currently used at QBiC.
+
+:doc:`markdown/pipelines/exomeseq`
+   WGS and WES sequencing
+
+:doc:`markdown/pipelines/rnaseq`
+   RNA sequencing
+
+:doc:`markdown/pipelines/ampliseq`
+   16S amplicon sequencing
+
+:doc:`markdown/pipelines/hlatyping`
+   HLA typing
+
+:doc:`markdown/pipelines/scrnaseq`
+   Single-cell RNA sequencing
+
+:doc:`markdown/debugging`
+   Debugging Nextflow pipeline errors
+
+
+Clusters and remotes
+--------------------
+
+:doc:`markdown/running_jobs`
+   Submitting jobs to the SLURM clusters
+
+:doc:`markdown/denbi_cloud`
+   Setting up instances on deNBI denbi_cloud
+
+:doc:`markdown/igenomes`
+   Updating igenomes resource on the cluster
+
+.. Hidden TOCs
+
 .. toctree::
    :maxdepth: 3
    :caption: Analysis pipelines
+   :hidden:
+
    markdown/pipeline_releases
-   markdown/pipelines/rnaseq
    markdown/pipelines/exomeseq
+   markdown/pipelines/rnaseq
    markdown/pipelines/ampliseq
    markdown/pipelines/hlatyping
+   markdown/pipelines/scrnaseq
+   markdown/pipelines/debugging
 
 .. toctree::
    :maxdepth: 3
    :caption: Clusters and remotes
-   markdown/denbi_cloud
+   :hidden:
+
    markdown/running_jobs
-
-.. toctree::
-   :maxdepth: 3
-   :caption: Miscellaneous
+   markdown/denbi_cloud
    markdown/igenomes
-   markdown/debugging
-
-
