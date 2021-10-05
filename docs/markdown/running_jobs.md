@@ -176,10 +176,10 @@ Here are some useful commands for the Slurm scheduler.
 
 ## Submitting custom jobs
 
-*Important note*: running scripts without containerizing them is never 100% reproducible, even when using conda environments.
+> *Important note*: running scripts without containerizing them is never 100% reproducible, even when using conda environments.
 It is ok for testing, but talk to your group leader about the possibilities of containerizing the analysis or adding your scripts to a pipeline.
 
-To run custom scripts (R or python or whatever you need) in the cluster, it is mandatory to use a dependency management system. This ensures at leaset some reproducibility for the resutls. You have two possibilities: use a clean conda environment and eexport it as an `environment.yml` file, or working on Rstudio and then using Rmaggedon.
+To run custom scripts (R or python or whatever you need) in the cluster, it is mandatory to use a dependency management system. This ensures at least some reproducibility for the results. You have two possibilities: use a clean conda environment and eexport it as an `environment.yml` file, or working on Rstudio and then using Rmaggedon.
 
 * *Using conda*: create a conda environment and install there all the necessary dependencies. Once you have them all, export the dependencies to a yml file containing the project code:
 
@@ -192,6 +192,8 @@ conda env export > QXXXX_environment.yml
 If you just run jobs directly on the cluster, they will run on the head node. This is not desired, as all users use the head node
 and it will make the general usage of the cluster slow.
 To run custom scripts you can either start an interactive session or submit a bash script with `sbatch`.
+
+> Exception: when submitting Nextflow pipelines, it is ok to submit them on the head node as Nextflow will directly talk to the `slurm` scheduler and distribute the pipeline jobs on the other nodes. Please check the section [Submitting Nextflow pipelines](#submitting-nextflow-pipelines) on how to submit Nextflow pipelines to the cluster queue.
 
 ### Starting an interactive session
 

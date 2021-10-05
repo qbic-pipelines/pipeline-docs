@@ -8,12 +8,12 @@ To perform 16S amplicon sequencing analyses we employ the [nf-core/ampliseq](htt
 
 ### Quick start
 
-* Latest stable release `-r 1.2.0`
+* Latest stable release `-r 2.1.0`
 
 A typical command would look like this
 
 ```bash
-nextflow run nf-core/ampliseq -profile cfc -r 1.2.0 \
+nextflow run nf-core/ampliseq -profile cfc -r 2.1.0 \
 --input “data” \
 --FW_primer "GTGYCAGCMGCCGCGGTAA" \
 --RV_primer "GGACTACNVGGGTWTCTAAT" \
