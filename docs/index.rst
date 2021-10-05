@@ -17,26 +17,23 @@ Additionally, this repository will collect background information for the differ
 
 .. toctree::
    :maxdepth: 3
-   :caption: Introduction
-
-   markdown/running_jobs
+   :caption: Analysis pipelines
    markdown/pipeline_releases
-   markdown/igenomes
-   markdown/debugging
-
-   :caption: Pipelines
    markdown/pipelines/rnaseq
    markdown/pipelines/exomeseq
    markdown/pipelines/ampliseq
    markdown/pipelines/hlatyping
 
+.. toctree::
+   :maxdepth: 3
    :caption: Clusters and remotes
    markdown/denbi_cloud
+   markdown/running_jobs
+
+.. toctree::
+   :maxdepth: 3
+   :caption: Miscellaneous
+   markdown/igenomes
+   markdown/debugging
 
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
