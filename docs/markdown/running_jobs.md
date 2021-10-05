@@ -1,5 +1,5 @@
 
-# Submitting jobs to the cluster
+# Submitting jobs to the SLURM cluster
 
 These are general statements on how to submit jobs to our clusters.
 
