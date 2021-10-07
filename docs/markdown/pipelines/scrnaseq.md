@@ -10,3 +10,5 @@ For a comprehensive understanding of scRNAseq data processing, check out these c
 ## Pipeline
 
 Info about pipeline
+
+## Downstream analysis methods
