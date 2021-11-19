@@ -1,6 +1,6 @@
 # 16S amplicon sequencing
 
-This is how to perform 16S amplicon analyses.
+This is how to perform 16S amplicon analyses. A video explanation of the biology, the bioinformatics problem and the analysis pipeline can be found for version 2.1.0 in the [nf-core bytesize talk 25](https://nf-co.re/events/2021/bytesize-25-nf-core-ampliseq).
 
 ## Ampliseq pipeline
 
