@@ -15,9 +15,13 @@ The documentation on how to create instances and other important things is colle
 ## Creating an instance
 
 1. Log into `cloud.denbi.de`, select your project, and log into the OpenStack web interface by clicking the green button `Log into Openstack`.
+
     ![Login openstack](./denbi_cloud_images/login_openstack.png)
+
 2. You should then see the project overview board. This overview shows how many instances, and total CPUs, memory (GB), and Storage (GB) is still available for this project. If this is not enough for your needs, you can ask for access to another project or create a new project.
+
     ![Openstack project overview](./denbi_cloud_images/project_overview_board.png)
+
 3. To create a new instance, go to the left menu: Compute -> Instances -> Launch Instance button. This will prompt a step by step guide:
     * Details: add an Instance Name
     * Source: select either "Image" for a generic image e.g. CentOS operating system, or "Instance Snapshot" for creating an Instance from a previous snapshot. For running `Nextflow` workflows, you can use the Instance Snapshot `nextflow-singularity` which already has `java-jdk12`, `Nextflow`, `Singularity` and `Docker` installed (check if Nextflow should be updated with `nextflow self-update`).
