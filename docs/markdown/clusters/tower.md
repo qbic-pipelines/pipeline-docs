@@ -10,7 +10,8 @@ tower {
   enabled = true
 }
 ```
-Your access token can be created on [this page](http://cfgateway1.zdv.uni-tuebingen.de/tokens). 
+
+Your access token can be created on [this page](http://cfgateway1.zdv.uni-tuebingen.de/tokens).
 
 The workspace ID can be found on the organisation's Workspaces overview page. [Here](http://cfgateway1.zdv.uni-tuebingen.de/orgs/QBiC/workspaces) you can find QBiC's workspaces:
 
@@ -21,6 +22,7 @@ To submit a pipeline to a different Workspace using the Nextflow command line to
 ```console
 export TOWER_WORKSPACE_ID=000000000000000
 ```
+
 If you are outside of the University, access to the tower is only possible via VPN. When you started your run, you can now track its progress [here](http://cfgateway1.zdv.uni-tuebingen.de) after selecting your workspace and your run. Here is an example of what it looks like:
 
 ![example run](../../images/tower_run.png)
