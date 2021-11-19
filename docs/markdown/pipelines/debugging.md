@@ -131,9 +131,7 @@ This error occurs because the `scratch` space on the nodes for staging files the
 
   ```bash
   process {
-    withName:MarkDuplicates {
-    scratch = '/sfs/7/workspace/ws/my-ws-name/tmp'
-    }
+    scratch = false
   }
   ```
 
