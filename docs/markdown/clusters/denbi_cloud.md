@@ -30,9 +30,11 @@ The documentation on how to create instances and other important things is colle
     * Network Ports: leave empty.
     * Security Groups: add `default` AND `external_access`.
     * Key Pair: add a new key pair or select yours. Only one Key Pair is allowed per instance and if you lose the private key you will not be able to access the instance any more! If you choose to create a new keypair, make sure to copy the private key that is displayed to your computer, and store it under the `~/.ssh/` directory. You will also need to adapt the rights of this file so that only you (the computer main user) can read this file. You can do that in the command line by:
+
         ```bash
         chmod 600 <your_private_ssh_key>
         ```
+
     * Rest of fields: leave default.
     * Press on `create instance`
 
