@@ -228,7 +228,7 @@ You should see your job listed when running `squeue`.
 
 ### Submitting a bash script with `sbatch`
 
-Please mind the above-mentioned instructions for Nextflow pipelines. If you have a batch script, you can submit it to the cluster with the `sbatch` command.
+Please mind the [above-mentioned instructions](#submitting-nextflow-pipelines) for submitting Nextflow pipelines. If you have a batch script that is not a Nextflow pipeline run, you can submit it to the cluster with the `sbatch` command.
 
 ```bash
 sbatch <your_script.sh>
