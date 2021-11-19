@@ -34,19 +34,19 @@ If you want to test the pipelines in your system, you can use `-profile test,doc
 To run pipeline tests use the following command:
 
 ```bash
-nextflow run nf-core/sarek -r 2.7 -profile test,cfc
+nextflow run nf-core/sarek -r 2.7.1 -profile test,cfc
 ```
 
 To launch sarek for germline WGS using the [example params](https://github.com/qbic-pipelines/pipeline-docs/blob/master/docs/params/sarek_WGS_germline.json) use the following command:
 
 ```bash
-nextflow run nf-core/sarek -r 2.7 -profile cfc -params-file sarek_WGS_germline.json
+nextflow run nf-core/sarek -r 2.7.1 -profile cfc -params-file sarek_WGS_germline.json
 ```
 
 To launch sarek for somatic WES / WXS using the [example params](https://github.com/qbic-pipelines/pipeline-docs/blob/master/docs/params/sarek_WXS_somatic.json) use the following command:
 
 ```bash
-nextflow run nf-core/sarek -r 2.7 -profile cfc -params-file sarek_WXS_somatic.json
+nextflow run nf-core/sarek -r 2.7.1 -profile cfc -params-file sarek_WXS_somatic.json
 ```
 
 ### RNAseq analysis
