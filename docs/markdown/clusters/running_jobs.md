@@ -28,8 +28,7 @@ If you submit via an interactive job, strange errors can occur, e.g. the cache d
 
 ### Dependencies
 
-To run Nextflow pipelines in our clusters, you will need Nextflow, java and singularity installed.
-Luckily, our sysadmin made a module for singularity and java in our clusters already, so you will just need to load these modules.
+To run Nextflow pipelines in our clusters, you will need Nextflow, java and singularity installed. Java and singularity are already installed in all cluster nodes so these do not need to be installed. You also do not need to load these modules.
 
 You will still have to install Nextflow for your user, that's very simple and described in the next section.
 
@@ -63,16 +62,6 @@ If not, set it by running:
 
 ```bash
 NXF_VER=19.10.0
-```
-
-### Loading singularity modules
-
-We currently load Singularity as a module on both BinAC and CFC to make sure that all paths are set accordingly, and the required configuration parameters tailored for the respective system are loaded. Please do use *only* these Singularity versions and *NOT* any other (custom) singularity version out there.
-These singularity modules will already load the required java module
-so you don't need to take care of that.
-
-```bash
-module load devel/singularity/3.4.2
 ```
 
 ### Pipeline profiles
