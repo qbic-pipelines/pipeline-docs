@@ -7,7 +7,6 @@ These are general statements on how to submit jobs to our clusters.
   * [Dependencies](#dependencies)
     * [Install Nextflow](#install-nextflow)
     * [Nextflow version](#nextflow-version)
-  * [Loading singularity modules](#loading-singularity-modules)
   * [Pipeline profiles](#pipeline-profiles)
   * [Example bash file](#example-bash-file)
 * [Screen sessions](#screen-sessions)
@@ -110,7 +109,6 @@ Here is an example bash file:
 ```bash
 #!/bin/bash
 module purge
-module load devel/singularity/3.4.2
 nextflow run nf-core/sarek -r 2.6.2 -profile cfc,test
 ```
 
