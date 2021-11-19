@@ -1,5 +1,7 @@
 # QBiC Pipelines
 
+[![Documentation Status](https://readthedocs.org/projects/pipeline-docs/badge/?version=latest)](https://pipeline-docs.readthedocs.io/en/latest/?badge=latest)
+
 This repository contains the documentation necessary to run different types of analysis in our clusters at QBIC.
 
 ## Contributing to the documentation

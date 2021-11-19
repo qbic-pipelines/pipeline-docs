@@ -13,25 +13,66 @@ You can contribute or add changes to the documentation, by making a pull request
 
 .. _pipelines-docs: https://github.com/qbic-pipelines/pipeline-docs
 
-Additionally, this repository will collect example reports and analysis scripts 
-that are necessary for the different analysis types.
+Additionally, this repository will collect background information for the different analysis types.
+
+Analysis types
+--------------
+
+:doc:`markdown/pipelines/pipeline_releases`
+   Pipeline releases that are currently used at QBiC.
+
+:doc:`markdown/pipelines/exomeseq`
+   WGS and WES sequencing
+
+:doc:`markdown/pipelines/rnaseq`
+   RNA sequencing
+
+:doc:`markdown/pipelines/ampliseq`
+   16S amplicon sequencing
+
+:doc:`markdown/pipelines/hlatyping`
+   HLA typing
+
+:doc:`markdown/pipelines/scrnaseq`
+   Single-cell RNA sequencing
+
+:doc:`markdown/debugging`
+   Debugging Nextflow pipeline errors
+
+
+Clusters and remotes
+--------------------
+
+:doc:`markdown/running_jobs`
+   Submitting jobs to the SLURM clusters
+
+:doc:`markdown/denbi_cloud`
+   Setting up instances on deNBI denbi_cloud
+
+:doc:`markdown/igenomes`
+   Updating igenomes resource on the cluster
+
+.. Hidden TOCs
 
 .. toctree::
    :maxdepth: 3
-   :caption: Contents:
+   :caption: Analysis pipelines
+   :hidden:
 
-   markdown/running_jobs
-   markdown/denbi_cloud
-   markdown/rnaseq
-   markdown/exomeseq
-   markdown/ampliseq
-   markdown/hlatyping
-   markdown/debugging
-   markdown/igenomes
+   markdown/pipelines/pipeline_releases
+   markdown/pipelines/exomeseq
+   markdown/pipelines/rnaseq
+   markdown/pipelines/ampliseq
+   markdown/pipelines/hlatyping
+   markdown/pipelines/scrnaseq
+   markdown/pipelines/debugging
 
-Indices and tables
-==================
+.. toctree::
+   :maxdepth: 3
+   :caption: Clusters and remotes
+   :hidden:
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   markdown/clusters/running_jobs
+   markdown/clusters/denbi_cloud
+   markdown/clusters/tower
+   markdown/clusters/igenomes

@@ -1,0 +1,6 @@
+{
+    "input": "/path/to/samplesheet.tsv",
+    "tools": "Mutect2,FreeBayes,Strelka2,Manta,ASCAT,ControlFREEC,snpEff,VEP",
+    "genome": "GRCh38",
+    "target_bed": "/path/to/bed_file.bed"
+}
