@@ -197,7 +197,7 @@ srun -N 1 --ntasks-per-node=8 --mem=16G --time=12000 --pty bash
 
 Change the resources as needed:
 
-* N are the number of nodes
+* `-N` are the number of nodes
 * `--ntasks-per-node` are the number of cpus
 * `--mem` is the memory required
 * `--time` is the time required in seconds
