@@ -13,7 +13,7 @@ To contribute to the documentation, please fork your repository and make a pull 
 To check locally how the documentation is building, you need to install the `sphinx`, `recommonmark`, `sphinx-rtd-theme` and `httpserver` dependencies. It requires Python 3!
 
 ```bash
-pip install sphinx recommonmark httpserver sphinx-rtd-theme
+pip install sphinx recommonmark httpserver sphinx-rtd-theme sphinx-markdown-tables
 ```
 
 Then clone this repository from GitHub:
