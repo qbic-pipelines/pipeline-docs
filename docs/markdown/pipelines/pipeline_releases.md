@@ -23,3 +23,4 @@ These versions will be revised periodically and tested in our infrastructure bef
 | Bacterial assembly    | [nf-core/bacass](https://nf-co.re/bacass/2.0.0)                               |    2.0.0    |
 | RNA fusion            | [nf-core/rnafusion](https://nf-co.re/rnafusion/1.2.0)                         |    1.2.0    |
 | scRNAseq cellranger   | [qbic-pipelines/cellranger](https://github.com/qbic-pipelines/cellranger)     |    1.0.1    |
+| BAM/CRAM to Fastq     | [qbic-pipelines/bamtofastq](https://github.com/qbic-pipelines/bamtofastq)     |    1.2.0    |
