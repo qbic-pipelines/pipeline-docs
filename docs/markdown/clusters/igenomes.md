@@ -5,9 +5,9 @@ The RDDS team leader and sys admin will take care of it so if you are missing so
 
 Steps:
 
-* You will need AWS credentials.
-* Install miniconda and the `aws cli` within miniconda in the `cfc` cluster.
-* Configure the AWS cli:
+- You will need AWS credentials.
+- Install miniconda and the `aws cli` within miniconda in the `cfc` cluster.
+- Configure the AWS cli:
 
   ```bash
   ~/miniconda/bin/aws configure
@@ -15,13 +15,13 @@ Steps:
 
   Provide your AWS key ID and secret.
 
-* Right now we have `10TB` of space for the `igenomes` folder, so please check the size of teh bucket prior to syncing:
+- Right now we have `10TB` of space for the `igenomes` folder, so please check the size of teh bucket prior to syncing:
 
   ```bash
   ~/miniconda/bin/aws s3 ls --summarize --human-readable --recursive s3://ngi-igenomes/igenomes/ | grep 'Total Size'
   ```
 
-* Run the syncing:
+- Run the syncing:
 
   ```bash
   cd /nfsmounts/igenomes
