@@ -176,7 +176,7 @@ Then search for your species / bacterial strain in the available databases:
 
 ```bash
 snpEff databases | less
-#or 
+#or
 snpEff databases | grep "Solanum"
 ```
 
