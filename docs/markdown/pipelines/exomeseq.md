@@ -166,12 +166,18 @@ It is important to use the snpEff version that the Sarek release you want to use
 
 ```bash
 conda create -n snpeff snpeff=4.3.1t=0
+#or when channels are not set-up to contain e.g. bioconda
+conda create -n snpeff -c bioconda snpeff=4.3.1t=0
+#activate the environment
+conda activate snpeff
 ```
 
 Then search for your species / bacterial strain in the available databases:
 
 ```bash
 snpEff databases | less
+#or 
+snpEff databases | grep "Solanum"
 ```
 
 And download the required cache with `-v name_of_your_genome`. This will create the cache in your directory, which you will then specify in the sarek pipeline.
