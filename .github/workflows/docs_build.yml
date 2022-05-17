@@ -1,20 +1,18 @@
 name: "Check docs"
-on: 
+on:
 - pull_request
 - push
 
 jobs:
-  Markdown:
+  Prettier:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
-        with:
-          node-version: '10'
-      - name: Install markdownlint
-        run: npm install -g markdownlint-cli
-      - name: Run Markdownlint
-        run: markdownlint ${GITHUB_WORKSPACE} -c ${GITHUB_WORKSPACE}/.github/markdownlint.yml
+      - name: Install prettier
+        run: npm install -g prettier
+      - name: Run Prettier
+        run: prettier --check ${GITHUB_WORKSPACE}
   docs:
     runs-on: ubuntu-latest
     steps:
