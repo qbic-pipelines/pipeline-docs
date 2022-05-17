@@ -7,7 +7,6 @@ These are general statements on how to submit jobs to our clusters.
   * [Dependencies](#dependencies)
     * [Install Nextflow](#install-nextflow)
     * [Nextflow version](#nextflow-version)
-  * [Loading singularity modules](#loading-singularity-modules)
   * [Pipeline profiles](#pipeline-profiles)
   * [Example bash file](#example-bash-file)
 * [Screen sessions](#screen-sessions)
@@ -24,12 +23,11 @@ of the functionality might not be available, for example the `cfc` and `binac` p
 
 Please start all your nextflow jobs from the head node.
 Nextflow interacts directly with the Slurm scheduler and will take care of submitting individual jobs to the nodes.
-If you submit via an interactive job, weird errors can occur, e.g. the cache directory for the containers is mounted read only on the compute nodes, so you can't pull new containers from a node.
+If you submit via an interactive job, strange errors can occur, e.g. the cache directory for the containers is mounted read-only on the compute nodes, so you can't pull new containers from a node.
 
 ### Dependencies
 
-To run Nextflow pipelines in our clusters, you will need Nextflow, java and singularity installed.
-Luckily, our sysadmin made a module for singularity and java in our clusters already, so you will just need to load these modules.
+To run Nextflow pipelines in our clusters, you will need Nextflow, java and singularity installed. Java and singularity are already installed in all cluster nodes so these do not need to be installed. You also do not need to load these modules.
 
 You will still have to install Nextflow for your user, that's very simple and described in the next section.
 
@@ -41,7 +39,7 @@ You will still have to install Nextflow for your user, that's very simple and de
     wget -qO- get.nextflow.io | bash
     ```
 
-* Optionally, move the nextflow file in a directory accessible by your `$PATH` variable (this is only required to avoid to remember and type the Nextflow full path each time you need to run it).
+* Optionally, move the nextflow file in a directory accessible by your `$PATH` variable (required only to avoid remembering and typing the Nextflow full path each time you need to run it).
 
 For more information, visit the [Nextflow documentation](https://www.nextflow.io/docs/latest/en/latest/getstarted.html).
 
@@ -63,17 +61,6 @@ If not, set it by running:
 
 ```bash
 NXF_VER=19.10.0
-```
-
-### Loading singularity modules
-
-We currently load Singularity as a module on both BinAC and CFC to make sure that all paths are set accordingly and load required configuration parameters tailored for the respective system.
-Please do use *only* these Singularity versions and *NOT* any other (custom) singularity versions out there.
-These singularity modules will already load the required java module
-so you don't need to take care of that.
-
-```bash
-module load devel/singularity/3.4.2
 ```
 
 ### Pipeline profiles
@@ -105,7 +92,7 @@ nextflow run custom/pipeline -c custom.config
 Please use the [binac profile](https://github.com/nf-core/configs/blob/master/conf/binac.config) by adding `-profile binac` to run your analyses. For example:
 
 ```bash
-nextflow run nf-core/rnaseq -r 1.4.2 -profile cfc_dev
+nextflow run nf-core/rnaseq -r 1.4.2 -profile binac
 ```
 
 For Nextflow pipelines not part of nf-core and not created with the nf-core create command, these profiles will not be available.
@@ -122,7 +109,6 @@ Here is an example bash file:
 ```bash
 #!/bin/bash
 module purge
-module load devel/singularity/3.4.2
 nextflow run nf-core/sarek -r 2.6.2 -profile cfc,test
 ```
 
@@ -177,9 +163,9 @@ Here are some useful commands for the Slurm scheduler.
 ## Submitting custom jobs
 
 > *Important note*: running scripts without containerizing them is never 100% reproducible, even when using conda environments.
-It is ok for testing, but talk to your group leader about the possibilities of containerizing the analysis or adding your scripts to a pipeline.
+It is ok to test pipelines, but talk to your group leader about the possibilities of containerizing the analysis or adding your scripts to a pipeline.
 
-To run custom scripts (R or python or whatever you need) in the cluster, it is mandatory to use a dependency management system. This ensures at least some reproducibility for the results. You have two possibilities: use a clean conda environment and eexport it as an `environment.yml` file, or working on Rstudio and then using Rmaggedon.
+To run custom scripts (R or Python, or any other tool needed) in the cluster, it is mandatory to use a dependency management system. This ensures at least some reproducibility for the results. You have two possibilities: (1) use a clean conda environment and export it as an `environment.yml` file, or (2) working in Rstudio and then using Rmaggedon.
 
 * *Using conda*: create a conda environment and install there all the necessary dependencies. Once you have them all, export the dependencies to a yml file containing the project code:
 
@@ -211,7 +197,7 @@ srun -N 1 --ntasks-per-node=8 --mem=16G --time=12000 --pty bash
 
 Change the resources as needed:
 
-* N are the number of nodes
+* `-N` are the number of nodes
 * `--ntasks-per-node` are the number of cpus
 * `--mem` is the memory required
 * `--time` is the time required in seconds
@@ -229,7 +215,7 @@ You should see your job listed when running `squeue`.
 
 ### Submitting a bash script with `sbatch`
 
-If you have a batch script, you can submit it to the cluster with the `sbatch` command.
+Please mind the [above-mentioned instructions](#submitting-nextflow-pipelines) for submitting Nextflow pipelines. If you have a batch script that is not a Nextflow pipeline run, you can submit it to the cluster with the `sbatch` command.
 
 ```bash
 sbatch <your_script.sh>

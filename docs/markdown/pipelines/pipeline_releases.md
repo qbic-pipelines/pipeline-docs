@@ -19,7 +19,7 @@ These versions will be revised periodically and tested in our infrastructure bef
 | MHC immunopeptidomics | [nf-core/mhcquant](https://nf-co.re/mhcquant/2.3.1)                       |    2.3.1    |
 | ATACseq               | [nf-core/atacseq](https://nf-co.re/atacseq/1.2.2)                         |    1.2.2    |
 | Chipseq               | [nf-core/chipseq](https://nf-co.re/chipseq/1.2.2)                         |    1.2.2    |
-| Epitope prediction    | [nf-core/epitopeprediction](https://nf-co.re/epitopeprediction/2.0.0)     |    1.1.0    |
+| Epitope prediction    | [nf-core/epitopeprediction](https://nf-co.re/epitopeprediction/2.0.0)     |    2.0.0    |
 | Bacterial assembly    | [nf-core/bacass](https://nf-co.re/bacass/2.0.0)                           |    2.0.0    |
 | RNA fusion            | [nf-core/rnafusion](https://nf-co.re/rnafusion/1.2.0)                     |    1.2.0    |
 | scRNAseq cellranger   | [qbic-pipelines/cellranger](https://github.com/qbic-pipelines/cellranger) |    1.0.1    |
