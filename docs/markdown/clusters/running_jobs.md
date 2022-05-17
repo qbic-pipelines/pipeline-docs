@@ -101,13 +101,10 @@ from the [nf-core configs](https://github.com/nf-core/configs) repository and pr
 ### Example bash file
 
 It is a good practice to keep the commands used to run a pipeline in a bash file.
-Keep also the modules loaded in this bash file so that you can know which singularity version was
-used for the analysis.
 Here is an example bash file:
 
 ```bash
 #!/bin/bash
-module purge
 nextflow run nf-core/sarek -r 2.6.2 -profile cfc,test
 ```
 

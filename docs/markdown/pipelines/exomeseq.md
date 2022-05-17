@@ -76,8 +76,6 @@ Please use these parameters to run your WES analysis with sarek:
 
 ```bash
 #!/bin/bash
-module purge
-module load devel/singularity/3.4.2
 nextflow run nf-core/sarek -r 2.7 \
 -profile cfc \
 --genome 'GRCh38' \
