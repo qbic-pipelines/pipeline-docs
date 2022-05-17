@@ -8,7 +8,7 @@ To perform 16S amplicon sequencing analyses we employ the [nf-core/ampliseq](htt
 
 ### Quick start
 
-* Latest stable release `-r 2.1.1`
+- Latest stable release `-r 2.1.1`
 
 A typical command would look like this
 

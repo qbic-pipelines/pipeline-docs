@@ -36,9 +36,6 @@ Analysis types
 :doc:`markdown/pipelines/scrnaseq`
    Single-cell RNA sequencing
 
-:doc:`markdown/debugging`
-   Debugging Nextflow pipeline errors
-
 
 Clusters and remotes
 --------------------
@@ -65,7 +62,6 @@ Clusters and remotes
    markdown/pipelines/ampliseq
    markdown/pipelines/hlatyping
    markdown/pipelines/scrnaseq
-   markdown/pipelines/debugging
 
 .. toctree::
    :maxdepth: 3

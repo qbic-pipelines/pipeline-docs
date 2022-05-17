@@ -1,19 +1,18 @@
-
 # Submitting jobs to the SLURM cluster
 
 These are general statements on how to submit jobs to our clusters.
 
-* [Submitting Nextflow pipelines](#submitting-nextflow-pipelines)
-  * [Dependencies](#dependencies)
-    * [Install Nextflow](#install-nextflow)
-    * [Nextflow version](#nextflow-version)
-  * [Pipeline profiles](#pipeline-profiles)
-  * [Example bash file](#example-bash-file)
-* [Screen sessions](#screen-sessions)
-* [Useful scheduler commands](#useful-scheduler-commands)
-* [Submitting custom jobs](#submitting-custom-jobs)
-  * [Starting an interactive session](#starting-an-interactive-session)
-  * [Submitting a bash script with `sbatch`](#submitting-a-bash-script-with-sbatch)
+- [Submitting Nextflow pipelines](#submitting-nextflow-pipelines)
+  - [Dependencies](#dependencies)
+    - [Install Nextflow](#install-nextflow)
+    - [Nextflow version](#nextflow-version)
+  - [Pipeline profiles](#pipeline-profiles)
+  - [Example bash file](#example-bash-file)
+- [Screen sessions](#screen-sessions)
+- [Useful scheduler commands](#useful-scheduler-commands)
+- [Submitting custom jobs](#submitting-custom-jobs)
+  - [Starting an interactive session](#starting-an-interactive-session)
+  - [Submitting a bash script with `sbatch`](#submitting-a-bash-script-with-sbatch)
 
 ## Submitting Nextflow pipelines
 
@@ -33,13 +32,13 @@ You will still have to install Nextflow for your user, that's very simple and de
 
 #### Install Nextflow
 
-* Download the executable package by copying and pasting the following command in your terminal window:
+- Download the executable package by copying and pasting the following command in your terminal window:
 
-    ```bash
-    wget -qO- get.nextflow.io | bash
-    ```
+  ```bash
+  wget -qO- get.nextflow.io | bash
+  ```
 
-* Optionally, move the nextflow file in a directory accessible by your `$PATH` variable (required only to avoid remembering and typing the Nextflow full path each time you need to run it).
+- Optionally, move the nextflow file in a directory accessible by your `$PATH` variable (required only to avoid remembering and typing the Nextflow full path each time you need to run it).
 
 For more information, visit the [Nextflow documentation](https://www.nextflow.io/docs/latest/en/latest/getstarted.html).
 
@@ -118,62 +117,62 @@ So your jobs can continue running once you log out of the cluster, you should us
 One of these tools is [screen](https://www.linode.com/docs/networking/ssh/using-gnu-screen-to-manage-persistent-terminal-sessions/).
 Some basic screen commands are:
 
-* starting a screen session:
+- starting a screen session:
 
-    ```bash
-    screen -S <session_name>
-    ```
+  ```bash
+  screen -S <session_name>
+  ```
 
-* To detach from a screen session, use `ctrl + alt + d`
+- To detach from a screen session, use `ctrl + alt + d`
 
-* List existing screen sessions:
+- List existing screen sessions:
 
-    ```bash
-    screen -ls
-    ```
+  ```bash
+  screen -ls
+  ```
 
-* attaching to an existing screen session:
+- attaching to an existing screen session:
 
-    ```bash
-    screen -x <session_name or ID>
-    ```
+  ```bash
+  screen -x <session_name or ID>
+  ```
 
-* exiting a screen session:
+- exiting a screen session:
 
-    ```bash
-    exit
-    ```
+  ```bash
+  exit
+  ```
 
 ## Useful scheduler commands
 
 Here are some useful commands for the Slurm scheduler.
 
-* Checking the job queue:
+- Checking the job queue:
 
-    ```bash
-    squeue
-    ```
+  ```bash
+  squeue
+  ```
 
-* Checking the node status:
+- Checking the node status:
 
-    ```bash
-    sinfo
-    ```
+  ```bash
+  sinfo
+  ```
 
 ## Submitting custom jobs
 
-> *Important note*: running scripts without containerizing them is never 100% reproducible, even when using conda environments.
-It is ok to test pipelines, but talk to your group leader about the possibilities of containerizing the analysis or adding your scripts to a pipeline.
+> _Important note_: running scripts without containerizing them is never 100% reproducible, even when using conda environments.
+> It is ok to test pipelines, but talk to your group leader about the possibilities of containerizing the analysis or adding your scripts to a pipeline.
 
 To run custom scripts (R or Python, or any other tool needed) in the cluster, it is mandatory to use a dependency management system. This ensures at least some reproducibility for the results. You have two possibilities: (1) use a clean conda environment and export it as an `environment.yml` file, or (2) working in Rstudio and then using Rmaggedon.
 
-* *Using conda*: create a conda environment and install there all the necessary dependencies. Once you have them all, export the dependencies to a yml file containing the project code:
+- _Using conda_: create a conda environment and install there all the necessary dependencies. Once you have them all, export the dependencies to a yml file containing the project code:
 
 ```bash
 conda env export > QXXXX_environment.yml
 ```
 
-* *Using Rmageddon*: work on your project on Rstudio and then use the r-lint / Rmageddon tool. Check out the [Rmageddon SOP](https://docs.google.com/document/d/1tGMNpABCICa40573x9lrpdN8zs2gYq5iTkPvYJKbq-8/edit?usp=sharing) on how to do this.
+- _Using Rmageddon_: work on your project on Rstudio and then use the r-lint / Rmageddon tool. Check out the [Rmageddon SOP](https://docs.google.com/document/d/1tGMNpABCICa40573x9lrpdN8zs2gYq5iTkPvYJKbq-8/edit?usp=sharing) on how to do this.
 
 If you just run jobs directly on the cluster, they will run on the head node. This is not desired, as all users use the head node
 and it will make the general usage of the cluster slow.
@@ -197,10 +196,10 @@ srun -N 1 --ntasks-per-node=8 --mem=16G --time=12000 --pty bash
 
 Change the resources as needed:
 
-* `-N` are the number of nodes
-* `--ntasks-per-node` are the number of cpus
-* `--mem` is the memory required
-* `--time` is the time required in seconds
+- `-N` are the number of nodes
+- `--ntasks-per-node` are the number of cpus
+- `--mem` is the memory required
+- `--time` is the time required in seconds
 
 The scheduler will then prompt:
 
