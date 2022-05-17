@@ -8,12 +8,12 @@ To perform 16S amplicon sequencing analyses we employ the [nf-core/ampliseq](htt
 
 ### Quick start
 
-* Latest stable release `-r 2.1.0`
+- Latest stable release `-r 2.1.1`
 
 A typical command would look like this
 
 ```bash
-nextflow run nf-core/ampliseq -profile cfc -r 2.1.0 \
+nextflow run nf-core/ampliseq -profile cfc -r 2.1.1 \
 --input “data” \
 --FW_primer "GTGYCAGCMGCCGCGGTAA" \
 --RV_primer "GGACTACNVGGGTWTCTAAT" \
@@ -28,7 +28,7 @@ If data are distributed on multiple sequencing runs, please use `--multipleSeque
 
 ### Known bugs
 
-* All versions include a known bug that is why the `--classifier_removeHash` param should be used.
+- All versions include a known bug that is why the `--classifier_removeHash` param should be used.
 
 ## Reporting
 

@@ -10,8 +10,6 @@ Example command (change `cfc` for `binac` on binac cluster):
 
 ```bash
 #!/usr/bin/bash
-module purge
-module load devel/singularity/3.4.2
 nextflow run nf-core/rnaseq -r 1.4.2 -profile cfc \
 --reads "Data/*{R1,R2}.fastq.gz" \
 --genome 'GRCh37'
@@ -21,7 +19,7 @@ Normally, using all default values should be fine.
 
 ### Known issues
 
-* There is an incompatibility problem between `GRCh38` and the default `GTF` file, so running with `GRCh37` is still preferred.
+- There is an incompatibility problem between `GRCh38` and the default `GTF` file, so running with `GRCh37` is still preferred.
 
 ## Differential expression analysis
 
@@ -33,8 +31,6 @@ Example command (change `cfc` for `binac` on binac cluster):
 
 ```bash
 #!/usr/bin/bash
-module purge
-module load devel/singularity/3.4.2
 nextflow run qbicsoftware/rnadeseq -r 1.3.2 -profile docker \
 --rawcounts 'merged_gene_counts.txt' \
 --metadata 'QXXXX_sample_preparations.tsv' \
@@ -50,7 +46,7 @@ nextflow run qbicsoftware/rnadeseq -r 1.3.2 -profile docker \
 
 ### Known issues
 
-* No known issues
+- No known issues
 
 ## Reporting
 
