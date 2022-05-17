@@ -1,28 +1,26 @@
 name: "Check docs"
-on: 
-- pull_request
-- push
+on:
+  - pull_request
+  - push
 
 jobs:
-  Markdown:
+  Prettier:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
-        with:
-          node-version: '10'
-      - name: Install markdownlint
-        run: npm install -g markdownlint-cli
-      - name: Run Markdownlint
-        run: markdownlint ${GITHUB_WORKSPACE} -c ${GITHUB_WORKSPACE}/.github/markdownlint.yml
+      - name: Install prettier
+        run: npm install -g prettier
+      - name: Run Prettier
+        run: prettier --check ${GITHUB_WORKSPACE}
   docs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-python@v1
         with:
-          python-version: '3.6'
-          architecture: 'x64'
+          python-version: "3.6"
+          architecture: "x64"
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
