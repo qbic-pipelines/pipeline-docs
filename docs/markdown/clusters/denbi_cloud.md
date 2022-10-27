@@ -169,7 +169,7 @@ sudo mount /dev/vdb /mnt/volume
 sudo chown -R centos:centos /mnt/volume
 
 # install software
-sudo yum install epel-release ansible -y
+sudo yum install epel-release ansible https://packages.endpointdev.com/rhel/7/os/x86_64/endpoint-repo.x86_64.rpm -y
 
 # install ansible roles
 ansible-galaxy install geerlingguy.docker
