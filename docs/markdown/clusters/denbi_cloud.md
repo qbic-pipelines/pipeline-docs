@@ -113,7 +113,7 @@ nextflow run nf-core/rnaseq -r 3.4 -profile singularity,test -c custom.config
 
 ## Basic set-up software with ansible
 
-- Copy the lines of the ansible installation instructions into a file `ansible_installation.yml`
+- Copy the lines of the ansible installation instructions into a file `install_software.yml`
 
 ```bash
 - hosts: localhost
