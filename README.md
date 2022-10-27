@@ -13,7 +13,9 @@ To contribute to the documentation, please fork your repository and make a pull 
 To check locally how the documentation is building, you need to install the `sphinx`, `recommonmark`, `sphinx-rtd-theme` and `httpserver` dependencies. It requires Python 3!
 
 ```bash
-pip install sphinx recommonmark httpserver sphinx-rtd-theme
+conda create -n rtd python=3.9 pip
+conda activate rtd
+pip install sphinx recommonmark httpserver sphinx-rtd-theme sphinx_markdown_tables
 ```
 
 Then clone this repository from GitHub:
@@ -34,7 +36,7 @@ All the html files will be build under the `_build` directory. Then you can view
 python -m http.server
 ```
 
-Go to the address shown in your browser, navigate to the `_build` directory and you can check out locally the documentation.
+Go to the address shown in your browser, navigate to the `_build` directory and you can check out locally the documentation by opening the file `_build/html/index.html` in a browser.
 
 ## Deploying the documentation to readthedocs
 
