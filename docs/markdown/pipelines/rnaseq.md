@@ -31,17 +31,15 @@ Example command (change `cfc` for `binac` on binac cluster):
 
 ```bash
 #!/usr/bin/bash
-nextflow run qbicsoftware/rnadeseq -r 1.3.2 -profile docker \
---rawcounts 'merged_gene_counts.txt' \
---metadata 'QXXXX_sample_preparations.tsv' \
+nextflow run qbicsoftware/rnadeseq -r 2.1 -profile docker \
+--gene_counts 'merged_gene_counts.txt' \
+--input 'QXXXX_sample_preparations.tsv' \
 --model 'linear_model.txt' \
 --contrast_matrix 'contrasts.tsv' \
 --project_summary 'QXXXX_summary.tsv' \
 --multiqc 'MultiQC.zip' \
---quote 'QXXXX_signed_offer.pdf' \
---versions 'software_versions.csv' \
---report_options 'report_options.yml' \
---species Hsapiens
+--software_versions 'software_versions.csv' \
+--genome 'GRCh37'
 ```
 
 ### Known issues
