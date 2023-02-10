@@ -44,7 +44,7 @@ For more information, visit the [Nextflow documentation](https://www.nextflow.io
 
 #### Nextflow version
 
-It is advisable to keep the Nextflow version at `>= 19.10.0` which can be achieved by updating Nextflow using:
+It is advisable to keep Nextflow at the newest version which can be achieved by updating Nextflow using:
 
 ```bash
 nextflow -self-update
@@ -59,7 +59,7 @@ echo $NXF_VER
 If not, set it by running:
 
 ```bash
-NXF_VER=19.10.0
+NXF_VER=22.10.1
 ```
 
 ### Pipeline profiles
