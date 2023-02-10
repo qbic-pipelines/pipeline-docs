@@ -1,12 +1,14 @@
 # Nextflow tower
 
+Nextflow tower allows you to follow the Nextflow workflow runs on cfc and other compute infrastructure.
+We have a local installation at QBiC which can be accessed [http://cfgateway1.zdv.uni-tuebingen.de/api](http://cfgateway1.zdv.uni-tuebingen.de/api).
 To be able to follow the Nextflow workflow runs via tower, you can add Tower access credentials in your Nextflow configuration file (`~/.nextflow/config`) using the following snippet:
 
 ```console
 tower {
   accessToken = '<YOUR TOKEN>'
   workspaceId = '<YOUR WORKSPACE ID>'
-  endpoint = 'http://cfgateway1.zdv.uni-tuebingen.de/api'
+  endpoint = 'https://cfgateway1.zdv.uni-tuebingen.de/api'
   enabled = true
 }
 ```
@@ -23,11 +25,11 @@ To submit a pipeline to a different Workspace using the Nextflow command line to
 export TOWER_WORKSPACE_ID=000000000000000
 ```
 
-If you are outside of the University, access to the tower is only possible via VPN. When you started your run, you can now track its progress [here](http://cfgateway1.zdv.uni-tuebingen.de) after selecting your workspace and your run. Here is an example of what it looks like:
+If you are outside of the University, access to the tower is only possible via VPN. When you started your run, you can now track its progress on the [Runs tab](http://cfgateway1.zdv.uni-tuebingen.de) after selecting your workspace and your run. Here is an example of what it looks like:
 
 ![example run](../../images/tower_run.png)
 ![example run](../../images/tower_run1.png)
 ![example run](../../images/tower_run2.png)
 You can select your run on the left. You will see the name of the run, your command line and the progress and stats of the run.
 
-For more info on how to use tower please refere to the [Tower docs](https://help.tower.nf/).
+For more info on how to use tower please refer to the [Tower docs](https://help.tower.nf/).
