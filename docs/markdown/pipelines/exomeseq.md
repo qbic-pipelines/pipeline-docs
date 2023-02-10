@@ -18,28 +18,6 @@ There are some differences in running the pipeline for the two modalities, so th
 
 In order to use sarek, you will need to create your own input file. You can find more information on how to create your input file in the [sarek input documentation](https://nf-co.re/sarek/3.1.2/usage#input-sample-sheet-configurations).
 
-We usually start our analyses at QBiC from paired-end fastq files. For these files, so you can take this `input.csv` as example:
-
-```csv
-patient,sex,status,sample,lane,fastq_1,fastq_2
-patient1,XX,0,normal_sample,lane_1,/path/to/Data/test_L001_1.fastq.gz,/path/to/Data/test_L001_2.fastq.gz
-patient1,XX,0,normal_sample,lane_2,/path/to/Data/test_L002_1.fastq.gz,/path/to/Data/test_L002_2.fastq.gz
-patient1,XX,0,normal_sample,lane_3,/path/to/Data/test_L003_1.fastq.gz,/path/to/Data/test_L003_2.fastq.gz
-patient1,XX,1,tumor_sample,lane_1,/path/to/Data/test2_L001_1.fastq.gz,/path/to/Data/test2_L001_2.fastq.gz
-patient1,XX,1,tumor_sample,lane_2,/path/to/Data/test2_L002_1.fastq.gz,/path/to/Data/test2_L002_2.fastq.gz
-patient1,XX,1,relapse_sample,lane_1,/path/to/Data/test3_L001_1.fastq.gz,/path/to/Data/test3_L001_2.fastq.gz
-```
-
-Columns:
-
-- _patient_: the first column contains the subject ID. Samples belonging to the same patient / animal, should have the same subject ID.
-- _sex_ (optional, default: NA): the subject sex. XX for women, XY for men. This column is required for copy-number calling, for all other analysis types it is _optional_ and has no effect.
-- _status_ (optional, default: 0): 0 for normal samples, 1 for tumor samples. This is important for somatic variant calling.
-- _sample_: sample ID must be unique across all samples. However, samples that are spread over several lanes must have the same ID to be merged correctly. Depending on the type of experiment, the `Q_TEST_SAMPLE` is a good candidate to be used here.
-- _lane_: if a sample is spread over multiple lanes, just enter the files individually in different rows, with the same sample ID but different lane IDs. In this example, the normal sample is spread over 3 lanes, and the first tumor sample over 2 lanes. The relapse sample is not spread over several lanes.
-- _Fastq1_: First Fastq pair (R1).
-- _Fastq2_: Second Fastq pair (R2).
-
 ### Starting from BAM/CRAM
 
 The pipeline now natively contains qbic-pipelines/bamtofastq. This means that for analyses that include re-aligning, the pipeline can be started directly from BAM files.
