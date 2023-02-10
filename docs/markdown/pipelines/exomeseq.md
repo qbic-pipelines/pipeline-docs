@@ -8,7 +8,7 @@ For an in-detail overview, please visit [https://nf-co.re/sarek](https://nf-co.r
 The pipeline can be utilized for Whole genome sequencing (WGS) and Whole Exome/Panel sequencing (WES).
 There are some differences in running the pipeline for the two modalities, so the next sections provide examples and tips for the different types of analyses.
 
-> **_Note_** The pipeline was recently rewritten to DSL2, which brought a significant amount of changes. This document details usage for nf-core/sarek >3.0. If you need to rerun older versions, please take a look [here](https://github.com/qbic-pipelines/pipeline-docs/blob/7f79a88458e05686216179ee5c791bb7a1f70f9b/docs/markdown/pipelines/exomeseq.md) and visit the official [nf-core documentation](https://nf-co.re/sarek/2.7.2). For older version, select the respective one in the drop-down menu on the right hand side.
+> **_Note_** The pipeline was recently rewritten to DSL2, which brought a significant amount of changes. This document details usage for nf-core/sarek >3.0. If you need to rerun older versions, please take a look [here](https://github.com/qbic-pipelines/pipeline-docs/blob/7f79a88458e05686216179ee5c791bb7a1f70f9b/docs/markdown/pipelines/exomeseq.md) and visit the official [nf-core documentation](https://nf-co.re/sarek/2.7.2). For older versions, select the respective one in the drop-down menu on the right hand side.
 
 > :warning: In older versions parameters are not validated! It is easy to get command line flags wrong, please double check that the respective parameter exists in the version you are using!
 
