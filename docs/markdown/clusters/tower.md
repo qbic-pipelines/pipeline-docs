@@ -25,7 +25,7 @@ To submit a pipeline to a different Workspace using the Nextflow command line to
 export TOWER_WORKSPACE_ID=000000000000000
 ```
 
-If you are outside of the University, access to the tower is only possible via VPN. When you started your run, you can now track its progress on the [Runs tab](http://cfgateway1.zdv.uni-tuebingen.de) after selecting your workspace and your run. Here is an example of what it looks like:
+If you are outside of the University, access to the tower is only possible via [VPN](https://uni-tuebingen.de/en/facilities/zentrum-fuer-datenverarbeitung/services/network-services/network-access/remote-access-vpn/). When you started your run, you can now track its progress on the [Runs tab](http://cfgateway1.zdv.uni-tuebingen.de) after selecting your workspace and your run. Here is an example of what it looks like:
 
 ![example run](../../images/tower_run.png)
 ![example run](../../images/tower_run1.png)
