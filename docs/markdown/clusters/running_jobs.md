@@ -188,7 +188,7 @@ screen -S <session_name>
 Then request an interactive job to the Slurm scheduler with the desired resources. For example:
 
 ```bash
-srun -N 1 -p qbic --ntasks-per-node=8 --mem=16G --time=12000 --pty bash
+srun -N 1 -p qbic --ntasks-per-node=8 --mem=16G --time=120 --pty bash
 ```
 
 Change the resources as needed:
