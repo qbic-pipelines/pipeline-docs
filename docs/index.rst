@@ -36,7 +36,10 @@ Analysis types
 :doc:`markdown/pipelines/scrnaseq`
    Single-cell RNA sequencing
 
-:doc: `markdown/pipelines/guideseq`
+:doc:`markdown/pipelines/airrflow`
+   BCR / TCR sequencing
+
+:doc:`markdown/pipelines/guideseq`
    Guideseq analysis
 
 
@@ -65,6 +68,7 @@ Clusters and remotes
    markdown/pipelines/ampliseq
    markdown/pipelines/hlatyping
    markdown/pipelines/scrnaseq
+   markdown/pipelines/airrflow
    markdown/pipelines/guideseq
 
 .. toctree::
