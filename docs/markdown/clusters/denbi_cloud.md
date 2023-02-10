@@ -83,6 +83,9 @@ In order to use an external cinder volume, you need to first create one on the O
 - Mount volume: Follow the [instructions](https://cloud.denbi.de/wiki/Compute_Center/Tuebingen/#using-cinder-volumes) to mount the attached volume to your instance. Use `sudo` if you get any `permission denied` or `only root can do that` messages. Also you might need to recursively `chown` and `chgrp` the newly created folders to your user and group. Here you have a summary:
 
 ```
+# ** IMPORTANT NOTE ** 
+# Make sure to select right device : /dev/vdb or /dev/vdc ...
+
 # list devices
 lsblk
 
