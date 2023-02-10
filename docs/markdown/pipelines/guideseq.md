@@ -1,4 +1,4 @@
-# guideseq analysis 
+# guideseq analysis
 
 The GUIDE-Seq Analysis Package
 
@@ -6,19 +6,17 @@ This is a detailed guide to running Lukas Heumos' singularity container/wrapper 
 https://github.com/aryeelab/guideseq
 The <i>aryeelab</i> pipeline is based on python2.
 
->Note 1:
-There is an updated version with python3 from <i>tsailab</i>
-https://github.com/tsailabSJ/guideseq .
-However, there is an issue/bug with the last 2 steps of the pipeline not producing any output files. So we revert to the python2 version above.
+> Note 1:
+> There is an updated version with python3 from <i>tsailab</i> > https://github.com/tsailabSJ/guideseq .
+> However, there is an issue/bug with the last 2 steps of the pipeline not producing any output files. So we revert to the python2 version above.
 
->Note 2:
-The singularity container can also be found at QBiC backup at `/mnt/nfs/qbic/project_management/qeajl01/`
-Related files e.g manifest files, more detailed guides etc can be found at `github.com/qbic-projects/guideseq`
-
+> Note 2:
+> The singularity container can also be found at QBiC backup at `/mnt/nfs/qbic/project_management/qeajl01/`
+> Related files e.g manifest files, more detailed guides etc can be found at `github.com/qbic-projects/guideseq`
 
 ## A. Prepare singularity container
 
-1. As we are using an older python2 version, checkout the older docker commit from Lukas' github. 
+1. As we are using an older python2 version, checkout the older docker commit from Lukas' github.
 
 <details>
 <summary>Click to expand code !</summary>
@@ -42,6 +40,7 @@ singularityware/docker2singularity \
 guide_seq:latest
 
 ```
+
 </details>
 
 ## B. Copy the singularity image to CFC and run programme
@@ -67,16 +66,18 @@ python guideseq/guideseq.py all -m test/test_manifest.yaml
 ```
 
 ## C. Setting up input files
+
 The following files are required to run a guidseq analysis
+
 1. reference genome
 2. accompanying index files to the undemultiplexed raw sequence files
 
 If the raw sequence files are already demultiplexed, there are 2 possible solutions to geenerate the index files:
 
 1. Fast, easy way.
-Download a custom python script `parse_bc_reads_labels` from http://seqanswers.com/forums/showthread.php?t=27428
-The script has been deleted from the original link, but it is saved here
-The script creates index files directly from the demultiplexed sequence files
+   Download a custom python script `parse_bc_reads_labels` from http://seqanswers.com/forums/showthread.php?t=27428
+   The script has been deleted from the original link, but it is saved here
+   The script creates index files directly from the demultiplexed sequence files
 
 ```
 # create conda python 2 environment to install cogent
@@ -87,16 +88,17 @@ python ~/src/others/parse_bc_reads_labels.py Undetermined_S0_L001_R1_001.fastq U
 ```
 
 2. using `bcl2fastq` on the base called files to generate the undemultiplexed sequence files and index files.
-Follow the instructions in `bcl2fastq2-v2-20-software-guide-15051736-03.pdf`.
-Most important step:
+   Follow the instructions in `bcl2fastq2-v2-20-software-guide-15051736-03.pdf`.
+   Most important step:
 
 ```
 bcl2fastq -R data/bcl/ --create-fastq-for-index-read
 ```
 
-## D. Prepare yaml manifest file 
+## D. Prepare yaml manifest file
 
 Example of manifest file e.g. `manifest_4.yaml`
+
 <details>
 <summary>Click to expand manifest file!</summary>
 
@@ -134,6 +136,7 @@ samples:
         barcode2: TATCCTCT
         description: Hifi
 ```
+
 </details>
 
 ## E. Execute guideseq.py
@@ -151,6 +154,7 @@ singularity shell -B /sfs/7/workspace/ws/qeajl01-QPJRV_JunHoe-0/ guide_seq_lates
 python guideseq/guideseq.py all -m manifest_4.yaml
 
 ```
+
 ## F. Troubleshooting
 
 You might encounter an error with `/scratch`, as below.
@@ -160,12 +164,11 @@ You might encounter an error with `/scratch`, as below.
 sort: cannot create temporary file in '/scratch/835717': No such file or directory
 
 # possible solution: set temp directory
-export TMPDIR=/tmp/ 	
+export TMPDIR=/tmp/
 
 ```
 
 On first run, it is also very likely you will encounter an error after the demultiplexing step like below:
-
 
 <details>
 <summary>Click to expand error code !</summary>
@@ -181,10 +184,10 @@ On first run, it is also very likely you will encounter an error after the demul
     fastq = open(file, 'r')
 FileNotFoundError: [Errno 2] No such file or directory: 'output/demultiplexed/control.r1.fastq'
 ```
+
 </details>
 
-
-That is due to a bug in the programme where it fails to create `control.r1` and `control.r2` files with the correct names due to the way it reads the primer/barcode sequences. 
+That is due to a bug in the programme where it fails to create `control.r1` and `control.r2` files with the correct names due to the way it reads the primer/barcode sequences.
 Instead thoes files are named from combining the barcode1 + barcode2 sequences.
 
 <details>
@@ -210,14 +213,15 @@ output/demultiplexed/
 ├── undetermined.r1.fastq
 └── undetermined.r2.fastq
 ```
+
 </details>
 
 The solution is to manually rename those files
 Lukas' solution: (please refer to the manifest file above to understand)
 
 > E.g. one of the files in demultiplex is AAGGCGAAGATCGC.i1.fastq
-This comes from the control barcodes:  i7 TCGCCTTA. Do a reverse complement, and drop end A, so
-AAGGCGA + i5 (dropped first T) AGATCGC
+> This comes from the control barcodes: i7 TCGCCTTA. Do a reverse complement, and drop end A, so
+> AAGGCGA + i5 (dropped first T) AGATCGC
 
 <details>
 <summary>Click to expand solution !</summary>
@@ -263,15 +267,18 @@ output/demultiplexed/
 ├── undetermined.r1.fastq
 └── undetermined.r2.fastq
 ```
+
 </details>
 
 After renaming the files, restart the pipeline and it should complete without any errors,
 
 # G. Output
+
 The main output is the `visualization` folder, will contain files e.g. `Cas9_offtargets.svg`.
 These svg files shows sites of the primer sequence that could be potentially off-target.
 
 The numbers at the right side is explained below.
+
 <details>
 <summary>Click to expand explanation !</summary>
 > There are two tabs in the Excel one for identified off targets for Cas9 and Hifi each. In there is each a blue row indicating the off target that is visualized in your results/visualization folder. From this you can see that the number at the end derives from column "bi.sum.mi" which is according to the manual here: https://github.com/tsailabSJ/guideseq#visualize , the sum of the forward and reverse reads (with distinct molecular indices), i.e. the barcodes from the manifest file , I assume.
