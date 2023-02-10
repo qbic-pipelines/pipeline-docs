@@ -14,7 +14,7 @@ These versions will be revised periodically and tested in our infrastructure bef
 | HLAtyping             | [nf-core/hlatyping](https://nf-co.re/hlatyping/1.2.0)                     |    1.2.0    |
 | 16S amplicon          | [nf-core/ampliseq](https://nf-co.re/ampliseq/2.1.1)                       |    2.1.1    |
 | Shotgun metagenomics  | [nf-core/mag](https://nf-co.re/mag/2.1.1)                                 |    2.1.1    |
-| BCR / TCR repseq      | [nf-core/airrflow](https://nf-co.re/airrflow/2.1.0)                       |    2.1.0    |
+| BCR / TCR repseq      | [nf-core/airrflow](https://nf-co.re/airrflow/2.4.0)                       |    2.4.0    |
 | CAGEseq               | [nf-core/cageseq](https://nf-co.re/cageseq/1.0.2)                         |    1.0.2    |
 | MHC immunopeptidomics | [nf-core/mhcquant](https://nf-co.re/mhcquant/2.3.1)                       |    2.3.1    |
 | ATACseq               | [nf-core/atacseq](https://nf-co.re/atacseq/1.2.2)                         |    1.2.2    |
