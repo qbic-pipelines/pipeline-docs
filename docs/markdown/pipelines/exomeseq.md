@@ -48,7 +48,7 @@ Furthermore, the pipeline supports starting fom different steps to allow easy re
 
 ## Variant calling tools
 
-You can check which tools are available for Germline variant calling and Somatic variant calling. Not all tools are available for both steps. See overview [here](https://nf-co.re/sarek/3.1.2/usage#which-variant-calling-tool-is-implemented-for-which-data-type)
+You can check which tools are available for germline variant calling and somatic variant calling. Not all tools are available for both steps. See overview [here](https://nf-co.re/sarek/3.1.2/usage#which-variant-calling-tool-is-implemented-for-which-data-type)
 
 Please familiarize yourself with the [sarek docs](https://nf-co.re/sarek).
 
