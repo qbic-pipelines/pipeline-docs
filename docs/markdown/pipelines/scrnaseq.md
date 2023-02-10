@@ -9,4 +9,6 @@ For a comprehensive understanding of scRNAseq data processing, check out these c
 
 ## Pipeline
 
-Info about pipeline
+For single-cell RNAseq analysis please use the [nf-core/scrnaseq](nf-co.re/scrnaseq) pipeline.
+
+For secondary analysis, we are currently just running custom R and Rmarkdown files using the Seurat library. Please ask for example scRNAseq projects to your team leader.
