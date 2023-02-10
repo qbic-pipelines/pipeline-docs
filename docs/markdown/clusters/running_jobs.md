@@ -44,7 +44,7 @@ For more information, visit the [Nextflow documentation](https://www.nextflow.io
 
 #### Nextflow version
 
-It is advisable to keep [Nextflow](https://github.com/nextflow-io/nextflow) at the newest stable release (no edge version!)  which can be achieved by updating Nextflow using:
+It is advisable to keep [Nextflow](https://github.com/nextflow-io/nextflow) at the newest stable release (no edge version!) which can be achieved by updating Nextflow using:
 
 ```bash
 nextflow -self-update
