@@ -159,7 +159,7 @@ Here are some useful commands for the Slurm scheduler.
 ## Submitting custom jobs
 
 > _Important note_: running scripts without containerizing them is never 100% reproducible, even when using conda environments.
-> It is ok to test pipelines, but talk to your group leader about the possibilities of containerizing the analysis or adding your scripts to a pipeline.
+> It is ok to test pipelines, but talk to your group leader about the possibilities of containerizing the analysis or adding your scripts to a pipeline. For more detailed information you can have a look at the cfc/FAQ document which is hosted [here](https://uni-tuebingen.de/forschung/forschungsinfrastruktur/zentrum-fuer-quantitative-biologie-qbic/downloads/). It is only visible after login to the university intranet.
 
 To run custom scripts (R or Python, or any other tool needed) in the cluster, it is mandatory to use a dependency management system. This ensures at least some reproducibility for the results. You have two possibilities: (1) use a clean conda environment and export it as an `environment.yml` file, or (2) working in Rstudio and then using Rmaggedon.
 
