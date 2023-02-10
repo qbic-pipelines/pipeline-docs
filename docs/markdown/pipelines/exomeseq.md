@@ -159,7 +159,7 @@ In general for WES data analysis people advise to use target regions that are pa
 
 - There is currently a bug regarding the reference names: if you specify `--genome GRCh38`, sarek actually uses `hg38` (UCSC naming convention, and not Ensembl). See the [issue](https://github.com/nf-core/sarek/issues/86).
 
-- Our cluster has problems with MarkDuplicates Spark, which is why is should be avoided. As of `2.7` the non-spark variant is run by default. Please be aware to set `--no_gatk_spark` if you run `2.6.1` or earlier.
+- Our cluster has problems with MarkDuplicates Spark, which is why it should be avoided. As of `2.7` the non-spark variant is run by default. Please be aware to set `--no_gatk_spark` if you run `2.6.1` or earlier.
 
 ## Running the pipeline with a non iGenomes genome
 
