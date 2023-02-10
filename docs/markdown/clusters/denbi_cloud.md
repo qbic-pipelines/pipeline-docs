@@ -80,16 +80,53 @@ scp local_files_to_copy <name>:/path_to_remote_folder
 In order to use an external cinder volume, you need to first create one on the OpenStack interface. Give the volume name and the amount of storage that you need (cannot exceed the total allowed for the project) and create a new empty volume (no image).
 
 - Attach volume: on the volumes dashboard, under Actions for your volume click the arrow and select `manage attachments`. Attach the volume to your running instance.
-- Mount volume: Follow the [instructions](https://cloud.denbi.de/wiki/Compute_Center/Tuebingen/#using-cinder-volumes) to mount the attached volume to your instance. Use `sudo` if you get any `permission denied` or `only root can do that` messages. Also you might need to recursively `chown` and `chgrp` the newly created folders to your user and group.
+- Mount volume: Follow the [instructions](https://cloud.denbi.de/wiki/Compute_Center/Tuebingen/#using-cinder-volumes) to mount the attached volume to your instance. Use `sudo` if you get any `permission denied` or `only root can do that` messages. Also you might need to recursively `chown` and `chgrp` the newly created folders to your user and group. Here you have a summary:
+
+```
+# ** IMPORTANT NOTE ** 
+# Make sure to select right device : /dev/vdb or /dev/vdc ...
+
+# list devices
+lsblk
+
+# format file system of device
+sudo mkfs.ext4 /dev/vdb
+
+# create mountpoint
+sudo mkdir -p /mnt/volume
+
+# change permissions
+sudo chmod -R 766 /mnt/volume
+
+# mount vdb device to mountpoint
+sudo mount /dev/vdb /mnt/volume
+
+# change owner of volume: user = centos, group = root
+sudo chown -R centos:centos /mnt/volume
+```
 
 ## Setting-up nextflow, singularity, docker
 
 If you haven't created an instance based on an Image that already has java, Nextflow and singularity or docker installed (e.g. the `nextflow-singularity` image), you will need to install this software.
 
-- Installation instructions for [Java](https://phoenixnap.com/kb/install-java-on-centos) on CentOS. For Nextflow you will need Java jdk <= 11.
+- Installation instructions for [Java](https://phoenixnap.com/kb/install-java-on-centos) . For Nextflow better use java version >17. As summary:
+
+  ```
+  wget https://download.java.net/java/GA/jdk17.0.2/dfd4a8d0985749f896bed50d7138ee7f/8/GPL/openjdk-17.0.2_linux-x64_bin.tar.gz
+  tar xvf openjdk-17.0.2_linux-x64_bin.tar.gz
+  sudo mv jdk-17.0.2/ /opt/jdk-17/
+
+  vim ~/.bashrc
+  export JAVA_HOME=/opt/jdk-17
+  export PATH=$PATH:$JAVA_HOME/bin
+  source ~/.bashrc
+  java --version
+  ```
+
 - Instructions for installing Nextflow can be found [here](https://www.nextflow.io/docs/latest/getstarted.html)
 - On CentOS, singularity can be installed with the package manager `yum`. First install the [dependencies](https://sylabs.io/guides/3.0/user-guide/installation.html#before-you-begin) and then head straight to the [CentOS section](https://sylabs.io/guides/3.0/user-guide/installation.html#install-the-centos-rhel-package-using-yum)
 - For installing docker, please follow the [instructions](https://docs.docker.com/engine/install/centos/) and the [post-installation steps](https://docs.docker.com/engine/install/linux-postinstall/)
+- You can also use the `ansible` templates provided [here](https://github.com/qbic-projects/r-project-template/blob/main/README.md).
 
 ## Running Nextflow pipelines on deNBI
 
