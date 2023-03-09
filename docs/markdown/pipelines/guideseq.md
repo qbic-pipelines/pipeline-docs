@@ -188,7 +188,7 @@ FileNotFoundError: [Errno 2] No such file or directory: 'output/demultiplexed/co
 </details>
 
 That is due to a bug in the programme where it fails to create `control.r1` and `control.r2` files with the correct names due to the way it reads the primer/barcode sequences.
-Instead thoes files are named from combining the barcode1 + barcode2 sequences.
+Instead those files are named from combining the barcode1 + barcode2 sequences.
 
 <details>
 <summary>Click to expand example of wrongly named files !</summary>
