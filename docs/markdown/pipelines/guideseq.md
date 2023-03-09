@@ -277,7 +277,7 @@ After renaming the files, restart the pipeline and it should complete without an
 The main output is the `visualization` folder, which will contain files e.g. `Cas9_offtargets.svg`.
 These svg files show sites of the primer sequence that could be potentially off-target.
 
-The numbers at the right side is explained below.
+The number at the right side is explained below.
 
 <details>
 <summary>Click to expand explanation !</summary>
