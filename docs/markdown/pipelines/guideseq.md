@@ -274,8 +274,8 @@ After renaming the files, restart the pipeline and it should complete without an
 
 # G. Output
 
-The main output is the `visualization` folder, will contain files e.g. `Cas9_offtargets.svg`.
-These svg files shows sites of the primer sequence that could be potentially off-target.
+The main output is the `visualization` folder, which will contain files e.g. `Cas9_offtargets.svg`.
+These svg files show sites of the primer sequence that could be potentially off-target.
 
 The numbers at the right side is explained below.
 
