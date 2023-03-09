@@ -160,7 +160,7 @@ python guideseq/guideseq.py all -m manifest_4.yaml
 You might encounter an error with `/scratch`, as below.
 
 ```
-# frequent runs or large dataset can fill up /scratch and cause an error like this:
+# frequent runs or large datasets can fill up /scratch and cause an error like this:
 sort: cannot create temporary file in '/scratch/835717': No such file or directory
 
 # possible solution: set temp directory
