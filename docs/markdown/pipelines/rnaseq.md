@@ -61,6 +61,7 @@ If you want to run a version <2.1, the container.config has to look like this:
 ```bash
 process.container = 'ghcr.io/qbic-pipelines/rnadeseq:1.1.0'
 ```
+
 The container link has to be adjusted to the version you want to run. You should just have to change the version number, but you can double-check on https://github.com/qbic-pipelines/rnadeseq/pkgs/container/rnadeseq if you are not sure if the link is correct.
 
 Then, call this container.config when running the pipeline, like so:
