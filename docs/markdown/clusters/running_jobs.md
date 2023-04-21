@@ -44,7 +44,7 @@ For more information, visit the [Nextflow documentation](https://www.nextflow.io
 
 #### Nextflow version
 
-It is advisable to keep the Nextflow version at `>= 19.10.0` which can be achieved by updating Nextflow using:
+It is advisable to keep [Nextflow](https://github.com/nextflow-io/nextflow) at the newest stable release (no edge version!) which can be achieved by updating Nextflow using:
 
 ```bash
 nextflow -self-update
@@ -59,7 +59,7 @@ echo $NXF_VER
 If not, set it by running:
 
 ```bash
-NXF_VER=19.10.0
+NXF_VER=22.10.1
 ```
 
 ### Pipeline profiles
@@ -159,7 +159,7 @@ Here are some useful commands for the Slurm scheduler.
 ## Submitting custom jobs
 
 > _Important note_: running scripts without containerizing them is never 100% reproducible, even when using conda environments.
-> It is ok to test pipelines, but talk to your group leader about the possibilities of containerizing the analysis or adding your scripts to a pipeline.
+> It is ok to test pipelines, but talk to your group leader about the possibilities of containerizing the analysis or adding your scripts to a pipeline. For more detailed information you can have a look at the cfc/FAQ document which is hosted [here](https://uni-tuebingen.de/forschung/forschungsinfrastruktur/zentrum-fuer-quantitative-biologie-qbic/downloads/). It is only visible after login to the university intranet.
 
 To run custom scripts (R or Python, or any other tool needed) in the cluster, it is mandatory to use a dependency management system. This ensures at least some reproducibility for the results. You have two possibilities: (1) use a clean conda environment and export it as an `environment.yml` file, or (2) working in Rstudio and then using Rmaggedon.
 
@@ -188,7 +188,7 @@ screen -S <session_name>
 Then request an interactive job to the Slurm scheduler with the desired resources. For example:
 
 ```bash
-srun -N 1 --ntasks-per-node=8 --mem=16G --time=12000 --pty bash
+srun -N 1 -p qbic --ntasks-per-node=8 --mem=16G --time=120 --pty bash
 ```
 
 Change the resources as needed:
