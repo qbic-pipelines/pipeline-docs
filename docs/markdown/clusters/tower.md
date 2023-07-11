@@ -1,7 +1,7 @@
 # Nextflow tower
 
 Nextflow tower allows you to follow the Nextflow workflow runs on cfc and other compute infrastructure.
-We have a local installation at QBiC which can be accessed [http://cfgateway1.zdv.uni-tuebingen.de/api](http://cfgateway1.zdv.uni-tuebingen.de/api).
+We have a local installation at QBiC which can be accessed [https://cfgateway1.zdv.uni-tuebingen.de/api](https://cfgateway1.zdv.uni-tuebingen.de/api).
 To be able to follow the Nextflow workflow runs via tower, you can add Tower access credentials in your Nextflow configuration file (`~/.nextflow/config`) using the following snippet:
 
 ```console
@@ -13,9 +13,9 @@ tower {
 }
 ```
 
-Your access token can be created on [this page](http://cfgateway1.zdv.uni-tuebingen.de/tokens).
+Your access token can be created on [this page](https://cfgateway1.zdv.uni-tuebingen.de/tokens).
 
-The workspace ID can be found on the organisation's Workspaces overview page. [Here](http://cfgateway1.zdv.uni-tuebingen.de/orgs/QBiC/workspaces) you can find QBiC's workspaces:
+The workspace ID can be found on the organisation's Workspaces overview page. [Here](https://cfgateway1.zdv.uni-tuebingen.de/orgs/QBiC/workspaces) you can find QBiC's workspaces:
 
 ![workspaces](../../images/tower_workspaces.png)
 
