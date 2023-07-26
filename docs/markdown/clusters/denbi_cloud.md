@@ -122,7 +122,6 @@ If you haven't created an instance based on an Image that already has java, Next
   source ~/.bashrc
   java --version
   ```
-  
 - Instructions for installing Nextflow can be found [here](https://www.nextflow.io/docs/latest/getstarted.html)
 - On CentOS, singularity can be installed with the package manager `yum`. First install the [dependencies](https://sylabs.io/guides/3.0/user-guide/installation.html#before-you-begin) and then head straight to the [CentOS section](https://sylabs.io/guides/3.0/user-guide/installation.html#install-the-centos-rhel-package-using-yum)
 - For installing docker, please follow the [instructions](https://docs.docker.com/engine/install/centos/) and the [post-installation steps](https://docs.docker.com/engine/install/linux-postinstall/)
