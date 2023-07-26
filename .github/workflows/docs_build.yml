@@ -7,8 +7,8 @@ jobs:
   Prettier:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
       - name: Install prettier
         run: npm install -g prettier
       - name: Run Prettier
@@ -16,10 +16,10 @@ jobs:
   docs:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-python@v1
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
         with:
-          python-version: "3.6"
+          python-version: "3.9"
           architecture: "x64"
       - name: Install dependencies
         run: |

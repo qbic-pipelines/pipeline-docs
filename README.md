@@ -6,7 +6,7 @@ This repository contains the documentation necessary to run different types of a
 
 ## Contributing to the documentation
 
-To contribute to the documentation, please fork your repository and make a pull request. After review, your changes will be introduced to the documentation.
+To contribute to the documentation, please fork this repository and make a pull request to the `dev` branch. After review, please merge the PR. From time to time we will do merge to `master` and a documentation release.
 
 ## Checking the documentation locally
 

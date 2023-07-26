@@ -1,0 +1,4 @@
+# Ignore all JavaScript files:
+*.js
+# Ignore all HTML files:
+*.html
