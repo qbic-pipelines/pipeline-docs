@@ -122,6 +122,7 @@ If you haven't created an instance based on an Image that already has java, Next
   source ~/.bashrc
   java --version
   ```
+
 - Instructions for installing Nextflow can be found [here](https://www.nextflow.io/docs/latest/getstarted.html)
 - On CentOS, singularity can be installed with the package manager `yum`. First install the [dependencies](https://sylabs.io/guides/3.0/user-guide/installation.html#before-you-begin) and then head straight to the [CentOS section](https://sylabs.io/guides/3.0/user-guide/installation.html#install-the-centos-rhel-package-using-yum)
 - For installing docker, please follow the [instructions](https://docs.docker.com/engine/install/centos/) and the [post-installation steps](https://docs.docker.com/engine/install/linux-postinstall/)
@@ -158,7 +159,7 @@ nextflow run nf-core/rnaseq -r 3.4 -profile singularity,test -c custom.config
   roles:
     - role: geerlingguy.docker
       docker_users:
-        - centos    
+        - centos
     - role: andrewrothstein.miniconda
   tasks:
     - name: add conda to path
@@ -166,14 +167,14 @@ nextflow run nf-core/rnaseq -r 3.4 -profile singularity,test -c custom.config
         dest: /home/centos/.bashrc
         line: export PATH="$PATH":/usr/local/anaconda/condabin
     - name: install list of packages
-      yum: 
+      yum:
         name:
         - vim
         - git
         - wget
         - htop
-        - screen 
-        - singularity-runtime 
+        - screen
+        - singularity-runtime
         - singularity
     - name: install java
       shell: wget https://download.java.net/java/GA/jdk17.0.2/dfd4a8d0985749f896bed50d7138ee7f/8/GPL/openjdk-17.0.2_linux-x64_bin.tar.gz && \
@@ -187,12 +188,12 @@ nextflow run nf-core/rnaseq -r 3.4 -profile singularity,test -c custom.config
 - Copy the lines below into a file `installation_instructions.sh` and execute on server with `sh installation_instructions.sh`
 
 ```bash
-# ** IMPORTANT NOTE ** 
+# ** IMPORTANT NOTE **
 # Make sure to select right device : /dev/vdb or /dev/vdc ...
 # Check java version in install_all.yml
 # execute script with sh script.sh
 
-# list devices 
+# list devices
 lsblk
 # format file system of device
 sudo mkfs.ext4 /dev/vdb
