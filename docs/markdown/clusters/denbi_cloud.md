@@ -109,7 +109,7 @@ sudo chown -R centos:centos /mnt/volume
 
 If you haven't created an instance based on an Image that already has java, Nextflow and singularity or docker installed (e.g. the `nextflow-singularity` image), you will need to install this software.
 
-- Installation instructions for [Java](https://phoenixnap.com/kb/install-java-on-centos) . For Nextflow better use java version >17. As summary:
+- Installation instructions for [Java](https://phoenixnap.com/kb/install-java-on-centos) . For Nextflow use java version >17. As summary:
 
   ```
   wget https://download.java.net/java/GA/jdk17.0.2/dfd4a8d0985749f896bed50d7138ee7f/8/GPL/openjdk-17.0.2_linux-x64_bin.tar.gz
@@ -146,4 +146,88 @@ Then run the pipeline with the `singularity` or `docker` profile, whatever conta
 screen -S newscreen
 nextflow pull nf-core/rnaseq -r 3.4
 nextflow run nf-core/rnaseq -r 3.4 -profile singularity,test -c custom.config
+```
+
+## Software installation on server with ansible (For expericenced users)
+
+- Ansible handles tedious software installations in an easy way by executing installation instructions from a yaml file.
+- Copy the lines of the ansible installation instructions into a file `install_software.yml`
+
+```bash
+- hosts: localhost
+  become: true
+  roles:
+    - role: geerlingguy.docker
+      docker_users:
+        - centos
+    - role: andrewrothstein.miniconda
+  tasks:
+    - name: add conda to path
+      lineinfile:
+        dest: /home/centos/.bashrc
+        line: export PATH="$PATH":/usr/local/anaconda/condabin
+    - name: install list of packages
+      yum:
+        name:
+        - vim
+        - git
+        - wget
+        - htop
+        - screen
+        - singularity-runtime
+        - singularity
+    - name: install java
+      shell: wget https://download.java.net/java/GA/jdk17.0.2/dfd4a8d0985749f896bed50d7138ee7f/8/GPL/openjdk-17.0.2_linux-x64_bin.tar.gz && \
+             tar xvf openjdk-17.0.2_linux-x64_bin.tar.gz && mv jdk-17.0.2/ /opt/jdk-17/ && rm openjdk-17.0.2_linux-x64_bin.tar.gz
+    - name: add java to path
+      lineinfile:
+        dest: /home/centos/.bashrc
+        line: export JAVA_HOME=/opt/jdk-17 && export PATH=$PATH:$JAVA_HOME/bin
+```
+
+- Copy the lines below into a file `installation_instructions.sh` and execute on server with `sh installation_instructions.sh`
+
+```bash
+# ** IMPORTANT NOTE **
+# Make sure to select right device : /dev/vdb or /dev/vdc ...
+# Check java version in install_all.yml
+# execute script with sh script.sh
+
+# list devices
+lsblk
+# format file system of device
+sudo mkfs.ext4 /dev/vdb
+# create mountpoint
+sudo mkdir -p /mnt/volume
+# change permissions
+sudo chmod -R 766 /mnt/volume
+# mount vdb device to mountpoint
+sudo mount /dev/vdb /mnt/volume
+# change owner of volume: user = centos, group = root
+sudo chown -R centos:centos /mnt/volume
+
+# install software
+sudo yum install epel-release ansible https://packages.endpointdev.com/rhel/7/os/x86_64/endpoint-repo.x86_64.rpm -y
+
+# install ansible roles
+ansible-galaxy install geerlingguy.docker
+ansible-galaxy install andrewrothstein.miniconda
+
+# install software with ansible
+ansible-playbook install_software.yml
+
+source ~/.bashrc
+
+# post-installation steps for docker
+sudo groupadd docker
+sudo usermod -aG docker $USER
+
+source ~/.bashrc
+
+# install nextflow
+wget -qO- get.nextflow.io | bash
+sudo mv nextflow /usr/local/bin/
+
+# confirm nextflow works
+nextflow run hello
 ```
