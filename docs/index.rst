@@ -42,6 +42,9 @@ Analysis types
 :doc:`markdown/pipelines/guideseq`
    Guideseq analysis
 
+:doc:`markdown/pipelines/maxquant`
+   MaxQuant analysis
+
 
 Clusters and remotes
 --------------------
@@ -70,6 +73,7 @@ Clusters and remotes
    markdown/pipelines/scrnaseq
    markdown/pipelines/airrflow
    markdown/pipelines/guideseq
+   markdown/pipelines/maxquant
 
 .. toctree::
    :maxdepth: 3
