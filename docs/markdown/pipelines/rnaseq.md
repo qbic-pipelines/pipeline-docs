@@ -56,7 +56,7 @@ process {
 }
 ```
 
-If you want to run a version <2.1, the container.config has to look like this:
+If you want to run a version <2.1, the `container.config` has to look like this:
 
 ```bash
 process.container = 'ghcr.io/qbic-pipelines/rnadeseq:1.1.0'
@@ -64,7 +64,7 @@ process.container = 'ghcr.io/qbic-pipelines/rnadeseq:1.1.0'
 
 The container link has to be adjusted to the version you want to run. You should just have to change the version number, but you can double-check on https://github.com/qbic-pipelines/rnadeseq/pkgs/container/rnadeseq if you are not sure if the link is correct.
 
-Then, call this container.config when running the pipeline, like so:
+Then, call this `container.config` when running the pipeline, like so:
 
 ```bash
 qbic-pipelines/rnadeseq -r 2.4.1 -profile cfc \
@@ -82,7 +82,7 @@ In the future, we want to switch to the [nf-core/differentialabundance](https://
 
 ### Quick start
 
-Example command on cfc:
+Example command on the CFC cluster:
 
 ```bash
 #!/usr/bin/bash
@@ -94,7 +94,7 @@ nextflow run nf-core/differentialabundance -r 1.5.0 -profile cfc,rnaseq \
 --report_contributors 'Jane Doe\nDirector of Institute of Microbiology\nUniversity of Smallville;John Smith\nPhD student\nInstitute of Microbiology\nUniversity of Smallville'
 ```
 
-The file `/sfs/9/ws/shared_files/qbic_differentialabundance_rnaseq.yml` contains several settings that will probably be necessary for any such analysis at QBiC and is saved in a folder on cfc which is accessible by every qbic-staff member. This includes a custom CSS and PNG file which set the style of the HTML report that is generated at the end of pipeline runs (i.e. this changes the color of highlighted text to QBiC blue and adds a combination of the QBiC rectangle and the pipeline logo to the very top of the report). If you want to run such an analysis on another machine, simply copy the relevant files from the shared_files folder over, then modify the paths in the YML file accordingly.
+The file `/sfs/9/ws/shared_files/qbic_differentialabundance_rnaseq.yml` contains several settings that will probably be necessary for any such analysis at QBiC and is saved in a folder on CFC which is accessible by every qbic-staff member. This includes a custom CSS and PNG file which set the style of the HTML report that is generated at the end of pipeline runs (i.e. this changes the color of highlighted text to QBiC blue and adds a combination of the QBiC rectangle and the pipeline logo to the very top of the report). If you want to run such an analysis on another machine, simply copy the relevant files from the `shared_files` folder over, then modify the paths in the YML file accordingly.
 
 For more information about how to run the pipeline, have a look at the [usage docs](https://nf-co.re/differentialabundance/docs/usage/).
 
