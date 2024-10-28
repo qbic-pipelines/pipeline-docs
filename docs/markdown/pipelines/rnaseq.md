@@ -56,7 +56,7 @@ process {
 }
 ```
 
-If you want to run a version <2.1, the container.config has to look like this:
+If you want to run a version <2.1, the `container.config` has to look like this:
 
 ```bash
 process.container = 'ghcr.io/qbic-pipelines/rnadeseq:1.1.0'
