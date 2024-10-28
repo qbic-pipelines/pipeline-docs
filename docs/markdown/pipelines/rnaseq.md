@@ -82,7 +82,7 @@ In the future, we want to switch to the [nf-core/differentialabundance](https://
 
 ### Quick start
 
-Example command on cfc:
+Example command on the CFC cluster:
 
 ```bash
 #!/usr/bin/bash
