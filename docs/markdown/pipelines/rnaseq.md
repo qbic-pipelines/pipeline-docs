@@ -44,9 +44,9 @@ nextflow run qbic-pipelines/rnadeseq -r 2.4.1 -profile cfc \
 
 ### Docker containers
 
-After the release of rnadeseq 2.1, the docker containers were moved from Docker Hub to the GitHub Container Registry (ghcr) as Docker announced a change of free subscriptions. For all rnadeseq versions >2.1, this is reflected in the pipeline, so you don't need to do anything.
+After the release of rnadeseq 2.1, the docker containers were moved from Docker Hub to the GitHub Container Registry (ghcr) as Docker announced a change of free subscriptions. For rnadeseq 2.2 and higher, this is reflected in the pipeline, so you don't need to do anything.
 
-For version 2.1 or later, should you have trouble executing the pipeline because the container was removed from Docker Hub (this could for example lead to an error like "docker: Error response from daemon: manifest for qbicpipelines/rnadeseq:2.1 not found: manifest unknown: manifest unknown."), please save the following code to a `container.config` (change 2.1 to the version you want to use):
+For version 2.1 and lower, should you have trouble executing the pipeline because the container was removed from Docker Hub (this could for example lead to an error like "docker: Error response from daemon: manifest for qbicpipelines/rnadeseq:2.1 not found: manifest unknown: manifest unknown."), please save the following code to a `container.config` (change 2.1 to the version you want to use):
 
 ```bash
 process {
