@@ -6,8 +6,8 @@ These versions will be revised periodically and tested in our infrastructure bef
 
 ## Pipeline releases to be used at QBiC
 
-| Analysis type         | Pipeline                                                                  | Use version |
-| --------------------- | ------------------------------------------------------------------------- | :---------: |
+| Analysis type      | Pipeline                                                              | Use version |
+| ------------------ | --------------------------------------------------------------------- | :---------: |
 | RNAseq                | [nf-core/rnaseq](https://nf-co.re/rnaseq/1.4.2)                           |    3.12.0    |
 | RNAseq DE analysis    | [qbic-pipelines/rnadeseq](https://github.com/qbic-pipelines/rnadeseq)     |     2.3     |
 | WGS / WES             | [nf-core/sarek](https://nf-co.re/sarek/3.1.2)                             |    3.1.2    |
